@@ -1,0 +1,12 @@
+{
+  "name": "@crescentia/typescript-config",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared TypeScript configurations for Crescentia monorepo",
+  "main": "index.js",
+  "files": [
+    "base.json",
+    "nextjs.json",
+    "react-library.json"
+  ]
+}
