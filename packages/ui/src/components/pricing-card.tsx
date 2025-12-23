@@ -36,24 +36,31 @@ export const PricingCard: React.FC<PricingCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.02 }}
       className={cn(
-        'relative rounded-2xl p-8 h-full',
-        'border-2 transition-all duration-300',
+        'relative rounded-3xl p-8 h-full group',
+        'border transition-all duration-300',
         highlighted
-          ? 'border-yellow-500 bg-yellow-50 shadow-xl scale-105'
-          : 'border-dark-100 bg-white-100 hover:border-yellow-500 hover:shadow-lg',
+          ? 'border-2 border-yellow-500 bg-gradient-to-br from-yellow-500/10 via-white-100/80 to-white-100/80 backdrop-blur-xl shadow-2xl shadow-yellow-500/20 scale-105'
+          : 'border border-white-100/30 bg-white-100/60 backdrop-blur-lg hover:border-yellow-500/50 hover:shadow-2xl hover:bg-white-100/80',
         className
       )}
     >
+      {/* Gradient overlay on hover */}
+      <div className={cn(
+        "absolute inset-0 rounded-3xl bg-gradient-to-br from-yellow-500/0 to-transparent transition-opacity duration-300",
+        highlighted ? "opacity-100" : "opacity-0 group-hover:opacity-5"
+      )} />
+
       {highlighted && (
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <span className="bg-yellow-500 text-dark-500 px-4 py-1 rounded-full text-sm font-bold">
+        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+          <span className="bg-yellow-500 text-dark-500 px-4 py-1 rounded-full text-sm font-bold shadow-lg">
             MOST POPULAR
           </span>
         </div>
       )}
 
-      <div className="flex flex-col h-full">
+      <div className="relative flex flex-col h-full">
         {/* Header */}
         <div className="mb-6">
           <h3 className="text-2xl font-bold text-dark-500 mb-2">{name}</h3>
@@ -97,6 +104,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({
           size="lg"
           fullWidth
           onClick={onButtonClick}
+          className="shadow-lg hover:shadow-xl"
         >
           {buttonText}
         </Button>

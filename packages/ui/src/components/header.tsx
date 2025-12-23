@@ -41,8 +41,8 @@ export const Header: React.FC<HeaderProps> = ({
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-white-100/95 backdrop-blur-sm shadow-md py-4'
-          : 'bg-transparent py-6',
+          ? 'bg-white-100/70 backdrop-blur-xl border-b border-white-100/20 shadow-lg shadow-dark-500/5 py-4'
+          : 'bg-dark-500/30 backdrop-blur-md border-b border-white-100/10 py-6',
         className
       )}
     >
@@ -56,10 +56,16 @@ export const Header: React.FC<HeaderProps> = ({
                 alt={logoAlt}
                 width={180}
                 height={40}
-                className="h-8 w-auto"
+                className={cn(
+                  "h-8 w-auto transition-all duration-300",
+                  isScrolled ? "brightness-0" : "brightness-100"
+                )}
               />
             ) : (
-              <span className="text-2xl font-bold text-dark-500">
+              <span className={cn(
+                "text-2xl font-bold transition-colors duration-300",
+                isScrolled ? "text-dark-500" : "text-white-100"
+              )}>
                 Crescentia
               </span>
             )}
@@ -72,7 +78,12 @@ export const Header: React.FC<HeaderProps> = ({
                 <a
                   key={index}
                   href={link.href}
-                  className="text-dark-400 hover:text-yellow-500 transition-colors font-medium"
+                  className={cn(
+                    "font-medium transition-colors duration-300",
+                    isScrolled
+                      ? "text-dark-400 hover:text-yellow-500"
+                      : "text-white-200 hover:text-yellow-500"
+                  )}
                 >
                   {link.label}
                 </a>
@@ -86,6 +97,7 @@ export const Header: React.FC<HeaderProps> = ({
               variant="primary"
               size="md"
               onClick={onCtaClick}
+              className="shadow-lg hover:shadow-xl transition-shadow"
             >
               {ctaText}
             </Button>
