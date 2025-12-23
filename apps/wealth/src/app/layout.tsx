@@ -9,9 +9,9 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'Crescentia Wealth - IFICI Tax Optimization for Tech Professionals',
+  title: 'Crescentia Wealth - Pay 20% Tax in Portugal for 10 Years',
   description:
-    'Maximize your income with IFICI tax optimization. Expert guidance for international tech professionals in Portugal.',
+    'Save thousands with IFICI tax optimization. Expert guidance for international tech professionals in Portugal. 0% crypto tax, EU residency included.',
   keywords: [
     'IFICI',
     'tax optimization',
@@ -19,15 +19,22 @@ export const metadata: Metadata = {
     'tech professionals',
     'expat tax',
     'Crescentia',
+    'crypto tax',
+    '20% tax',
+    'NHR alternative',
   ],
   authors: [{ name: 'Crescentia' }],
+  icons: {
+    icon: '/logos/Crescentia-Icon-Yellow.svg',
+    apple: '/logos/Crescentia-Icon-Yellow.svg',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://wealth.crescentia.pt',
     siteName: 'Crescentia Wealth',
-    title: 'Crescentia Wealth - IFICI Tax Optimization',
-    description: 'Expert tax optimization services for international tech professionals',
+    title: 'Pay 20% Tax in Portugal for 10 Years - Crescentia Wealth',
+    description: 'Expert IFICI tax optimization for international tech professionals. 0% crypto tax. EU residency.',
   },
 }
 

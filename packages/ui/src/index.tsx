@@ -21,5 +21,14 @@ export {
 } from './components/card'
 export type { CardProps } from './components/card'
 
+export { PricingCard } from './components/pricing-card'
+export type { PricingCardProps } from './components/pricing-card'
+
+export { Header } from './components/header'
+export type { HeaderProps } from './components/header'
+
+export { Footer } from './components/footer'
+export type { FooterProps, FooterLink, FooterSection } from './components/footer'
+
 // Utils
 export { cn } from './utils/cn'
