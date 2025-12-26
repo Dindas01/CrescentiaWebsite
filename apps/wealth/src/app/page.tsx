@@ -129,8 +129,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Benefits Section - Clean, spacious */}
-        <section id="benefits" className="relative py-40 overflow-hidden bg-gradient-to-br from-[#0a0a0a] to-[#12141C]">
+        {/* Benefits Section - Sophisticated Gold */}
+        <section id="benefits" className="relative py-40 overflow-hidden bg-gradient-to-br from-[#E8C547] to-[#D4AF37]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid md:grid-cols-3 gap-12">
               {[
@@ -159,15 +159,15 @@ export default function HomePage() {
                   whileHover={{ y: -4 }}
                   className="group"
                 >
-                  {/* Subtle glass card - Apple style */}
-                  <div className="relative p-12 rounded-3xl bg-white-100/3 backdrop-blur-xl border border-white-100/8 hover:bg-white-100/5 hover:border-white-100/15 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_3px_rgba(0,0,0,0.08)]">
-                    <div className="flex justify-center mb-8 text-yellow-500">
+                  {/* Sophisticated glass card on gold */}
+                  <div className="relative p-12 rounded-3xl bg-white-100/10 backdrop-blur-md border border-white-100/20 hover:bg-white-100/20 hover:border-white-100/30 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-[0_8px_32px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)]">
+                    <div className="flex justify-center mb-8 text-[#0a0a0a]">
                       {benefit.icon}
                     </div>
-                    <h3 className="text-2xl font-semibold text-white-100 mb-3 text-center tracking-tight">
+                    <h3 className="text-2xl font-semibold text-[#0a0a0a] mb-3 text-center tracking-tight">
                       {benefit.title}
                     </h3>
-                    <p className="text-base text-white-100/50 text-center font-light leading-relaxed">{benefit.description}</p>
+                    <p className="text-base text-[#0a0a0a]/70 text-center font-light leading-relaxed">{benefit.description}</p>
                   </div>
                 </motion.div>
               ))}
