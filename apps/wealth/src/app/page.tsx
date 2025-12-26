@@ -61,7 +61,7 @@ export default function HomePage() {
 
       {/* Header - Apple Style */}
       <Header
-        logo="/logos/Crescentia-Horizontal-Whiteout.svg"
+        logo="/logos/Crescentia-Horizontal-MainColor-Whiteout.svg"
         logoAlt="Crescentia Wealth"
         links={[
           { label: 'Benefits', href: '#benefits' },
@@ -454,7 +454,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <Footer
-        logo="/logos/Crescentia-Horizontal-Whiteout.svg"
+        logo="/logos/Crescentia-Horizontal-MainColor-Whiteout.svg"
         logoAlt="Crescentia Wealth"
         description="Expert IFICI tax optimization for international tech professionals in Portugal."
         sections={[
