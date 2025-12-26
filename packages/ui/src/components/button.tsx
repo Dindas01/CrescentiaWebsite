@@ -14,19 +14,19 @@ export interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'children'>
 
 const buttonVariants = {
   primary:
-    'bg-yellow-500 text-dark-500 hover:bg-yellow-600 focus:ring-yellow-300 font-bold',
+    'bg-yellow-500 text-dark-500 hover:bg-yellow-600 hover:shadow-lg hover:shadow-yellow-500/30 font-semibold',
   secondary:
-    'bg-dark-500 text-white-100 hover:bg-dark-400 focus:ring-dark-300 font-medium',
+    'bg-white-100/10 backdrop-blur-md border border-white-100/20 text-white-100 hover:bg-white-100/20 hover:border-white-100/30 font-semibold',
   outline:
-    'border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-50 focus:ring-yellow-300 font-medium',
+    'border border-yellow-500/50 text-yellow-500 hover:bg-yellow-500/10 hover:border-yellow-500 font-semibold',
   ghost:
-    'text-dark-500 hover:bg-dark-50 focus:ring-dark-200 font-medium',
+    'text-white-100/70 hover:text-white-100 hover:bg-white-100/10 font-medium',
 }
 
 const sizeVariants = {
-  sm: 'px-4 py-2 text-sm',
-  md: 'px-6 py-3 text-base',
-  lg: 'px-8 py-4 text-lg',
+  sm: 'px-5 py-2.5 text-sm',
+  md: 'px-8 py-3.5 text-base',
+  lg: 'px-10 py-5 text-lg',
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -47,9 +47,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <motion.button
         ref={ref}
         className={cn(
-          'inline-flex items-center justify-center rounded-lg',
-          'transition-all duration-200',
-          'focus:outline-none focus:ring-2 focus:ring-offset-2',
+          'inline-flex items-center justify-center rounded-full',
+          'transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]',
+          'focus:outline-none focus:ring-2 focus:ring-yellow-500/50 focus:ring-offset-2 focus:ring-offset-dark-500',
           'disabled:opacity-50 disabled:cursor-not-allowed',
           buttonVariants[variant],
           sizeVariants[size],
@@ -59,6 +59,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled || isLoading}
         whileHover={{ scale: disabled ? 1 : 1.02 }}
         whileTap={{ scale: disabled ? 1 : 0.98 }}
+        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
         {...props}
       >
         {isLoading ? (

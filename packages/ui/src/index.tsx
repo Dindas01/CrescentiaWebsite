@@ -30,5 +30,8 @@ export type { HeaderProps } from './components/header'
 export { Footer } from './components/footer'
 export type { FooterProps, FooterLink, FooterSection } from './components/footer'
 
+export { CalendlyModal } from './components/calendly-modal'
+export type { CalendlyModalProps } from './components/calendly-modal'
+
 // Utils
 export { cn } from './utils/cn'

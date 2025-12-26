@@ -37,16 +37,16 @@ export const Header: React.FC<HeaderProps> = ({
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]',
         isScrolled
-          ? 'bg-white-100/70 backdrop-blur-xl border-b border-white-100/20 shadow-lg shadow-dark-500/5 py-4'
-          : 'bg-dark-500/30 backdrop-blur-md border-b border-white-100/10 py-6',
+          ? 'bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white-100/10 py-4'
+          : 'bg-transparent border-b border-white-100/0 py-6',
         className
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
@@ -56,34 +56,23 @@ export const Header: React.FC<HeaderProps> = ({
                 alt={logoAlt}
                 width={180}
                 height={40}
-                className={cn(
-                  "h-8 w-auto transition-all duration-300",
-                  isScrolled ? "brightness-0" : "brightness-100"
-                )}
+                className="h-7 w-auto brightness-100"
               />
             ) : (
-              <span className={cn(
-                "text-2xl font-bold transition-colors duration-300",
-                isScrolled ? "text-dark-500" : "text-white-100"
-              )}>
+              <span className="text-xl font-semibold text-white-100 tracking-tight">
                 Crescentia
               </span>
             )}
           </div>
 
-          {/* Navigation Links */}
+          {/* Navigation Links - Apple style */}
           {links.length > 0 && (
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-10">
               {links.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
-                  className={cn(
-                    "font-medium transition-colors duration-300",
-                    isScrolled
-                      ? "text-dark-400 hover:text-yellow-500"
-                      : "text-white-200 hover:text-yellow-500"
-                  )}
+                  className="text-sm font-light text-white-100/70 hover:text-white-100 transition-colors duration-300"
                 >
                   {link.label}
                 </a>
@@ -94,10 +83,9 @@ export const Header: React.FC<HeaderProps> = ({
           {/* CTA Button */}
           <div className="flex items-center gap-4">
             <Button
-              variant="primary"
-              size="md"
+              variant="secondary"
+              size="sm"
               onClick={onCtaClick}
-              className="shadow-lg hover:shadow-xl transition-shadow"
             >
               {ctaText}
             </Button>

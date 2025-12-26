@@ -32,9 +32,9 @@ export const Footer: React.FC<FooterProps> = ({
   className,
 }) => {
   return (
-    <footer className={cn('bg-dark-500 text-white-100 py-12', className)}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+    <footer className={cn('bg-[#0a0a0a] border-t border-white-100/5 text-white-100 py-20', className)}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-2">
             {logo ? (
@@ -43,28 +43,28 @@ export const Footer: React.FC<FooterProps> = ({
                 alt={logoAlt}
                 width={180}
                 height={40}
-                className="h-8 w-auto mb-4"
+                className="h-7 w-auto mb-6"
               />
             ) : (
-              <h3 className="text-2xl font-bold text-yellow-500 mb-4">
+              <h3 className="text-xl font-semibold text-white-100 mb-6 tracking-tight">
                 Crescentia
               </h3>
             )}
             {description && (
-              <p className="text-white-300 max-w-md">{description}</p>
+              <p className="text-white-100/50 max-w-md font-light leading-relaxed text-sm">{description}</p>
             )}
           </div>
 
           {/* Links Sections */}
           {sections.map((section, index) => (
             <div key={index}>
-              <h4 className="font-bold mb-4 text-white-100">{section.title}</h4>
-              <ul className="space-y-2">
+              <h4 className="font-semibold mb-5 text-white-100 text-sm tracking-wide">{section.title}</h4>
+              <ul className="space-y-3">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
                     <a
                       href={link.href}
-                      className="text-white-300 hover:text-yellow-500 transition-colors"
+                      className="text-white-100/50 hover:text-white-100 transition-colors duration-300 text-sm font-light"
                     >
                       {link.label}
                     </a>
@@ -76,8 +76,8 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Copyright */}
-        <div className="text-center pt-8 border-t border-white-100/10">
-          <p className="text-white-300">
+        <div className="pt-8 border-t border-white-100/5">
+          <p className="text-white-100/40 text-xs font-light">
             {copyright || '© 2024 Crescentia. All rights reserved.'}
           </p>
         </div>
