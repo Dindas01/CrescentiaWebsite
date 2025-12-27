@@ -1,9 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Button, Footer, PricingCard, CalendlyModal } from '@crescentia/ui'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
+
+// Throttle utility for performance
+function throttle<T extends (...args: any[]) => any>(func: T, delay: number): T {
+  let timeoutId: NodeJS.Timeout | null = null
+  let lastRan = 0
+  return ((...args: Parameters<T>) => {
+    const now = Date.now()
+    if (now - lastRan >= delay) {
+      func(...args)
+      lastRan = now
+    } else {
+      if (timeoutId) clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        func(...args)
+        lastRan = Date.now()
+      }, delay - (now - lastRan))
+    }
+  }) as T
+}
 
 // Ultra-clean minimal icons (2px stroke, purposeful only)
 const ChartIcon = () => (
@@ -48,49 +67,66 @@ const BriefcaseIcon = () => (
   </svg>
 )
 
-// Apple-style Premium Header Component
+// Apple-style Premium Header Component - ADAPTIVE LOGO
 const PremiumHeader = ({ onCtaClick }: { onCtaClick: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false)
 
-  useState(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10)
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', handleScroll)
-      return () => window.removeEventListener('scroll', handleScroll)
-    }
-  })
+  useEffect(() => {
+    // Throttled scroll handler for 60fps performance
+    const handleScroll = throttle(() => {
+      setIsScrolled(window.scrollY > 100)
+    }, 100)
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-[400ms] ease-out ${
         isScrolled
-          ? 'bg-[#0a0a0a]/90 backdrop-blur-2xl border-b border-white-100/10 py-3'
-          : 'bg-transparent border-b border-white-100/0 py-5'
+          ? 'bg-[#0a0a0a]/95 backdrop-blur-xl shadow-2xl border-b border-white-100/10 py-3'
+          : 'bg-white/80 backdrop-blur-md border-b border-gray-200/50 py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo - Using img tag for reliability */}
+          {/* Logo Crossfade - PREMIUM SOLUTION */}
           <motion.div
-            className="flex items-center"
+            className="flex items-center relative h-7"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
+            {/* Blackout logo (yellow + black) - visible when NOT scrolled */}
+            <img
+              src="/logos/Crescentia-Horizontal-MainColor-Blackout.svg"
+              alt="Crescentia"
+              className={`h-7 w-auto transition-opacity duration-[400ms] ease-out ${
+                isScrolled ? 'opacity-0' : 'opacity-100'
+              }`}
+              onError={(e) => {
+                console.error('Blackout logo failed to load')
+                e.currentTarget.style.display = 'none'
+              }}
+            />
+            {/* Whiteout logo (yellow + white) - visible when scrolled */}
             <img
               src="/logos/Crescentia-Horizontal-MainColor-Whiteout.svg"
               alt="Crescentia"
-              className="h-7 w-auto"
+              className={`absolute inset-0 h-7 w-auto transition-opacity duration-[400ms] ease-out ${
+                isScrolled ? 'opacity-100' : 'opacity-0'
+              }`}
               onError={(e) => {
-                console.error('Logo failed to load')
+                console.error('Whiteout logo failed to load')
                 e.currentTarget.style.display = 'none'
               }}
             />
           </motion.div>
 
-          {/* Navigation */}
+          {/* Navigation - Adaptive Colors */}
           <nav className="hidden md:flex items-center gap-12">
             {[
               { label: 'Benefits', href: '#benefits' },
@@ -103,7 +139,11 @@ const PremiumHeader = ({ onCtaClick }: { onCtaClick: () => void }) => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 + i * 0.1 }}
-                className="text-sm font-light text-white-100/60 hover:text-white-100 transition-all duration-400 relative group"
+                className={`text-sm font-light transition-all duration-[400ms] ease-out relative group ${
+                  isScrolled
+                    ? 'text-white-100/70 hover:text-white-100'
+                    : 'text-gray-800 hover:text-black'
+                }`}
               >
                 {link.label}
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-yellow-500 group-hover:w-full transition-all duration-400" />
@@ -144,37 +184,52 @@ export default function HomePage() {
       <PremiumHeader onCtaClick={() => setIsCalendlyOpen(true)} />
 
       <main className="min-h-screen pt-20">
-        {/* ULTRA-PREMIUM HERO - Apple Pro Level */}
+        {/* ULTRA-PREMIUM HERO - Apple Vision Pro Level */}
         <motion.section
           style={{ opacity: heroOpacity }}
           className="relative overflow-hidden min-h-[95vh] flex items-center"
         >
-          {/* Sophisticated Multi-Stop Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#000000] via-[#0a0a0a] via-[#12141C] to-[#1a1d2e]" />
+          {/* Base dark layer - Deep foundation */}
+          <div className="absolute inset-0 bg-[#0a0a0a]" />
 
-          {/* Animated Subtle Gradient Overlay */}
+          {/* Gradient mesh layer 1 - Sophisticated depth */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#12141C] via-[#0a0a0a] to-[#1a1d2e]" />
+
+          {/* Gradient mesh layer 2 - Animated movement (Apple Vision Pro style) */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-yellow-500/3 via-transparent to-transparent"
-            animate={{
-              background: [
-                'linear-gradient(to bottom right, rgba(245,207,0,0.03), transparent, transparent)',
-                'linear-gradient(to bottom right, transparent, rgba(245,207,0,0.02), transparent)',
-                'linear-gradient(to bottom right, rgba(245,207,0,0.03), transparent, transparent)',
-              ]
+            className="absolute inset-0 opacity-50"
+            style={{ willChange: 'transform' }}
+          >
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#F5CF00]/5 to-transparent"
+              animate={{
+                translateX: ['0%', '30px', '-20px', '0%'],
+                translateY: ['0%', '-50px', '20px', '0%'],
+                scale: [1, 1.1, 0.9, 1],
+              }}
+              transition={{
+                duration: 15,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          </motion.div>
+
+          {/* Strategic radial glows - Multiple layers for depth */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#F5CF00]/10 rounded-full blur-[100px]" style={{ willChange: 'transform' }} />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#F5CF00]/8 rounded-full blur-[100px]" style={{ willChange: 'transform' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F5CF00]/5 rounded-full blur-[120px]" style={{ willChange: 'transform' }} />
+
+          {/* Noise texture overlay - Organic feel */}
+          <div
+            className="absolute inset-0 opacity-[0.015] pointer-events-none"
+            style={{
+              backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")',
             }}
-            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
           />
 
-          {/* Noise Texture for Depth */}
-          <div className="absolute inset-0 opacity-[0.015]" style={{
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")'
-          }} />
-
-          {/* Elegant Radial Glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-yellow-500/[0.04] rounded-full blur-[120px]" />
-
           <motion.div
-            style={{ y: heroY }}
+            style={{ y: heroY, willChange: 'transform' }}
             className="relative max-w-7xl mx-auto px-6 lg:px-8 py-32 md:py-40 w-full"
           >
             <div className="text-center max-w-5xl mx-auto">
@@ -323,8 +378,10 @@ export default function HomePage() {
         </section>
 
         {/* WHO IS THIS FOR - Premium Cards */}
-        <section id="who" className="relative py-48 bg-gradient-to-b from-[#0a0a0a] to-[#000000]">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section id="who" className="relative py-48 overflow-hidden bg-[#0a0a0a]">
+          {/* Subtle gradient para não ser flat black */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#12141C] to-[#0a0a0a] opacity-50" />
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -394,8 +451,10 @@ export default function HomePage() {
         </section>
 
         {/* COMPARISON TABLE - Elegant & Spaced */}
-        <section className="relative py-48 bg-gradient-to-b from-[#000000] to-[#0a0a0a]">
-          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <section className="relative py-48 overflow-hidden bg-[#0a0a0a]">
+          {/* Subtle gradient layer */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#12141C] opacity-60" />
+          <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -477,8 +536,10 @@ export default function HomePage() {
         </section>
 
         {/* PRICING SECTION - Ultra-Premium Cards */}
-        <section id="pricing" className="relative py-48 bg-gradient-to-b from-[#0a0a0a] to-[#000000]">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section id="pricing" className="relative py-48 overflow-hidden bg-[#0a0a0a]">
+          {/* Subtle gradient layer */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#12141C] via-[#0a0a0a] to-[#000000] opacity-50" />
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
