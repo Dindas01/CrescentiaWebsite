@@ -203,8 +203,8 @@ export default function HomePage() {
             <motion.div
               className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#F5CF00]/5 to-transparent"
               animate={{
-                translateX: ['0%', '30px', '-20px', '0%'],
-                translateY: ['0%', '-50px', '20px', '0%'],
+                x: [0, 30, -20, 0],
+                y: [0, -50, 20, 0],
                 scale: [1, 1.1, 0.9, 1],
               }}
               transition={{
