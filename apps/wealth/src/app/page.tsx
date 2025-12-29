@@ -187,57 +187,51 @@ export default function HomePage() {
         {/* ULTRA-PREMIUM HERO - Apple Vision Pro Level */}
         <motion.section
           style={{ opacity: heroOpacity }}
-          className="relative overflow-hidden min-h-[95vh] flex items-center"
+          className="relative overflow-hidden min-h-screen flex items-center"
         >
-          {/* Base dark layer - Deep foundation */}
+          {/* Layer 1: Deep base */}
           <div className="absolute inset-0 bg-[#0a0a0a]" />
 
-          {/* Gradient mesh layer 1 - Sophisticated depth */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#12141C] via-[#0a0a0a] to-[#1a1d2e]" />
+          {/* Layer 2: Radial gradient center glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,#1a1d2e_0%,#0a0a0a_50%)]" />
 
-          {/* Gradient mesh layer 2 - Animated movement (Apple Vision Pro style) */}
-          <motion.div
-            className="absolute inset-0 opacity-50"
-            style={{ willChange: 'transform' }}
-          >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#F5CF00]/5 to-transparent"
-              animate={{
-                x: [0, 30, -20, 0],
-                y: [0, -50, 20, 0],
-                scale: [1, 1.1, 0.9, 1],
-              }}
-              transition={{
-                duration: 15,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          </motion.div>
+          {/* Layer 3: Yellow accent glows - ANIMATED */}
+          <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-yellow-500/20 rounded-full blur-[150px] animate-pulse-slow" />
+          <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-yellow-600/15 rounded-full blur-[120px] animate-pulse-slower" />
 
-          {/* Strategic radial glows - Multiple layers for depth */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#F5CF00]/10 rounded-full blur-[100px]" style={{ willChange: 'transform' }} />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#F5CF00]/8 rounded-full blur-[100px]" style={{ willChange: 'transform' }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F5CF00]/5 rounded-full blur-[120px]" style={{ willChange: 'transform' }} />
+          {/* Layer 4: Animated gradient mesh */}
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-yellow-600/10 animate-gradient-shift" />
+          </div>
 
-          {/* Noise texture overlay - Organic feel */}
+          {/* Layer 5: Noise texture (subtle) */}
           <div
-            className="absolute inset-0 opacity-[0.015] pointer-events-none"
+            className="absolute inset-0 opacity-[0.02] mix-blend-overlay"
             style={{
               backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")',
             }}
           />
 
-          {/* Background "PAY" text for depth */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-[0.08] pointer-events-none overflow-hidden">
-            <span className="text-[40rem] font-bold tracking-tighter text-white-100">
-              Pay
-            </span>
+          {/* Layer 6: WEALTH background text - PREMIUM STYLE */}
+          <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="relative"
+            >
+              {/* Main text with gradient */}
+              <span className="text-[35rem] font-black tracking-[-0.05em] leading-none select-none bg-gradient-to-b from-white/[0.12] via-white/[0.08] to-transparent bg-clip-text text-transparent">
+                Wealth
+              </span>
+              {/* Glow effect behind text */}
+              <div className="absolute inset-0 blur-3xl bg-yellow-500/10 -z-10" />
+            </motion.div>
           </div>
 
           <motion.div
             style={{ y: heroY, willChange: 'transform' }}
-            className="relative max-w-7xl mx-auto px-6 lg:px-8 py-32 md:py-40 w-full"
+            className="relative max-w-7xl mx-auto px-6 lg:px-8 py-32 md:py-40 w-full z-10"
           >
             <div className="text-center max-w-5xl mx-auto">
               {/* Small Badge - Minimal */}
@@ -252,67 +246,92 @@ export default function HomePage() {
                 </span>
               </motion.div>
 
-              {/* MASSIVE Typography - Gradient Text Effect */}
-              <div className="mb-10">
-                <motion.h1
+              {/* HERO HEADLINE - MORE IMPACT */}
+              <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-[0.95] mb-8">
+                <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                  className="text-8xl md:text-9xl lg:text-[180px] font-bold leading-[0.95] tracking-[-0.03em] mb-6"
+                  transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  <span className="block">Pay</span>
-                  <span className="block bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
-                    20% Tax
+                  {/* "20% Tax" with gradient + glow + underline */}
+                  <span className="relative inline-block">
+                    <span className="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(234,179,8,0.5)]">
+                      20% Tax
+                    </span>
+                    {/* Subtle underline effect */}
+                    <div className="absolute -bottom-4 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent rounded-full" />
                   </span>
-                </motion.h1>
+                </motion.div>
 
-                <motion.p
+                <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                  className="text-6xl md:text-7xl lg:text-8xl font-bold text-white-100/90 leading-[1.05] tracking-[-0.03em]"
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="mt-4"
                 >
-                  in Portugal for{' '}
-                  <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
-                    10 Years
+                  <span className="text-white drop-shadow-2xl">
+                    in Portugal for{" "}
                   </span>
-                </motion.p>
-              </div>
+                  {/* "10 Years" with gradient + glow + underline */}
+                  <span className="relative inline-block">
+                    <span className="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(234,179,8,0.5)]">
+                      10 Years
+                    </span>
+                    <div className="absolute -bottom-4 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent rounded-full" />
+                  </span>
+                </motion.div>
+              </h1>
 
+              {/* SUBHEADLINE - MORE CONTRAST AND LEGIBILITY */}
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7, ease: [0.4, 0, 0.2, 1] }}
-                className="text-xl md:text-2xl text-white-100/50 mb-16 max-w-3xl mx-auto leading-relaxed font-light tracking-[-0.01em]"
+                transition={{ duration: 0.8, delay: 0.7 }}
+                className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed mb-12"
               >
-                Save thousands in taxes with Portugal's IFICI regime.
+                <span className="text-white/95 font-medium">
+                  Save thousands in taxes with Portugal's IFICI regime.
+                </span>
                 <br />
-                Designed for high-income professionals and business owners.
+                <span className="text-white/70">
+                  Designed for high-income professionals and business owners.
+                </span>
               </motion.p>
 
+              {/* CTAs - PREMIUM GLOW EFFECTS */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9, ease: [0.4, 0, 0.2, 1] }}
-                className="flex flex-col sm:flex-row gap-5 justify-center"
+                transition={{ duration: 0.8, delay: 0.9 }}
+                className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12"
               >
-                <Button
-                  size="lg"
-                  variant="primary"
+                {/* Primary CTA - Yellow gradient with glow */}
+                <motion.button
+                  whileHover={{
+                    scale: 1.02,
+                    boxShadow: "0 0 40px rgba(234, 179, 8, 0.6)"
+                  }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={() => setIsCalendlyOpen(true)}
-                  className="group relative overflow-hidden"
+                  className="group relative px-10 py-5 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black text-lg font-bold rounded-full overflow-hidden shadow-[0_0_30px_rgba(234,179,8,0.4)] transition-all duration-300"
                 >
+                  {/* Animated gradient sweep on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                   <span className="relative z-10">Book Free Consultation</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-600"
-                    initial={{ x: '-100%' }}
-                    whileHover={{ x: '100%' }}
-                    transition={{ duration: 0.6 }}
-                  />
-                </Button>
-                <Button size="lg" variant="secondary">
+                </motion.button>
+
+                {/* Secondary CTA - Glassmorphism style */}
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => {
+                    const benefitsSection = document.getElementById('benefits')
+                    benefitsSection?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="px-10 py-5 bg-white/5 backdrop-blur-xl text-white text-lg font-semibold rounded-full border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300"
+                >
                   Learn More
-                </Button>
+                </motion.button>
               </motion.div>
             </div>
           </motion.div>
@@ -322,7 +341,7 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="absolute bottom-12 left-1/2 -translate-x-1/2"
+            className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10"
           >
             <motion.div
               animate={{ y: [0, 8, 0] }}
