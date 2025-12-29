@@ -450,11 +450,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* COMPARISON TABLE - Elegant & Spaced */}
+        {/* COMPARISON TABLE - Strategic Premium */}
         <section className="relative py-48 overflow-hidden bg-[#0a0a0a]">
           {/* Subtle gradient layer */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#12141C] opacity-60" />
-          <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -484,52 +484,175 @@ export default function HomePage() {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-white-100/10">
-                      <th className="text-left py-8 px-8 text-base font-semibold text-white-100/90 tracking-tight">Country</th>
-                      <th className="text-right py-8 px-8 text-base font-semibold text-white-100/90 tracking-tight">Income Tax</th>
-                      <th className="text-right py-8 px-8 text-base font-semibold text-white-100/90 tracking-tight">Crypto Tax</th>
-                      <th className="text-right py-8 px-8 text-base font-semibold text-white-100/90 tracking-tight">Quality of Life</th>
+                      <th className="text-left py-8 px-6 text-sm font-semibold text-white-100/90 tracking-tight">Country</th>
+                      <th className="text-right py-8 px-6 text-sm font-semibold text-white-100/90 tracking-tight">Income Tax</th>
+                      <th className="text-right py-8 px-6 text-sm font-semibold text-white-100/90 tracking-tight">Crypto Tax</th>
+                      <th className="text-right py-8 px-6 text-sm font-semibold text-white-100/90 tracking-tight">Cost of Living</th>
+                      <th className="text-right py-8 px-6 text-sm font-semibold text-white-100/90 tracking-tight">Quality of Life</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {[
-                      { country: 'Portugal (IFICI)', income: '20%', crypto: '0%', qol: '9/10', highlight: true },
-                      { country: 'Germany', income: '45%', crypto: '26.4%', qol: '8/10', highlight: false },
-                      { country: 'UK', income: '45%', crypto: '20%', qol: '7/10', highlight: false },
-                      { country: 'France', income: '45%', crypto: '30%', qol: '8/10', highlight: false },
-                      { country: 'Netherlands', income: '49.5%', crypto: '31%', qol: '8/10', highlight: false },
-                      { country: 'Spain', income: '47%', crypto: '23%', qol: '8/10', highlight: false },
-                    ].map((row, index) => (
-                      <motion.tr
-                        key={row.country}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.08, ease: [0.4, 0, 0.2, 1] }}
-                        viewport={{ once: true }}
-                        className={`border-b border-white-100/5 transition-all duration-500 hover:bg-white-100/[0.02] ${
-                          row.highlight ? 'bg-yellow-500/[0.03]' : ''
-                        }`}
-                      >
-                        <td className="py-6 px-8 text-white-100/90 font-medium tracking-tight">
-                          {row.country}
-                          {row.highlight && (
-                            <span className="ml-3 text-xs px-3 py-1.5 bg-yellow-500/10 border border-yellow-500/20 rounded-full text-yellow-500/90 font-semibold tracking-wide">
-                              BEST
-                            </span>
-                          )}
-                        </td>
-                        <td className="py-6 px-8 text-right font-mono text-lg text-white-100/70">
-                          {row.income}
-                        </td>
-                        <td className="py-6 px-8 text-right font-mono text-lg text-white-100/70">
-                          {row.crypto}
-                        </td>
-                        <td className="py-6 px-8 text-right font-mono text-lg text-white-100/70">
-                          {row.qol}
-                        </td>
-                      </motion.tr>
-                    ))}
+                    {/* Portugal - DESTACADO */}
+                    <motion.tr
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                      viewport={{ once: true }}
+                      className="relative bg-gradient-to-r from-yellow-500/10 via-yellow-500/5 to-transparent border-y-2 border-yellow-500/30"
+                    >
+                      <td className="py-6 px-6 text-white-100 font-bold tracking-tight">
+                        <div className="flex items-center gap-3">
+                          <span>Portugal (IFICI)</span>
+                          <span className="px-3 py-1 bg-yellow-500 text-[#0a0a0a] text-xs font-bold rounded-full">
+                            BEST VALUE
+                          </span>
+                        </div>
+                      </td>
+                      <td className="py-6 px-6 text-right font-mono text-lg font-bold text-green-400">
+                        20%*
+                      </td>
+                      <td className="py-6 px-6 text-right font-mono text-lg font-bold text-green-400">
+                        0%**
+                      </td>
+                      <td className="py-6 px-6 text-right font-mono text-sm text-green-400">
+                        €1,200-1,800
+                      </td>
+                      <td className="py-6 px-6 text-right font-mono text-lg font-bold text-white-100">
+                        9/10
+                      </td>
+                    </motion.tr>
+
+                    {/* Germany */}
+                    <motion.tr
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.08, ease: [0.4, 0, 0.2, 1] }}
+                      viewport={{ once: true }}
+                      className="border-b border-white-100/5 hover:bg-white-100/[0.02] transition-all duration-500"
+                    >
+                      <td className="py-6 px-6 text-white-100/90 font-medium tracking-tight">Germany</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-red-400">42-45%</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-orange-400">0-45%***</td>
+                      <td className="py-6 px-6 text-right font-mono text-sm text-red-400">€2,500-3,500</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-white-100/70">8/10</td>
+                    </motion.tr>
+
+                    {/* Spain */}
+                    <motion.tr
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.16, ease: [0.4, 0, 0.2, 1] }}
+                      viewport={{ once: true }}
+                      className="border-b border-white-100/5 hover:bg-white-100/[0.02] transition-all duration-500"
+                    >
+                      <td className="py-6 px-6 text-white-100/90 font-medium tracking-tight">Spain</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-red-400">47%</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-orange-400">19-28%</td>
+                      <td className="py-6 px-6 text-right font-mono text-sm text-orange-400">€1,500-2,200</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-white-100/70">8/10</td>
+                    </motion.tr>
+
+                    {/* France */}
+                    <motion.tr
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.24, ease: [0.4, 0, 0.2, 1] }}
+                      viewport={{ once: true }}
+                      className="border-b border-white-100/5 hover:bg-white-100/[0.02] transition-all duration-500"
+                    >
+                      <td className="py-6 px-6 text-white-100/90 font-medium tracking-tight">France</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-red-400">45%</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-orange-400">30%****</td>
+                      <td className="py-6 px-6 text-right font-mono text-sm text-red-400">€2,000-3,000</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-white-100/70">8/10</td>
+                    </motion.tr>
+
+                    {/* UK */}
+                    <motion.tr
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.32, ease: [0.4, 0, 0.2, 1] }}
+                      viewport={{ once: true }}
+                      className="border-b border-white-100/5 hover:bg-white-100/[0.02] transition-all duration-500"
+                    >
+                      <td className="py-6 px-6 text-white-100/90 font-medium tracking-tight">United Kingdom</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-red-400">45%</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-orange-400">20-24%</td>
+                      <td className="py-6 px-6 text-right font-mono text-sm text-red-400">€3,000-4,800</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-white-100/70">7/10</td>
+                    </motion.tr>
+
+                    {/* Netherlands */}
+                    <motion.tr
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.40, ease: [0.4, 0, 0.2, 1] }}
+                      viewport={{ once: true }}
+                      className="border-b border-white-100/5 hover:bg-white-100/[0.02] transition-all duration-500"
+                    >
+                      <td className="py-6 px-6 text-white-100/90 font-medium tracking-tight">Netherlands</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-red-400">49.5%</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-orange-400">36%*****</td>
+                      <td className="py-6 px-6 text-right font-mono text-sm text-red-400">€2,200-3,200</td>
+                      <td className="py-6 px-6 text-right font-mono text-lg text-white-100/70">8/10</td>
+                    </motion.tr>
                   </tbody>
                 </table>
+              </div>
+
+              {/* Footnotes */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="mt-6 px-6 pb-4 space-y-2 text-sm text-white-100/60 font-light"
+              >
+                <p>* IFICI special tax regime - 20% flat rate for 10 years on Portuguese income</p>
+                <p>** Crypto gains tax-free if held &gt;365 days (long-term investment)</p>
+                <p>*** Germany: 0% after 1 year, progressive rates 14-45% if sold within 1 year</p>
+                <p>**** France: 30% flat tax (PFU) on investment income including crypto</p>
+                <p>***** Netherlands: Wealth tax on deemed returns (~36% effective rate)</p>
+                <p className="pt-2 text-white-100/40 text-xs">
+                  Cost of living based on urban areas (monthly). Quality of life: Numbeo + Mercer indices 2024.
+                </p>
+              </motion.div>
+            </motion.div>
+
+            {/* Savings Calculator */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              viewport={{ once: true }}
+              className="mt-16 p-12 bg-gradient-to-br from-yellow-500/10 to-yellow-500/5 rounded-[32px] border border-yellow-500/20"
+            >
+              <h3 className="text-3xl font-bold text-white-100 mb-6 tracking-tight">Calculate Your Savings</h3>
+              <p className="text-white-100/70 mb-8 font-light">
+                On a €100,000 salary with €50,000 crypto gains per year:
+              </p>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="p-6 bg-red-500/10 rounded-2xl border border-red-500/20">
+                  <div className="text-sm text-red-400 mb-2 font-medium">Germany</div>
+                  <div className="text-3xl font-bold text-red-400 mb-1">€65,000</div>
+                  <div className="text-sm text-white-100/50">Total tax paid</div>
+                </div>
+
+                <div className="p-6 bg-red-500/10 rounded-2xl border border-red-500/20">
+                  <div className="text-sm text-red-400 mb-2 font-medium">France</div>
+                  <div className="text-3xl font-bold text-red-400 mb-1">€60,000</div>
+                  <div className="text-sm text-white-100/50">Total tax paid</div>
+                </div>
+
+                <div className="p-6 bg-green-500/10 rounded-2xl border border-green-500/30 ring-2 ring-green-500/50">
+                  <div className="text-sm text-green-400 mb-2 font-medium">Portugal (IFICI)</div>
+                  <div className="text-3xl font-bold text-green-400 mb-1">€20,000</div>
+                  <div className="text-sm text-white-100/50">Total tax paid</div>
+                  <div className="mt-3 text-xs text-green-400 font-semibold">
+                    SAVE €40,000-45,000/YEAR
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
