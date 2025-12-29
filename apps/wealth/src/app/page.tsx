@@ -228,6 +228,13 @@ export default function HomePage() {
             }}
           />
 
+          {/* Background "PAY" text for depth */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-[0.08] pointer-events-none overflow-hidden">
+            <span className="text-[40rem] font-bold tracking-tighter text-white-100">
+              Pay
+            </span>
+          </div>
+
           <motion.div
             style={{ y: heroY, willChange: 'transform' }}
             className="relative max-w-7xl mx-auto px-6 lg:px-8 py-32 md:py-40 w-full"
@@ -280,7 +287,7 @@ export default function HomePage() {
               >
                 Save thousands in taxes with Portugal's IFICI regime.
                 <br />
-                Designed for international tech professionals.
+                Designed for high-income professionals and business owners.
               </motion.p>
 
               <motion.div
@@ -393,32 +400,32 @@ export default function HomePage() {
                 Who is this for?
               </h2>
               <p className="text-xl text-white-100/50 max-w-2xl mx-auto font-light leading-relaxed tracking-[-0.01em]">
-                IFICI is designed for high-income international professionals
-                working in Portugal
+                IFICI is designed for high-income professionals and entrepreneurs
+                relocating to Portugal
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
               {[
                 {
-                  icon: <CodeIcon />,
-                  title: 'Developers',
-                  description: 'Software engineers and full-stack developers working remotely',
+                  icon: <BriefcaseIcon />,
+                  title: 'Business Executives',
+                  description: 'CEOs, directors, and senior management professionals',
                 },
                 {
                   icon: <RocketIcon />,
-                  title: 'Founders',
-                  description: 'Startup founders building tech companies from Portugal',
+                  title: 'Entrepreneurs',
+                  description: 'Business owners and founders across all industries',
                 },
                 {
                   icon: <TrendingUpIcon />,
-                  title: 'Traders',
-                  description: 'Crypto investors and financial professionals',
+                  title: 'Investors',
+                  description: 'Investment professionals, traders, and portfolio managers',
                 },
                 {
-                  icon: <BriefcaseIcon />,
-                  title: 'Executives',
-                  description: 'C-level executives and senior tech leaders',
+                  icon: <CodeIcon />,
+                  title: 'Digital Professionals',
+                  description: 'Consultants, freelancers, and remote professionals',
                 },
               ].map((persona, index) => (
                 <motion.div
