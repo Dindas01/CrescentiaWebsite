@@ -92,7 +92,7 @@ const PremiumHeader = ({ onCtaClick, theme, setTheme }: { onCtaClick: () => void
             ? 'bg-[#0a0a0a]/95 backdrop-blur-xl shadow-2xl border-b border-white-100/10 py-3'
             : 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-200/50 py-3'
           : theme === 'dark'
-            ? 'bg-transparent border-b border-transparent py-5'
+            ? 'bg-[#0a0a0a]/60 backdrop-blur-md border-b border-white-100/5 py-5'
             : 'bg-white/80 backdrop-blur-md border-b border-gray-200/50 py-5'
       }`}
     >

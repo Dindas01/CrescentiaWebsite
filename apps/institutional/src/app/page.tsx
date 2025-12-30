@@ -179,21 +179,21 @@ export default function InstitutionalPage() {
 
       {/* Main Section with Background */}
       <section className={`relative min-h-screen overflow-hidden ${
-        theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#fafafa]'
+        theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-white'
       }`}>
         {/* Layer 1: Base */}
         <div className={`absolute inset-0 ${
-          theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-gradient-to-b from-[#fafafa] via-[#f5f5f5] to-[#ffffff]'
+          theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-white'
         }`} />
 
         {/* Layer 2: Radial gradient */}
         <div className={`absolute inset-0 ${
           theme === 'dark'
             ? 'bg-[radial-gradient(ellipse_at_center,#1a1d2e_0%,#0a0a0a_50%)]'
-            : 'bg-[radial-gradient(ellipse_at_center,#ffffff_0%,#fafafa_50%)]'
+            : 'bg-[radial-gradient(ellipse_at_top,#fafafa_0%,#ffffff_50%)]'
         }`} />
 
-        {/* Layer 3: Yellow accent glows */}
+        {/* Layer 3: Yellow accent glows - MORE VISIBLE in light */}
         {theme === 'dark' ? (
           <>
             <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-yellow-500/12 rounded-full blur-[120px] animate-pulse-slow" />
@@ -201,29 +201,32 @@ export default function InstitutionalPage() {
           </>
         ) : (
           <>
-            <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-yellow-500/3 rounded-full blur-[120px] animate-pulse-slow" />
-            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-yellow-600/2 rounded-full blur-[100px] animate-pulse-slower" />
+            <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-yellow-500/8 rounded-full blur-[120px] animate-pulse-slow" />
+            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-yellow-400/6 rounded-full blur-[100px] animate-pulse-slower" />
           </>
         )}
 
-        {/* Layer 4: Gradient mesh */}
-        <div className={`absolute inset-0 ${theme === 'dark' ? 'opacity-25' : 'opacity-10'}`}>
+        {/* Layer 4: Gradient mesh - more visible in light */}
+        <div className={`absolute inset-0 ${theme === 'dark' ? 'opacity-25' : 'opacity-40'}`}>
           <div className={`absolute inset-0 bg-gradient-to-br ${
             theme === 'dark'
               ? 'from-yellow-500/8 via-transparent to-yellow-600/8'
-              : 'from-yellow-500/2 via-transparent to-yellow-600/2'
+              : 'from-yellow-50 via-transparent to-orange-50'
           } animate-gradient-shift`} />
         </div>
 
-        {/* Layer 5: Noise texture */}
+        {/* Layer 5: Noise texture - more visible */}
         <div
           className={`absolute inset-0 mix-blend-overlay ${
-            theme === 'dark' ? 'opacity-[0.02]' : 'opacity-[0.01]'
+            theme === 'dark' ? 'opacity-[0.02]' : 'opacity-[0.03]'
           }`}
           style={{
             backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")',
           }}
         />
+
+        {/* Layer 6: Subtle top highlight (premium depth) */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-yellow-200 to-transparent opacity-50" />
 
         {/* Content */}
         <div className="relative z-10">
@@ -236,18 +239,18 @@ export default function InstitutionalPage() {
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
               >
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
-                  <span className={`bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent ${
+                  <span className={`bg-gradient-to-r from-yellow-500 via-yellow-600 to-orange-500 bg-clip-text text-transparent ${
                     theme === 'dark'
                       ? 'drop-shadow-[0_0_60px_rgba(234,179,8,0.4)]'
-                      : 'drop-shadow-[0_2px_8px_rgba(234,179,8,0.15)]'
+                      : 'drop-shadow-[0_4px_20px_rgba(234,179,8,0.25)]'
                   }`}>
                     {content[language].hero.headline1}
                   </span>
-                  <span className={theme === 'dark' ? 'text-white' : 'text-black'}> & </span>
-                  <span className={`bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent ${
+                  <span className={theme === 'dark' ? 'text-white' : 'text-gray-900'}> & </span>
+                  <span className={`bg-gradient-to-r from-yellow-500 via-yellow-600 to-orange-500 bg-clip-text text-transparent ${
                     theme === 'dark'
                       ? 'drop-shadow-[0_0_60px_rgba(234,179,8,0.4)]'
-                      : 'drop-shadow-[0_2px_8px_rgba(234,179,8,0.15)]'
+                      : 'drop-shadow-[0_4px_20px_rgba(234,179,8,0.25)]'
                   }`}>
                     {content[language].hero.headline2}
                   </span>
@@ -259,7 +262,7 @@ export default function InstitutionalPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
                 className={`text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed ${
-                  theme === 'dark' ? 'text-white/70' : 'text-gray-600'
+                  theme === 'dark' ? 'text-white/70' : 'text-gray-700'
                 }`}
               >
                 {content[language].hero.tagline}
@@ -277,10 +280,10 @@ export default function InstitutionalPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
                 whileHover={{ y: -12, scale: 1.01 }}
-                className={`group relative p-6 md:p-10 lg:p-12 rounded-3xl transition-all duration-500 overflow-hidden ${
+                className={`group relative p-6 md:p-10 lg:p-12 rounded-2xl md:rounded-3xl transition-all duration-500 overflow-hidden ${
                   theme === 'dark'
                     ? 'bg-white/[0.02] backdrop-blur-2xl border border-white/[0.06] hover:border-yellow-500/30'
-                    : 'bg-white backdrop-blur-2xl border border-gray-200 hover:border-yellow-500/40 shadow-lg hover:shadow-xl'
+                    : 'bg-white/80 backdrop-blur-2xl border border-gray-200/50 hover:border-yellow-500/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgb(0,0,0,0.08)]'
                 }`}
                 style={{ willChange: 'transform' }}
               >
@@ -289,7 +292,7 @@ export default function InstitutionalPage() {
                   <div className={`absolute inset-[1px] rounded-3xl ${
                     theme === 'dark'
                       ? 'bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent'
-                      : 'bg-gradient-to-br from-yellow-500/20 via-transparent to-transparent'
+                      : 'bg-gradient-to-br from-yellow-500/15 via-yellow-100/50 to-transparent'
                   }`} />
                 </div>
 
@@ -298,23 +301,28 @@ export default function InstitutionalPage() {
                   <div className="absolute -top-40 -right-40 w-96 h-96 bg-yellow-500/15 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 )}
 
-                {/* Inner shadow */}
+                {/* Inner highlight (depth) */}
                 <div className={`absolute inset-0 rounded-3xl ${
                   theme === 'dark'
                     ? 'shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]'
-                    : 'shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]'
+                    : 'shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]'
                 }`} />
+
+                {/* Subtle inner shadow (MORE depth in light) */}
+                {theme === 'light' && (
+                  <div className="absolute inset-0 rounded-3xl shadow-[inset_0_0_60px_rgba(0,0,0,0.02)]" />
+                )}
 
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon circle */}
-                  <div className={`w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 rounded-2xl flex items-center justify-center backdrop-blur-xl ${
+                  <div className={`w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 rounded-xl md:rounded-2xl flex items-center justify-center backdrop-blur-xl ${
                     theme === 'dark'
                       ? 'bg-gradient-to-br from-yellow-400/15 to-yellow-600/10 border border-yellow-500/20'
-                      : 'bg-gradient-to-br from-yellow-400/20 to-yellow-600/15 border border-yellow-500/30'
+                      : 'bg-gradient-to-br from-yellow-400/30 to-yellow-600/20 border border-yellow-500/40 shadow-inner'
                   }`}>
                     <svg className={`w-8 h-8 md:w-10 md:h-10 ${
-                      theme === 'dark' ? 'text-yellow-400/80' : 'text-yellow-600'
+                      theme === 'dark' ? 'text-yellow-400/80' : 'text-yellow-700'
                     }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -396,10 +404,10 @@ export default function InstitutionalPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8, ease: [0.4, 0, 0.2, 1] }}
                 whileHover={{ y: -12, scale: 1.01 }}
-                className={`group relative p-6 md:p-10 lg:p-12 rounded-3xl transition-all duration-500 overflow-hidden ${
+                className={`group relative p-6 md:p-10 lg:p-12 rounded-2xl md:rounded-3xl transition-all duration-500 overflow-hidden ${
                   theme === 'dark'
                     ? 'bg-white/[0.02] backdrop-blur-2xl border border-white/[0.06] hover:border-yellow-500/30'
-                    : 'bg-white backdrop-blur-2xl border border-gray-200 hover:border-yellow-500/40 shadow-lg hover:shadow-xl'
+                    : 'bg-white/80 backdrop-blur-2xl border border-gray-200/50 hover:border-yellow-500/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgb(0,0,0,0.08)]'
                 }`}
                 style={{ willChange: 'transform' }}
               >
@@ -408,7 +416,7 @@ export default function InstitutionalPage() {
                   <div className={`absolute inset-[1px] rounded-3xl ${
                     theme === 'dark'
                       ? 'bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent'
-                      : 'bg-gradient-to-br from-yellow-500/20 via-transparent to-transparent'
+                      : 'bg-gradient-to-br from-yellow-500/15 via-yellow-100/50 to-transparent'
                   }`} />
                 </div>
 
@@ -417,23 +425,28 @@ export default function InstitutionalPage() {
                   <div className="absolute -top-40 -left-40 w-96 h-96 bg-yellow-500/15 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 )}
 
-                {/* Inner shadow */}
+                {/* Inner highlight (depth) */}
                 <div className={`absolute inset-0 rounded-3xl ${
                   theme === 'dark'
                     ? 'shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]'
-                    : 'shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]'
+                    : 'shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]'
                 }`} />
+
+                {/* Subtle inner shadow (MORE depth in light) */}
+                {theme === 'light' && (
+                  <div className="absolute inset-0 rounded-3xl shadow-[inset_0_0_60px_rgba(0,0,0,0.02)]" />
+                )}
 
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon circle */}
-                  <div className={`w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 rounded-2xl flex items-center justify-center backdrop-blur-xl ${
+                  <div className={`w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 rounded-xl md:rounded-2xl flex items-center justify-center backdrop-blur-xl ${
                     theme === 'dark'
                       ? 'bg-gradient-to-br from-yellow-400/15 to-yellow-600/10 border border-yellow-500/20'
-                      : 'bg-gradient-to-br from-yellow-400/20 to-yellow-600/15 border border-yellow-500/30'
+                      : 'bg-gradient-to-br from-yellow-400/30 to-yellow-600/20 border border-yellow-500/40 shadow-inner'
                   }`}>
                     <svg className={`w-8 h-8 md:w-10 md:h-10 ${
-                      theme === 'dark' ? 'text-yellow-400/80' : 'text-yellow-600'
+                      theme === 'dark' ? 'text-yellow-400/80' : 'text-yellow-700'
                     }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
