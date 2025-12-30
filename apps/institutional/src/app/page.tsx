@@ -109,7 +109,7 @@ export default function InstitutionalPage() {
             : 'bg-white/95 border-b border-gray-200/50 shadow-lg'
           : 'bg-transparent'
       } backdrop-blur-xl`}>
-        <div className="container mx-auto px-6 py-5 flex items-center justify-between">
+        <div className="container mx-auto px-4 md:px-6 py-4 md:py-5 flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center transition-opacity hover:opacity-80">
             <img
@@ -118,12 +118,12 @@ export default function InstitutionalPage() {
                 : "/logos/Crescentia-Horizontal-MainColor-Blackout.svg"
               }
               alt="Crescentia Incentivos"
-              className="h-8"
+              className="h-6 md:h-8"
             />
           </a>
 
           {/* Controls */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             {/* Theme toggle */}
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -135,21 +135,21 @@ export default function InstitutionalPage() {
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               ) : (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>
               )}
             </button>
 
             {/* Language Switcher */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 md:gap-2">
               <button
                 onClick={() => setLanguage('en')}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                className={`px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${
                   language === 'en'
                     ? 'bg-yellow-500 text-black shadow-[0_0_20px_rgba(234,179,8,0.4)]'
                     : theme === 'dark'
@@ -162,7 +162,7 @@ export default function InstitutionalPage() {
               <div className={`w-px h-4 ${theme === 'dark' ? 'bg-white/20' : 'bg-gray-300'}`} />
               <button
                 onClick={() => setLanguage('pt')}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                className={`px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${
                   language === 'pt'
                     ? 'bg-yellow-500 text-black shadow-[0_0_20px_rgba(234,179,8,0.4)]'
                     : theme === 'dark'
@@ -228,14 +228,14 @@ export default function InstitutionalPage() {
         {/* Content */}
         <div className="relative z-10">
           {/* Hero section */}
-          <div className="container mx-auto px-6">
-            <div className="text-center pt-32 pb-24">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="text-center pt-24 md:pt-32 pb-16 md:pb-24">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
               >
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6 px-4">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
                   <span className={`bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent ${
                     theme === 'dark'
                       ? 'drop-shadow-[0_0_60px_rgba(234,179,8,0.4)]'
@@ -258,7 +258,7 @@ export default function InstitutionalPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                className={`text-xl md:text-2xl max-w-3xl mx-auto px-4 leading-relaxed ${
+                className={`text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed ${
                   theme === 'dark' ? 'text-white/70' : 'text-gray-600'
                 }`}
               >
@@ -268,8 +268,8 @@ export default function InstitutionalPage() {
           </div>
 
           {/* Cards container */}
-          <div className="container mx-auto px-6 pb-32">
-            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="container mx-auto px-4 md:px-6 pb-16 md:pb-32">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
 
               {/* FUNDING CARD (LEFT) */}
               <motion.div
@@ -277,7 +277,7 @@ export default function InstitutionalPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
                 whileHover={{ y: -12, scale: 1.01 }}
-                className={`group relative p-12 rounded-3xl transition-all duration-500 overflow-hidden ${
+                className={`group relative p-6 md:p-10 lg:p-12 rounded-3xl transition-all duration-500 overflow-hidden ${
                   theme === 'dark'
                     ? 'bg-white/[0.02] backdrop-blur-2xl border border-white/[0.06] hover:border-yellow-500/30'
                     : 'bg-white backdrop-blur-2xl border border-gray-200 hover:border-yellow-500/40 shadow-lg hover:shadow-xl'
@@ -308,12 +308,12 @@ export default function InstitutionalPage() {
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon circle */}
-                  <div className={`w-20 h-20 mb-8 rounded-2xl flex items-center justify-center backdrop-blur-xl ${
+                  <div className={`w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 rounded-2xl flex items-center justify-center backdrop-blur-xl ${
                     theme === 'dark'
                       ? 'bg-gradient-to-br from-yellow-400/15 to-yellow-600/10 border border-yellow-500/20'
                       : 'bg-gradient-to-br from-yellow-400/20 to-yellow-600/15 border border-yellow-500/30'
                   }`}>
-                    <svg className={`w-10 h-10 ${
+                    <svg className={`w-8 h-8 md:w-10 md:h-10 ${
                       theme === 'dark' ? 'text-yellow-400/80' : 'text-yellow-600'
                     }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -321,35 +321,35 @@ export default function InstitutionalPage() {
                   </div>
 
                   {/* Title */}
-                  <h2 className={`text-4xl font-bold mb-3 tracking-tight ${
+                  <h2 className={`text-3xl md:text-4xl font-bold mb-3 tracking-tight ${
                     theme === 'dark' ? 'text-white' : 'text-black'
                   }`}>
                     {content[language].funding.title}
                   </h2>
 
                   {/* Subtitle */}
-                  <p className={`text-lg mb-6 font-medium ${
+                  <p className={`text-base md:text-lg mb-6 font-medium ${
                     theme === 'dark' ? 'text-yellow-400/90' : 'text-yellow-600'
                   }`}>
                     {content[language].funding.subtitle}
                   </p>
 
                   {/* Description */}
-                  <p className={`text-base leading-relaxed mb-10 ${
+                  <p className={`text-sm md:text-base leading-relaxed mb-8 md:mb-10 ${
                     theme === 'dark' ? 'text-white/70' : 'text-gray-600'
                   }`}>
                     {content[language].funding.description}
                   </p>
 
                   {/* Stats row */}
-                  <div className={`flex items-center gap-8 mb-10 pb-10 ${
+                  <div className={`flex items-center gap-6 md:gap-8 mb-8 md:mb-10 pb-8 md:pb-10 ${
                     theme === 'dark' ? 'border-b border-white/5' : 'border-b border-gray-200'
                   }`}>
                     <div>
-                      <div className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-1">
+                      <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-1">
                         {content[language].funding.stat1}
                       </div>
-                      <div className={`text-sm ${
+                      <div className={`text-xs md:text-sm ${
                         theme === 'dark' ? 'text-white/50' : 'text-gray-500'
                       }`}>
                         {content[language].funding.stat1Label}
@@ -359,12 +359,12 @@ export default function InstitutionalPage() {
                       theme === 'dark' ? 'bg-white/10' : 'bg-gray-300'
                     }`} />
                     <div>
-                      <div className={`text-xl font-semibold mb-1 ${
+                      <div className={`text-lg md:text-xl font-semibold mb-1 ${
                         theme === 'dark' ? 'text-white/90' : 'text-gray-900'
                       }`}>
                         {content[language].funding.stat2}
                       </div>
-                      <div className={`text-sm ${
+                      <div className={`text-xs md:text-sm ${
                         theme === 'dark' ? 'text-white/50' : 'text-gray-500'
                       }`}>
                         {content[language].funding.stat2Label}
@@ -376,14 +376,14 @@ export default function InstitutionalPage() {
                   <motion.a
                     href="/funding"
                     whileHover={{ x: 6 }}
-                    className={`inline-flex items-center gap-3 font-semibold text-lg transition-colors group/link ${
+                    className={`inline-flex items-center gap-3 font-semibold text-base md:text-lg transition-colors group/link ${
                       theme === 'dark'
                         ? 'text-yellow-400 hover:text-yellow-300'
                         : 'text-yellow-600 hover:text-yellow-700'
                     }`}
                   >
                     {content[language].funding.cta}
-                    <svg className="w-6 h-6 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </motion.a>
@@ -396,7 +396,7 @@ export default function InstitutionalPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8, ease: [0.4, 0, 0.2, 1] }}
                 whileHover={{ y: -12, scale: 1.01 }}
-                className={`group relative p-12 rounded-3xl transition-all duration-500 overflow-hidden ${
+                className={`group relative p-6 md:p-10 lg:p-12 rounded-3xl transition-all duration-500 overflow-hidden ${
                   theme === 'dark'
                     ? 'bg-white/[0.02] backdrop-blur-2xl border border-white/[0.06] hover:border-yellow-500/30'
                     : 'bg-white backdrop-blur-2xl border border-gray-200 hover:border-yellow-500/40 shadow-lg hover:shadow-xl'
@@ -427,12 +427,12 @@ export default function InstitutionalPage() {
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon circle */}
-                  <div className={`w-20 h-20 mb-8 rounded-2xl flex items-center justify-center backdrop-blur-xl ${
+                  <div className={`w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 rounded-2xl flex items-center justify-center backdrop-blur-xl ${
                     theme === 'dark'
                       ? 'bg-gradient-to-br from-yellow-400/15 to-yellow-600/10 border border-yellow-500/20'
                       : 'bg-gradient-to-br from-yellow-400/20 to-yellow-600/15 border border-yellow-500/30'
                   }`}>
-                    <svg className={`w-10 h-10 ${
+                    <svg className={`w-8 h-8 md:w-10 md:h-10 ${
                       theme === 'dark' ? 'text-yellow-400/80' : 'text-yellow-600'
                     }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -440,35 +440,35 @@ export default function InstitutionalPage() {
                   </div>
 
                   {/* Title */}
-                  <h2 className={`text-4xl font-bold mb-3 tracking-tight ${
+                  <h2 className={`text-3xl md:text-4xl font-bold mb-3 tracking-tight ${
                     theme === 'dark' ? 'text-white' : 'text-black'
                   }`}>
                     {content[language].wealth.title}
                   </h2>
 
                   {/* Subtitle */}
-                  <p className={`text-lg mb-6 font-medium ${
+                  <p className={`text-base md:text-lg mb-6 font-medium ${
                     theme === 'dark' ? 'text-yellow-400/90' : 'text-yellow-600'
                   }`}>
                     {content[language].wealth.subtitle}
                   </p>
 
                   {/* Description */}
-                  <p className={`text-base leading-relaxed mb-10 ${
+                  <p className={`text-sm md:text-base leading-relaxed mb-8 md:mb-10 ${
                     theme === 'dark' ? 'text-white/70' : 'text-gray-600'
                   }`}>
                     {content[language].wealth.description}
                   </p>
 
                   {/* Stats row */}
-                  <div className={`flex items-center gap-8 mb-10 pb-10 ${
+                  <div className={`flex items-center gap-6 md:gap-8 mb-8 md:mb-10 pb-8 md:pb-10 ${
                     theme === 'dark' ? 'border-b border-white/5' : 'border-b border-gray-200'
                   }`}>
                     <div>
-                      <div className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-1">
+                      <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-1">
                         {content[language].wealth.stat1}
                       </div>
-                      <div className={`text-sm ${
+                      <div className={`text-xs md:text-sm ${
                         theme === 'dark' ? 'text-white/50' : 'text-gray-500'
                       }`}>
                         {content[language].wealth.stat1Label}
@@ -478,12 +478,12 @@ export default function InstitutionalPage() {
                       theme === 'dark' ? 'bg-white/10' : 'bg-gray-300'
                     }`} />
                     <div>
-                      <div className={`text-xl font-semibold mb-1 ${
+                      <div className={`text-lg md:text-xl font-semibold mb-1 ${
                         theme === 'dark' ? 'text-white/90' : 'text-gray-900'
                       }`}>
                         {content[language].wealth.stat2}
                       </div>
-                      <div className={`text-sm ${
+                      <div className={`text-xs md:text-sm ${
                         theme === 'dark' ? 'text-white/50' : 'text-gray-500'
                       }`}>
                         {content[language].wealth.stat2Label}
@@ -497,14 +497,14 @@ export default function InstitutionalPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ x: 6 }}
-                    className={`inline-flex items-center gap-3 font-semibold text-lg transition-colors group/link ${
+                    className={`inline-flex items-center gap-3 font-semibold text-base md:text-lg transition-colors group/link ${
                       theme === 'dark'
                         ? 'text-yellow-400 hover:text-yellow-300'
                         : 'text-yellow-600 hover:text-yellow-700'
                     }`}
                   >
                     {content[language].wealth.cta}
-                    <svg className="w-6 h-6 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </motion.a>
@@ -516,13 +516,13 @@ export default function InstitutionalPage() {
       </section>
 
       {/* Footer */}
-      <footer className={`relative py-12 ${
+      <footer className={`relative py-8 md:py-12 ${
         theme === 'dark'
           ? 'border-t border-white/5 bg-[#0a0a0a]'
           : 'border-t border-gray-200 bg-white'
       }`}>
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left">
             {/* Copyright */}
             <p className={`text-sm ${
               theme === 'dark' ? 'text-white/60' : 'text-gray-600'
@@ -531,7 +531,7 @@ export default function InstitutionalPage() {
             </p>
 
             {/* Contact */}
-            <div className="flex items-center gap-6 text-sm">
+            <div className="flex items-center gap-4 md:gap-6 text-sm">
               <a
                 href={`mailto:${content[language].footer.email}`}
                 className={`transition-colors ${
