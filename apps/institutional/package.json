@@ -2,7 +2,7 @@
   "name": "@crescentia/institutional",
   "version": "1.0.0",
   "private": true,
-  "description": "Crescentia - Homepage institucional com dual split (Funding + Wealth)",
+  "description": "Crescentia Incentivos - European Funding & Wealth Optimization",
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@crescentia/config": "workspace:*",
-    "@crescentia/ui": "workspace:*",
     "framer-motion": "^10.18.0",
     "next": "^14.0.4",
     "react": "^18.2.0",

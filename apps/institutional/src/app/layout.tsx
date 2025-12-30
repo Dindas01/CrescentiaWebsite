@@ -1,33 +1,33 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-space-grotesk',
-})
-
 export const metadata: Metadata = {
-  title: 'Crescentia - Funding & Wealth Management',
+  title: 'Crescentia Incentivos | European Funding & Wealth Optimization',
   description:
-    'Crescentia: Especialistas em fundos europeus para PMEs e otimização fiscal IFICI para profissionais internacionais.',
+    'Exclusive advisory for ambitious businesses and professionals. European funding for SMEs and premium tax optimization for international professionals.',
   keywords: [
-    'Crescentia',
-    'fundos europeus',
-    'IFICI',
+    'European funding',
     'Portugal 2030',
+    'PRR',
+    'IFICI',
     'tax optimization',
-    'wealth management',
+    'wealth optimization',
+    'Crescentia',
+    'SME funding',
+    'international professionals',
   ],
-  authors: [{ name: 'Crescentia' }],
+  authors: [{ name: 'Crescentia Incentivos' }],
+  icons: {
+    icon: '/logos/Crescentia-Icon-Yellow.svg',
+    apple: '/logos/Crescentia-Icon-Yellow.svg',
+  },
   openGraph: {
     type: 'website',
-    locale: 'pt_PT',
+    locale: 'en_US',
     url: 'https://crescentia.pt',
-    siteName: 'Crescentia',
-    title: 'Crescentia - Funding & Wealth Management',
-    description: 'Especialistas em fundos europeus e otimização fiscal',
+    siteName: 'Crescentia Incentivos',
+    title: 'European Funding & Wealth Optimization - Crescentia Incentivos',
+    description: 'Exclusive advisory for ambitious businesses and professionals.',
   },
 }
 
@@ -37,8 +37,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt" className={spaceGrotesk.variable}>
-      <body className="font-sans antialiased bg-white-100 text-dark-500">
+    <html lang="en">
+      <body className="font-sans antialiased bg-[#0a0a0a] text-white">
         {children}
       </body>
     </html>
