@@ -14,22 +14,76 @@ const content = {
     funding: {
       title: 'European Funding',
       subtitle: 'For Portuguese SMEs',
-      description: 'Access millions in EU incentives. From innovation to internationalization, we handle the entire application process.',
-      stat1: '€24B+',
-      stat1Label: 'Available',
-      stat2: 'Portugal 2030',
-      stat2Label: '& PRR',
+      description: 'Access millions in EU incentives. From innovation to internationalization.',
+      stat: '€24B+',
+      statLabel: 'Available',
       cta: 'Learn More'
     },
     wealth: {
       title: 'Wealth Optimization',
       subtitle: 'For International Professionals',
-      description: '20% tax for 10 years in Portugal. 0% crypto tax. Premium IFICI advisory for high-income professionals.',
+      description: '20% tax for 10 years. 0% crypto tax. Premium IFICI advisory.',
       stat1: '20%',
       stat1Label: 'Tax Rate',
       stat2: '0%',
       stat2Label: 'Crypto Tax',
       cta: 'Learn More'
+    },
+    whyUs: {
+      title: 'Why Crescentia?',
+      reasons: [
+        {
+          title: 'Expert Team',
+          desc: 'Specialists in EU funding and tax optimization'
+        },
+        {
+          title: 'Fast Processing',
+          desc: 'Quick turnaround on all applications'
+        },
+        {
+          title: 'Transparent Pricing',
+          desc: 'Clear pricing with success-based fees'
+        },
+        {
+          title: 'Proven Results',
+          desc: 'High success rate in funding approvals'
+        }
+      ]
+    },
+    stats: {
+      funding: 'Available Funding',
+      clients: 'Clients Served',
+      cryptoTax: 'Crypto Tax',
+      taxRate: 'IFICI Tax Rate'
+    },
+    about: {
+      title: 'About Crescentia',
+      desc: 'Portuguese consultancy specializing in EU funding and international tax optimization.'
+    },
+    services: {
+      title: 'Our',
+      titleHighlight: 'Services',
+      subtitle: 'Comprehensive support for European funding and tax optimization',
+      items: [
+        {
+          title: 'Innovation & R&D',
+          desc: 'Funding for research, development and innovative projects'
+        },
+        {
+          title: 'Digitalization',
+          desc: 'Support for digital transformation and technology adoption'
+        },
+        {
+          title: 'Internationalization',
+          desc: 'Funding for market expansion and international growth'
+        }
+      ]
+    },
+    cta: {
+      title: 'Ready to',
+      titleHighlight: 'Grow',
+      subtitle: 'Get in touch to discuss your funding or tax optimization needs',
+      contact: 'Contact Us'
     },
     footer: {
       copyright: '© 2025 Crescentia Incentivos. Exclusive advisory services.',
@@ -46,22 +100,76 @@ const content = {
     funding: {
       title: 'Financiamento Europeu',
       subtitle: 'Para PMEs Portuguesas',
-      description: 'Aceda a milhões em incentivos europeus. Da inovação à internacionalização, tratamos de todo o processo de candidatura.',
-      stat1: '€24B+',
-      stat1Label: 'Disponíveis',
-      stat2: 'Portugal 2030',
-      stat2Label: '& PRR',
+      description: 'Aceda a milhões em incentivos europeus. Da inovação à internacionalização.',
+      stat: '€24B+',
+      statLabel: 'Disponíveis',
       cta: 'Saber Mais'
     },
     wealth: {
       title: 'Otimização Fiscal',
       subtitle: 'Para Profissionais Internacionais',
-      description: '20% de imposto por 10 anos em Portugal. 0% imposto crypto. Consultoria IFICI premium para profissionais de alto rendimento.',
+      description: '20% de imposto por 10 anos. 0% imposto crypto. Consultoria IFICI premium.',
       stat1: '20%',
       stat1Label: 'Taxa Imposto',
       stat2: '0%',
       stat2Label: 'Imposto Crypto',
       cta: 'Saber Mais'
+    },
+    whyUs: {
+      title: 'Porquê a Crescentia?',
+      reasons: [
+        {
+          title: 'Equipa Experiente',
+          desc: 'Especialistas em fundos europeus e fiscalidade'
+        },
+        {
+          title: 'Processo Rápido',
+          desc: 'Respostas rápidas em todas as candidaturas'
+        },
+        {
+          title: 'Preços Transparentes',
+          desc: 'Preços claros com taxas de sucesso'
+        },
+        {
+          title: 'Resultados Comprovados',
+          desc: 'Alta taxa de sucesso nas aprovações'
+        }
+      ]
+    },
+    stats: {
+      funding: 'Fundos Disponíveis',
+      clients: 'Clientes Servidos',
+      cryptoTax: 'Imposto Crypto',
+      taxRate: 'Taxa IFICI'
+    },
+    about: {
+      title: 'Sobre a Crescentia',
+      desc: 'Consultoria portuguesa especializada em fundos europeus e otimização fiscal internacional.'
+    },
+    services: {
+      title: 'Os Nossos',
+      titleHighlight: 'Serviços',
+      subtitle: 'Suporte completo para financiamento europeu e otimização fiscal',
+      items: [
+        {
+          title: 'Inovação & I&D',
+          desc: 'Financiamento para investigação, desenvolvimento e projetos inovadores'
+        },
+        {
+          title: 'Digitalização',
+          desc: 'Apoio à transformação digital e adoção de tecnologia'
+        },
+        {
+          title: 'Internacionalização',
+          desc: 'Financiamento para expansão de mercado e crescimento internacional'
+        }
+      ]
+    },
+    cta: {
+      title: 'Pronto para',
+      titleHighlight: 'Crescer',
+      subtitle: 'Entre em contacto para discutir as suas necessidades de financiamento ou otimização fiscal',
+      contact: 'Contactar'
     },
     footer: {
       copyright: '© 2025 Crescentia Incentivos. Serviços de consultoria exclusiva.',
@@ -151,7 +259,7 @@ export default function InstitutionalPage() {
                 onClick={() => setLanguage('en')}
                 className={`px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${
                   language === 'en'
-                    ? 'bg-yellow-500 text-black shadow-[0_0_20px_rgba(234,179,8,0.4)]'
+                    ? 'bg-yellow-500 text-black shadow-[0_0_20px_rgba(245,207,0,0.4)]'
                     : theme === 'dark'
                       ? 'text-white/60 hover:text-white hover:bg-white/5'
                       : 'text-black/60 hover:text-black hover:bg-black/5'
@@ -164,7 +272,7 @@ export default function InstitutionalPage() {
                 onClick={() => setLanguage('pt')}
                 className={`px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${
                   language === 'pt'
-                    ? 'bg-yellow-500 text-black shadow-[0_0_20px_rgba(234,179,8,0.4)]'
+                    ? 'bg-yellow-500 text-black shadow-[0_0_20px_rgba(245,207,0,0.4)]'
                     : theme === 'dark'
                       ? 'text-white/60 hover:text-white hover:bg-white/5'
                       : 'text-black/60 hover:text-black hover:bg-black/5'
@@ -177,8 +285,8 @@ export default function InstitutionalPage() {
         </div>
       </header>
 
-      {/* Main Section with Background */}
-      <section className={`relative min-h-screen overflow-hidden ${
+      {/* Hero - Centered & Simple */}
+      <section className={`relative py-32 md:py-40 overflow-hidden ${
         theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-white'
       }`}>
         {/* Layer 1: Base */}
@@ -211,7 +319,7 @@ export default function InstitutionalPage() {
           <div className={`absolute inset-0 bg-gradient-to-br ${
             theme === 'dark'
               ? 'from-yellow-500/8 via-transparent to-yellow-600/8'
-              : 'from-yellow-50 via-transparent to-orange-50'
+              : 'from-yellow-50 via-transparent to-yellow-100'
           } animate-gradient-shift`} />
         </div>
 
@@ -228,303 +336,488 @@ export default function InstitutionalPage() {
         {/* Layer 6: Subtle top highlight (premium depth) */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-yellow-200 to-transparent opacity-50" />
 
-        {/* Content */}
-        <div className="relative z-10">
-          {/* Hero section */}
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="text-center pt-24 md:pt-32 pb-16 md:pb-24">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
-              >
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
-                  <span className={`bg-gradient-to-r from-yellow-500 via-yellow-600 to-orange-500 bg-clip-text text-transparent ${
-                    theme === 'dark'
-                      ? 'drop-shadow-[0_0_60px_rgba(234,179,8,0.4)]'
-                      : 'drop-shadow-[0_4px_20px_rgba(234,179,8,0.25)]'
-                  }`}>
-                    {content[language].hero.headline1}
-                  </span>
-                  <span className={theme === 'dark' ? 'text-white' : 'text-gray-900'}> & </span>
-                  <span className={`bg-gradient-to-r from-yellow-500 via-yellow-600 to-orange-500 bg-clip-text text-transparent ${
-                    theme === 'dark'
-                      ? 'drop-shadow-[0_0_60px_rgba(234,179,8,0.4)]'
-                      : 'drop-shadow-[0_4px_20px_rgba(234,179,8,0.25)]'
-                  }`}>
-                    {content[language].hero.headline2}
-                  </span>
-                </h1>
-              </motion.div>
+        <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] mb-6">
+              <span className={`bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent ${
+                theme === 'dark'
+                  ? 'drop-shadow-[0_0_60px_rgba(245,207,0,0.4)]'
+                  : 'drop-shadow-[0_4px_20px_rgba(245,207,0,0.25)]'
+              }`}>
+                {content[language].hero.headline1}
+              </span>
+              {' '}
+              <span className={theme === 'dark' ? 'text-white/90' : 'text-gray-900'}>
+                &
+              </span>
+              {' '}
+              <span className={`bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent ${
+                theme === 'dark'
+                  ? 'drop-shadow-[0_0_60px_rgba(245,207,0,0.4)]'
+                  : 'drop-shadow-[0_4px_20px_rgba(245,207,0,0.25)]'
+              }`}>
+                {content[language].hero.headline2}
+              </span>
+            </h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                className={`text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed ${
-                  theme === 'dark' ? 'text-white/70' : 'text-gray-700'
+            <p className={`text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto ${
+              theme === 'dark' ? 'text-white/70' : 'text-gray-700'
+            }`}>
+              {content[language].hero.tagline}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Bento Grid - Modern Layout */}
+      <section className={`relative py-24 md:py-32 ${
+        theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#fafafa]'
+      }`}>
+        <div className="container mx-auto px-4 md:px-6">
+          {/* BENTO GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-8 max-w-7xl mx-auto">
+
+            {/* FUNDING CARD - Large (spans 5 cols on lg) */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className={`lg:col-span-5 p-8 md:p-10 rounded-3xl transition-all duration-500 ${
+                theme === 'dark'
+                  ? 'bg-white/[0.02] backdrop-blur-2xl border border-white/[0.06] hover:border-yellow-500/30'
+                  : 'bg-white/80 backdrop-blur-2xl border border-gray-200/50 hover:border-yellow-500/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgb(0,0,0,0.08)]'
+              }`}
+            >
+              {/* Icon */}
+              <div className={`w-16 h-16 mb-6 rounded-2xl flex items-center justify-center ${
+                theme === 'dark'
+                  ? 'bg-gradient-to-br from-yellow-400/15 to-yellow-600/10 border border-yellow-500/20'
+                  : 'bg-gradient-to-br from-yellow-400/30 to-yellow-600/20 border border-yellow-500/40 shadow-inner'
+              }`}>
+                <svg className={`w-8 h-8 ${theme === 'dark' ? 'text-yellow-400/80' : 'text-yellow-700'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+
+              {/* Content */}
+              <h3 className={`text-3xl md:text-4xl font-bold mb-3 ${
+                theme === 'dark' ? 'text-white' : 'text-black'
+              }`}>
+                {content[language].funding.title}
+              </h3>
+
+              <p className={`text-base md:text-lg mb-6 font-medium ${
+                theme === 'dark' ? 'text-yellow-400/90' : 'text-yellow-600'
+              }`}>
+                {content[language].funding.subtitle}
+              </p>
+
+              <p className={`text-sm md:text-base leading-relaxed mb-8 ${
+                theme === 'dark' ? 'text-white/70' : 'text-gray-600'
+              }`}>
+                {content[language].funding.description}
+              </p>
+
+              {/* Stats */}
+              <div className="flex items-center gap-6 mb-8">
+                <div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                    {content[language].funding.stat}
+                  </div>
+                  <div className={`text-xs ${theme === 'dark' ? 'text-white/50' : 'text-gray-500'}`}>
+                    {content[language].funding.statLabel}
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <motion.a
+                href="/funding"
+                whileHover={{ x: 6 }}
+                className={`inline-flex items-center gap-2 font-semibold transition-colors ${
+                  theme === 'dark' ? 'text-yellow-400 hover:text-yellow-300' : 'text-yellow-600 hover:text-yellow-700'
                 }`}
               >
-                {content[language].hero.tagline}
-              </motion.p>
-            </div>
+                {content[language].funding.cta}
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </motion.a>
+            </motion.div>
+
+            {/* WHY US CARD - Tall (spans 4 cols, row-span-2) */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className={`lg:col-span-4 lg:row-span-2 p-8 md:p-10 rounded-3xl transition-all duration-500 ${
+                theme === 'dark'
+                  ? 'bg-white/[0.02] backdrop-blur-2xl border border-white/[0.06] hover:border-yellow-500/30'
+                  : 'bg-white/80 backdrop-blur-2xl border border-gray-200/50 hover:border-yellow-500/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgb(0,0,0,0.08)]'
+              }`}
+            >
+              <h3 className={`text-2xl md:text-3xl font-bold mb-8 ${
+                theme === 'dark' ? 'text-white' : 'text-black'
+              }`}>
+                {content[language].whyUs.title}
+              </h3>
+
+              {/* 4 Reasons */}
+              <div className="space-y-6">
+                {content[language].whyUs.reasons.map((item, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <div className={`flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center ${
+                      theme === 'dark'
+                        ? 'bg-yellow-500/10 border border-yellow-500/20'
+                        : 'bg-yellow-500/20 border border-yellow-500/30'
+                    }`}>
+                      <svg className={`w-5 h-5 ${theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className={`font-semibold mb-1 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+                        {item.title}
+                      </h4>
+                      <p className={`text-sm ${theme === 'dark' ? 'text-white/60' : 'text-gray-600'}`}>
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* STATS CARD - Small (spans 3 cols) */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className={`lg:col-span-3 p-8 rounded-3xl transition-all duration-500 ${
+                theme === 'dark'
+                  ? 'bg-gradient-to-br from-yellow-500/10 to-yellow-600/5 border border-yellow-500/20'
+                  : 'bg-gradient-to-br from-yellow-400/20 to-yellow-500/10 border border-yellow-500/30 shadow-lg'
+              }`}
+            >
+              <div className="text-5xl md:text-6xl font-bold bg-gradient-to-br from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-2">
+                €24B+
+              </div>
+              <p className={`text-sm font-medium ${theme === 'dark' ? 'text-white/70' : 'text-gray-700'}`}>
+                {content[language].stats.funding}
+              </p>
+              <p className={`text-xs mt-2 ${theme === 'dark' ? 'text-white/50' : 'text-gray-600'}`}>
+                Portugal 2030 & PRR
+              </p>
+            </motion.div>
+
+            {/* WEALTH CARD - Large (spans 5 cols) */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className={`lg:col-span-5 p-8 md:p-10 rounded-3xl transition-all duration-500 ${
+                theme === 'dark'
+                  ? 'bg-white/[0.02] backdrop-blur-2xl border border-white/[0.06] hover:border-yellow-500/30'
+                  : 'bg-white/80 backdrop-blur-2xl border border-gray-200/50 hover:border-yellow-500/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgb(0,0,0,0.08)]'
+              }`}
+            >
+              {/* Icon */}
+              <div className={`w-16 h-16 mb-6 rounded-2xl flex items-center justify-center ${
+                theme === 'dark'
+                  ? 'bg-gradient-to-br from-yellow-400/15 to-yellow-600/10 border border-yellow-500/20'
+                  : 'bg-gradient-to-br from-yellow-400/30 to-yellow-600/20 border border-yellow-500/40 shadow-inner'
+              }`}>
+                <svg className={`w-8 h-8 ${theme === 'dark' ? 'text-yellow-400/80' : 'text-yellow-700'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+
+              {/* Content */}
+              <h3 className={`text-3xl md:text-4xl font-bold mb-3 ${
+                theme === 'dark' ? 'text-white' : 'text-black'
+              }`}>
+                {content[language].wealth.title}
+              </h3>
+
+              <p className={`text-base md:text-lg mb-6 font-medium ${
+                theme === 'dark' ? 'text-yellow-400/90' : 'text-yellow-600'
+              }`}>
+                {content[language].wealth.subtitle}
+              </p>
+
+              <p className={`text-sm md:text-base leading-relaxed mb-8 ${
+                theme === 'dark' ? 'text-white/70' : 'text-gray-600'
+              }`}>
+                {content[language].wealth.description}
+              </p>
+
+              {/* Stats */}
+              <div className="flex items-center gap-6 mb-8">
+                <div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                    {content[language].wealth.stat1}
+                  </div>
+                  <div className={`text-xs ${theme === 'dark' ? 'text-white/50' : 'text-gray-500'}`}>
+                    {content[language].wealth.stat1Label}
+                  </div>
+                </div>
+                <div className={`w-px h-10 ${theme === 'dark' ? 'bg-white/10' : 'bg-gray-300'}`} />
+                <div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                    {content[language].wealth.stat2}
+                  </div>
+                  <div className={`text-xs ${theme === 'dark' ? 'text-white/50' : 'text-gray-500'}`}>
+                    {content[language].wealth.stat2Label}
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <motion.a
+                href="https://wealth.crescentia.pt"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ x: 6 }}
+                className={`inline-flex items-center gap-2 font-semibold transition-colors ${
+                  theme === 'dark' ? 'text-yellow-400 hover:text-yellow-300' : 'text-yellow-600 hover:text-yellow-700'
+                }`}
+              >
+                {content[language].wealth.cta}
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </motion.a>
+            </motion.div>
+
+            {/* ABOUT US CARD - Small (spans 3 cols) */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className={`lg:col-span-3 p-8 rounded-3xl transition-all duration-500 ${
+                theme === 'dark'
+                  ? 'bg-white/[0.02] backdrop-blur-2xl border border-white/[0.06] hover:border-yellow-500/30'
+                  : 'bg-white/80 backdrop-blur-2xl border border-gray-200/50 hover:border-yellow-500/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)]'
+              }`}
+            >
+              <div className={`w-12 h-12 mb-4 rounded-xl flex items-center justify-center ${
+                theme === 'dark'
+                  ? 'bg-yellow-500/10 border border-yellow-500/20'
+                  : 'bg-yellow-500/20 border border-yellow-500/30'
+              }`}>
+                <svg className={`w-6 h-6 ${theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+
+              <h4 className={`text-lg font-bold mb-3 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+                {content[language].about.title}
+              </h4>
+
+              <p className={`text-sm leading-relaxed ${theme === 'dark' ? 'text-white/60' : 'text-gray-600'}`}>
+                {content[language].about.desc}
+              </p>
+            </motion.div>
+
           </div>
+        </div>
+      </section>
 
-          {/* Cards container */}
-          <div className="container mx-auto px-4 md:px-6 pb-16 md:pb-32">
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
-
-              {/* FUNDING CARD (LEFT) */}
+      {/* Stats Bar - Full Width with Animated Counters */}
+      <section className={`relative py-16 border-y ${
+        theme === 'dark' ? 'border-white/10 bg-[#0a0a0a]' : 'border-gray-200 bg-white'
+      }`}>
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                value: '€24B+',
+                label: content[language].stats.funding
+              },
+              {
+                value: '50+',
+                label: content[language].stats.clients
+              },
+              {
+                value: '0%',
+                label: content[language].stats.cryptoTax
+              },
+              {
+                value: '20%',
+                label: content[language].stats.taxRate
+              },
+            ].map((stat, idx) => (
               <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="text-center"
+              >
+                <div className={`text-4xl md:text-5xl font-bold mb-2 ${
+                  theme === 'dark'
+                    ? 'bg-gradient-to-br from-yellow-400 to-yellow-600 bg-clip-text text-transparent'
+                    : 'text-yellow-600'
+                }`}>
+                  {stat.value}
+                </div>
+                <div className={`text-sm md:text-base ${
+                  theme === 'dark' ? 'text-white/60' : 'text-gray-600'
+                }`}>
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className={`relative py-24 md:py-32 ${
+        theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#fafafa]'
+      }`}>
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${
+              theme === 'dark' ? 'text-white' : 'text-black'
+            }`}>
+              {content[language].services.title}{' '}
+              <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                {content[language].services.titleHighlight}
+              </span>
+            </h2>
+            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${
+              theme === 'dark' ? 'text-white/70' : 'text-gray-700'
+            }`}>
+              {content[language].services.subtitle}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {content[language].services.items.map((service, idx) => (
+              <motion.div
+                key={idx}
                 initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
-                whileHover={{ y: -12, scale: 1.01 }}
-                className={`group relative p-6 md:p-10 lg:p-12 rounded-2xl md:rounded-3xl transition-all duration-500 overflow-hidden ${
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className={`p-8 rounded-3xl transition-all duration-500 ${
                   theme === 'dark'
                     ? 'bg-white/[0.02] backdrop-blur-2xl border border-white/[0.06] hover:border-yellow-500/30'
                     : 'bg-white/80 backdrop-blur-2xl border border-gray-200/50 hover:border-yellow-500/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgb(0,0,0,0.08)]'
                 }`}
-                style={{ willChange: 'transform' }}
               >
-                {/* Hover gradient border */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <div className={`absolute inset-[1px] rounded-3xl ${
-                    theme === 'dark'
-                      ? 'bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent'
-                      : 'bg-gradient-to-br from-yellow-500/15 via-yellow-100/50 to-transparent'
-                  }`} />
-                </div>
-
-                {/* Glow on hover (dark only) */}
-                {theme === 'dark' && (
-                  <div className="absolute -top-40 -right-40 w-96 h-96 bg-yellow-500/15 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                )}
-
-                {/* Inner highlight (depth) */}
-                <div className={`absolute inset-0 rounded-3xl ${
+                <div className={`w-14 h-14 mb-6 rounded-2xl flex items-center justify-center ${
                   theme === 'dark'
-                    ? 'shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]'
-                    : 'shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]'
-                }`} />
-
-                {/* Subtle inner shadow (MORE depth in light) */}
-                {theme === 'light' && (
-                  <div className="absolute inset-0 rounded-3xl shadow-[inset_0_0_60px_rgba(0,0,0,0.02)]" />
-                )}
-
-                {/* Content */}
-                <div className="relative z-10">
-                  {/* Icon circle */}
-                  <div className={`w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 rounded-xl md:rounded-2xl flex items-center justify-center backdrop-blur-xl ${
-                    theme === 'dark'
-                      ? 'bg-gradient-to-br from-yellow-400/15 to-yellow-600/10 border border-yellow-500/20'
-                      : 'bg-gradient-to-br from-yellow-400/30 to-yellow-600/20 border border-yellow-500/40 shadow-inner'
-                  }`}>
-                    <svg className={`w-8 h-8 md:w-10 md:h-10 ${
-                      theme === 'dark' ? 'text-yellow-400/80' : 'text-yellow-700'
-                    }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-
-                  {/* Title */}
-                  <h2 className={`text-3xl md:text-4xl font-bold mb-3 tracking-tight ${
-                    theme === 'dark' ? 'text-white' : 'text-black'
-                  }`}>
-                    {content[language].funding.title}
-                  </h2>
-
-                  {/* Subtitle */}
-                  <p className={`text-base md:text-lg mb-6 font-medium ${
-                    theme === 'dark' ? 'text-yellow-400/90' : 'text-yellow-600'
-                  }`}>
-                    {content[language].funding.subtitle}
-                  </p>
-
-                  {/* Description */}
-                  <p className={`text-sm md:text-base leading-relaxed mb-8 md:mb-10 ${
-                    theme === 'dark' ? 'text-white/70' : 'text-gray-600'
-                  }`}>
-                    {content[language].funding.description}
-                  </p>
-
-                  {/* Stats row */}
-                  <div className={`flex items-center gap-6 md:gap-8 mb-8 md:mb-10 pb-8 md:pb-10 ${
-                    theme === 'dark' ? 'border-b border-white/5' : 'border-b border-gray-200'
-                  }`}>
-                    <div>
-                      <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-1">
-                        {content[language].funding.stat1}
-                      </div>
-                      <div className={`text-xs md:text-sm ${
-                        theme === 'dark' ? 'text-white/50' : 'text-gray-500'
-                      }`}>
-                        {content[language].funding.stat1Label}
-                      </div>
-                    </div>
-                    <div className={`w-px h-12 ${
-                      theme === 'dark' ? 'bg-white/10' : 'bg-gray-300'
-                    }`} />
-                    <div>
-                      <div className={`text-lg md:text-xl font-semibold mb-1 ${
-                        theme === 'dark' ? 'text-white/90' : 'text-gray-900'
-                      }`}>
-                        {content[language].funding.stat2}
-                      </div>
-                      <div className={`text-xs md:text-sm ${
-                        theme === 'dark' ? 'text-white/50' : 'text-gray-500'
-                      }`}>
-                        {content[language].funding.stat2Label}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* CTA */}
-                  <motion.a
-                    href="/funding"
-                    whileHover={{ x: 6 }}
-                    className={`inline-flex items-center gap-3 font-semibold text-base md:text-lg transition-colors group/link ${
-                      theme === 'dark'
-                        ? 'text-yellow-400 hover:text-yellow-300'
-                        : 'text-yellow-600 hover:text-yellow-700'
-                    }`}
-                  >
-                    {content[language].funding.cta}
-                    <svg className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </motion.a>
+                    ? 'bg-yellow-500/10 border border-yellow-500/20'
+                    : 'bg-yellow-500/20 border border-yellow-500/30'
+                }`}>
+                  <svg className={`w-7 h-7 ${theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {idx === 0 && (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    )}
+                    {idx === 1 && (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    )}
+                    {idx === 2 && (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    )}
+                  </svg>
                 </div>
+
+                <h3 className={`text-xl md:text-2xl font-bold mb-3 ${
+                  theme === 'dark' ? 'text-white' : 'text-black'
+                }`}>
+                  {service.title}
+                </h3>
+
+                <p className={`text-sm md:text-base leading-relaxed ${
+                  theme === 'dark' ? 'text-white/70' : 'text-gray-600'
+                }`}>
+                  {service.desc}
+                </p>
               </motion.div>
-
-              {/* WEALTH CARD (RIGHT) */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8, ease: [0.4, 0, 0.2, 1] }}
-                whileHover={{ y: -12, scale: 1.01 }}
-                className={`group relative p-6 md:p-10 lg:p-12 rounded-2xl md:rounded-3xl transition-all duration-500 overflow-hidden ${
-                  theme === 'dark'
-                    ? 'bg-white/[0.02] backdrop-blur-2xl border border-white/[0.06] hover:border-yellow-500/30'
-                    : 'bg-white/80 backdrop-blur-2xl border border-gray-200/50 hover:border-yellow-500/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgb(0,0,0,0.08)]'
-                }`}
-                style={{ willChange: 'transform' }}
-              >
-                {/* Hover gradient border */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <div className={`absolute inset-[1px] rounded-3xl ${
-                    theme === 'dark'
-                      ? 'bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent'
-                      : 'bg-gradient-to-br from-yellow-500/15 via-yellow-100/50 to-transparent'
-                  }`} />
-                </div>
-
-                {/* Glow on hover (dark only) */}
-                {theme === 'dark' && (
-                  <div className="absolute -top-40 -left-40 w-96 h-96 bg-yellow-500/15 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                )}
-
-                {/* Inner highlight (depth) */}
-                <div className={`absolute inset-0 rounded-3xl ${
-                  theme === 'dark'
-                    ? 'shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]'
-                    : 'shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]'
-                }`} />
-
-                {/* Subtle inner shadow (MORE depth in light) */}
-                {theme === 'light' && (
-                  <div className="absolute inset-0 rounded-3xl shadow-[inset_0_0_60px_rgba(0,0,0,0.02)]" />
-                )}
-
-                {/* Content */}
-                <div className="relative z-10">
-                  {/* Icon circle */}
-                  <div className={`w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 rounded-xl md:rounded-2xl flex items-center justify-center backdrop-blur-xl ${
-                    theme === 'dark'
-                      ? 'bg-gradient-to-br from-yellow-400/15 to-yellow-600/10 border border-yellow-500/20'
-                      : 'bg-gradient-to-br from-yellow-400/30 to-yellow-600/20 border border-yellow-500/40 shadow-inner'
-                  }`}>
-                    <svg className={`w-8 h-8 md:w-10 md:h-10 ${
-                      theme === 'dark' ? 'text-yellow-400/80' : 'text-yellow-700'
-                    }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
-                  </div>
-
-                  {/* Title */}
-                  <h2 className={`text-3xl md:text-4xl font-bold mb-3 tracking-tight ${
-                    theme === 'dark' ? 'text-white' : 'text-black'
-                  }`}>
-                    {content[language].wealth.title}
-                  </h2>
-
-                  {/* Subtitle */}
-                  <p className={`text-base md:text-lg mb-6 font-medium ${
-                    theme === 'dark' ? 'text-yellow-400/90' : 'text-yellow-600'
-                  }`}>
-                    {content[language].wealth.subtitle}
-                  </p>
-
-                  {/* Description */}
-                  <p className={`text-sm md:text-base leading-relaxed mb-8 md:mb-10 ${
-                    theme === 'dark' ? 'text-white/70' : 'text-gray-600'
-                  }`}>
-                    {content[language].wealth.description}
-                  </p>
-
-                  {/* Stats row */}
-                  <div className={`flex items-center gap-6 md:gap-8 mb-8 md:mb-10 pb-8 md:pb-10 ${
-                    theme === 'dark' ? 'border-b border-white/5' : 'border-b border-gray-200'
-                  }`}>
-                    <div>
-                      <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-1">
-                        {content[language].wealth.stat1}
-                      </div>
-                      <div className={`text-xs md:text-sm ${
-                        theme === 'dark' ? 'text-white/50' : 'text-gray-500'
-                      }`}>
-                        {content[language].wealth.stat1Label}
-                      </div>
-                    </div>
-                    <div className={`w-px h-12 ${
-                      theme === 'dark' ? 'bg-white/10' : 'bg-gray-300'
-                    }`} />
-                    <div>
-                      <div className={`text-lg md:text-xl font-semibold mb-1 ${
-                        theme === 'dark' ? 'text-white/90' : 'text-gray-900'
-                      }`}>
-                        {content[language].wealth.stat2}
-                      </div>
-                      <div className={`text-xs md:text-sm ${
-                        theme === 'dark' ? 'text-white/50' : 'text-gray-500'
-                      }`}>
-                        {content[language].wealth.stat2Label}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* CTA */}
-                  <motion.a
-                    href="https://wealth.crescentia.pt"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ x: 6 }}
-                    className={`inline-flex items-center gap-3 font-semibold text-base md:text-lg transition-colors group/link ${
-                      theme === 'dark'
-                        ? 'text-yellow-400 hover:text-yellow-300'
-                        : 'text-yellow-600 hover:text-yellow-700'
-                    }`}
-                  >
-                    {content[language].wealth.cta}
-                    <svg className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </motion.a>
-                </div>
-              </motion.div>
-            </div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className={`relative py-24 md:py-32 overflow-hidden ${
+        theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-white'
+      }`}>
+        {/* Background decorations */}
+        <div className="absolute inset-0">
+          <div className={`absolute top-0 left-0 w-full h-px ${
+            theme === 'dark'
+              ? 'bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent'
+              : 'bg-gradient-to-r from-transparent via-yellow-500/30 to-transparent'
+          }`} />
+        </div>
+
+        <div className="relative container mx-auto px-4 md:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl mx-auto"
+          >
+            <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${
+              theme === 'dark' ? 'text-white' : 'text-black'
+            }`}>
+              {content[language].cta.title}{' '}
+              <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                {content[language].cta.titleHighlight}
+              </span>
+              ?
+            </h2>
+
+            <p className={`text-lg md:text-xl mb-12 ${
+              theme === 'dark' ? 'text-white/70' : 'text-gray-700'
+            }`}>
+              {content[language].cta.subtitle}
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.a
+                href="mailto:info@crescentia.pt"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold text-lg shadow-[0_0_30px_rgba(245,207,0,0.4)] hover:shadow-[0_0_40px_rgba(245,207,0,0.6)] transition-all"
+              >
+                {content[language].cta.contact}
+              </motion.a>
+
+              <motion.a
+                href="tel:+351913960220"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`px-8 py-4 rounded-full font-semibold text-lg transition-all ${
+                  theme === 'dark'
+                    ? 'bg-white/5 border border-white/10 hover:border-white/20 text-white'
+                    : 'bg-black/5 border border-black/10 hover:border-black/20 text-black'
+                }`}
+              >
+                +351 913 960 220
+              </motion.a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
