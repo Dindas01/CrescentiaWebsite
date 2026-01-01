@@ -276,65 +276,50 @@ export default function ApoiosPage() {
             Programas com que trabalhamos
           </motion.p>
 
-          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 max-w-4xl mx-auto">
-            {/* Portugal 2030 */}
+          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 max-w-5xl mx-auto">
+            {/* Portugal 2030 Logo */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className={`transition-all duration-300 ${
-                theme === 'dark'
-                  ? 'opacity-50 hover:opacity-100'
-                  : 'opacity-60 hover:opacity-100'
-              }`}
+              className="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
             >
-              <div className={`text-center ${
-                theme === 'dark' ? 'text-white/80' : 'text-gray-700'
-              }`}>
-                <div className="text-4xl font-bold mb-2">PT2030</div>
-                <div className="text-xs">Portugal 2030</div>
-              </div>
+              <img
+                src="/logos/portugal2030.png"
+                alt="Portugal 2030"
+                className="h-20 md:h-24 w-auto"
+              />
             </motion.div>
 
-            {/* PRR */}
+            {/* PRR Logo */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className={`transition-all duration-300 ${
-                theme === 'dark'
-                  ? 'opacity-50 hover:opacity-100'
-                  : 'opacity-60 hover:opacity-100'
-              }`}
+              className="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
             >
-              <div className={`text-center ${
-                theme === 'dark' ? 'text-white/80' : 'text-gray-700'
-              }`}>
-                <div className="text-4xl font-bold mb-2">PRR</div>
-                <div className="text-xs">Recuperação e Resiliência</div>
-              </div>
+              <img
+                src="/logos/prr.png"
+                alt="Plano de Recuperação e Resiliência"
+                className="h-20 md:h-24 w-auto"
+              />
             </motion.div>
 
-            {/* UE */}
+            {/* União Europeia Logo */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className={`transition-all duration-300 ${
-                theme === 'dark'
-                  ? 'opacity-50 hover:opacity-100'
-                  : 'opacity-60 hover:opacity-100'
-              }`}
+              className="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
             >
-              <div className={`text-center ${
-                theme === 'dark' ? 'text-white/80' : 'text-gray-700'
-              }`}>
-                <div className="text-4xl font-bold mb-2">🇪🇺</div>
-                <div className="text-xs">União Europeia</div>
-              </div>
+              <img
+                src="/logos/uniao-europeia.png"
+                alt="União Europeia"
+                className="h-20 md:h-24 w-auto"
+              />
             </motion.div>
           </div>
         </div>
@@ -562,20 +547,27 @@ export default function ApoiosPage() {
                   theme === 'dark' ? 'text-white/80' : 'text-gray-700'
                 }`}>
                   <p>
-                    A Crescentia foi fundada por <span className="font-semibold">Diogo Costa</span>, português de gema,
-                    com uma missão clara: <span className={`font-semibold ${
+                    Fundámos a Crescentia com uma <span className={`font-semibold ${
                       theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'
-                    }`}>incentivar as empresas portuguesas a crescer</span>.
+                    }`}>missão clara: aumentar a competitividade das empresas portuguesas</span> através
+                    do acesso facilitado a fundos europeus.
                   </p>
                   <p>
-                    Depois de testemunhar inúmeras PMEs com projetos excelentes a deixarem passar oportunidades
-                    de financiamento por desconhecimento ou falta de apoio especializado, decidi criar uma
-                    consultoria focada exclusivamente em apoios europeus.
+                    Testemunhámos ao longo dos anos inúmeras PMEs com projetos de excelência
+                    a deixarem passar oportunidades de financiamento por desconhecimento dos
+                    programas disponíveis ou pela complexidade burocrática dos processos.
                   </p>
                   <p>
-                    Acreditamos que o acesso a financiamento não deve ser um privilégio de grandes empresas
-                    com departamentos jurídicos. Todas as PMEs portuguesas com ambição e bons projetos
-                    merecem ter oportunidade de crescer.
+                    Decidimos criar uma consultoria especializada, focada exclusivamente em
+                    apoios comunitários, com uma abordagem diferente: <span className="font-semibold">transparência
+                    total, expertise profundo e compromisso com resultados reais</span>.
+                  </p>
+                  <p>
+                    Acreditamos que todas as empresas portuguesas com ambição e bons projetos
+                    merecem ter acesso aos <span className={`font-semibold ${
+                      theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'
+                    }`}>€24 mil milhões disponíveis</span> em fundos europeus. É esse o
+                    nosso compromisso diário.
                   </p>
                 </div>
               </div>
@@ -586,21 +578,21 @@ export default function ApoiosPage() {
                 <h4 className={`text-xl font-bold mb-6 ${
                   theme === 'dark' ? 'text-white' : 'text-black'
                 }`}>
-                  A Nossa Missão
+                  Os Nossos Valores
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {[
                     {
-                      title: 'Democratizar Acesso',
-                      description: 'Tornar fundos europeus acessíveis a todas as PMEs portuguesas, independentemente da dimensão'
+                      title: 'Competitividade',
+                      description: 'Ajudamos empresas a crescer e a competir em mercados nacionais e internacionais'
                     },
                     {
-                      title: 'Transparência Total',
-                      description: 'Processo claro, pricing justo, sem taxas escondidas ou falsas promessas'
+                      title: 'Transparência',
+                      description: 'Processo claro desde o primeiro contacto. Sem taxas escondidas, sem falsas promessas'
                     },
                     {
-                      title: 'Crescimento Real',
-                      description: 'Foco em projetos que realmente impulsionam o crescimento das empresas portuguesas'
+                      title: 'Resultados',
+                      description: 'Foco absoluto em projetos que realmente impulsionam o desenvolvimento empresarial'
                     },
                   ].map((item, idx) => (
                     <div key={idx}>
@@ -718,9 +710,10 @@ export default function ApoiosPage() {
               <p className={`text-base md:text-lg font-medium ${
                 theme === 'dark' ? 'text-white/90' : 'text-gray-800'
               }`}>
-                <span className="font-bold">O nosso compromisso:</span> ajudar cada empresa portuguesa a aproveitar
-                ao máximo os €24 mil milhões disponíveis em fundos europeus, com transparência,
-                profissionalismo e foco em resultados reais.
+                <span className="font-bold">O nosso compromisso:</span> aumentar a competitividade
+                das empresas portuguesas através do acesso facilitado aos €24 mil milhões
+                disponíveis em fundos europeus. Com transparência, profissionalismo e foco
+                em crescimento real.
               </p>
             </motion.div>
           </div>
