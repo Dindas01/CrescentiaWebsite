@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import CookieBanner from '@/components/CookieBanner'
 
 export default function ApoiosPage() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark')
@@ -55,6 +56,69 @@ export default function ApoiosPage() {
 
           {/* Controls - Only theme toggle, NO language */}
           <div className="flex items-center gap-2 md:gap-4">
+            {/* Services Dropdown */}
+            <div className="relative group">
+              <button className={`hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                theme === 'dark'
+                  ? 'text-white/80 hover:text-white hover:bg-white/5'
+                  : 'text-gray-700 hover:text-black hover:bg-gray-100'
+              }`}>
+                Serviços
+                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {/* Dropdown Menu */}
+              <div className={`absolute top-full right-0 mt-2 w-64 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ${
+                theme === 'dark'
+                  ? 'bg-[#12141C] border border-white/10'
+                  : 'bg-white border border-gray-200'
+              }`}>
+                <div className="p-2">
+                  <a
+                    href="https://wealth.crescentia.pt"
+                    className={`block px-4 py-3 rounded-xl transition-colors ${
+                      theme === 'dark'
+                        ? 'hover:bg-white/5'
+                        : 'hover:bg-gray-50'
+                    }`}
+                  >
+                    <div className={`font-semibold mb-1 ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
+                    }`}>
+                      Para Profissionais
+                    </div>
+                    <div className={`text-xs ${
+                      theme === 'dark' ? 'text-white/50' : 'text-gray-500'
+                    }`}>
+                      Otimização Fiscal IFICI
+                    </div>
+                  </a>
+
+                  <a
+                    href="https://crescentia.pt"
+                    className={`block px-4 py-3 rounded-xl transition-colors ${
+                      theme === 'dark'
+                        ? 'hover:bg-white/5'
+                        : 'hover:bg-gray-50'
+                    }`}
+                  >
+                    <div className={`font-semibold mb-1 ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
+                    }`}>
+                      Institucional
+                    </div>
+                    <div className={`text-xs ${
+                      theme === 'dark' ? 'text-white/50' : 'text-gray-500'
+                    }`}>
+                      Sobre a Crescentia
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
             {/* Theme toggle */}
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -567,6 +631,60 @@ export default function ApoiosPage() {
         </div>
       </section>
 
+      {/* Newsletter Section */}
+      <section className={`relative py-16 md:py-20 ${
+        theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#faf8f2]'
+      }`}>
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className={`max-w-3xl mx-auto p-8 md:p-12 rounded-3xl text-center ${
+              theme === 'dark'
+                ? 'bg-yellow-500/5 border border-yellow-500/20'
+                : 'bg-yellow-50 border border-yellow-500/30'
+            }`}
+          >
+            <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${
+              theme === 'dark' ? 'text-white' : 'text-black'
+            }`}>
+              Receba Avisos de Novos Concursos
+            </h3>
+            <p className={`text-base md:text-lg mb-6 ${
+              theme === 'dark' ? 'text-white/70' : 'text-gray-700'
+            }`}>
+              Fique a par de novas oportunidades de financiamento e dicas exclusivas para PMEs
+            </p>
+
+            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder="O seu email"
+                required
+                className={`flex-1 px-6 py-3 rounded-full text-base focus:outline-none focus:ring-2 focus:ring-yellow-500 ${
+                  theme === 'dark'
+                    ? 'bg-white/10 border border-white/20 text-white placeholder:text-white/50'
+                    : 'bg-white border border-gray-300 text-black placeholder:text-gray-500'
+                }`}
+              />
+              <button
+                type="submit"
+                className="px-8 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold hover:shadow-lg transition-all whitespace-nowrap"
+              >
+                Subscrever
+              </button>
+            </form>
+
+            <p className={`text-xs mt-4 ${
+              theme === 'dark' ? 'text-white/50' : 'text-gray-500'
+            }`}>
+              Sem spam. Pode cancelar a qualquer momento.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* 6. CTA FINAL - Soft Sell */}
       <section className={`relative py-20 md:py-28 overflow-hidden ${
         theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#faf8f2]'
@@ -717,6 +835,9 @@ export default function ApoiosPage() {
           </div>
         </div>
       </footer>
+
+      {/* Cookie Consent Banner */}
+      <CookieBanner theme={theme} />
     </>
   )
 }

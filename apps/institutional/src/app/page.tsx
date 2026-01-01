@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import CookieBanner from '@/components/CookieBanner'
 
 // Content object with dual language support
 const content = {
@@ -232,6 +233,69 @@ export default function InstitutionalPage() {
 
           {/* Controls */}
           <div className="flex items-center gap-2 md:gap-4">
+            {/* Services Dropdown */}
+            <div className="relative group">
+              <button className={`hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                theme === 'dark'
+                  ? 'text-white/80 hover:text-white hover:bg-white/5'
+                  : 'text-gray-700 hover:text-black hover:bg-gray-100'
+              }`}>
+                Serviços
+                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {/* Dropdown Menu */}
+              <div className={`absolute top-full right-0 mt-2 w-64 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ${
+                theme === 'dark'
+                  ? 'bg-[#12141C] border border-white/10'
+                  : 'bg-white border border-gray-200'
+              }`}>
+                <div className="p-2">
+                  <a
+                    href="https://apoios.crescentia.pt"
+                    className={`block px-4 py-3 rounded-xl transition-colors ${
+                      theme === 'dark'
+                        ? 'hover:bg-white/5'
+                        : 'hover:bg-gray-50'
+                    }`}
+                  >
+                    <div className={`font-semibold mb-1 ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
+                    }`}>
+                      Para PMEs
+                    </div>
+                    <div className={`text-xs ${
+                      theme === 'dark' ? 'text-white/50' : 'text-gray-500'
+                    }`}>
+                      Apoios Europeus & Fundos
+                    </div>
+                  </a>
+
+                  <a
+                    href="https://wealth.crescentia.pt"
+                    className={`block px-4 py-3 rounded-xl transition-colors ${
+                      theme === 'dark'
+                        ? 'hover:bg-white/5'
+                        : 'hover:bg-gray-50'
+                    }`}
+                  >
+                    <div className={`font-semibold mb-1 ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
+                    }`}>
+                      For Professionals
+                    </div>
+                    <div className={`text-xs ${
+                      theme === 'dark' ? 'text-white/50' : 'text-gray-500'
+                    }`}>
+                      IFICI Tax Optimization
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
             {/* Theme toggle */}
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -863,6 +927,9 @@ export default function InstitutionalPage() {
           </div>
         </div>
       </footer>
+
+      {/* Cookie Consent Banner */}
+      <CookieBanner theme={theme} />
     </>
   )
 }

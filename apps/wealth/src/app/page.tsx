@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { Button, Footer, PricingCard, CalendlyModal } from '@crescentia/ui'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
+import CookieBanner from '@/components/CookieBanner'
 
 // Throttle utility for performance
 function throttle<T extends (...args: any[]) => any>(func: T, delay: number): T {
@@ -141,6 +142,69 @@ const PremiumHeader = ({ onCtaClick, theme, setTheme }: { onCtaClick: () => void
 
           {/* Controls */}
           <div className="flex items-center gap-2 md:gap-4">
+            {/* Services Dropdown */}
+            <div className="relative group">
+              <button className={`hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                theme === 'dark'
+                  ? 'text-white/80 hover:text-white hover:bg-white/5'
+                  : 'text-gray-700 hover:text-black hover:bg-gray-100'
+              }`}>
+                Services
+                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {/* Dropdown Menu */}
+              <div className={`absolute top-full right-0 mt-2 w-64 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ${
+                theme === 'dark'
+                  ? 'bg-[#12141C] border border-white/10'
+                  : 'bg-white border border-gray-200'
+              }`}>
+                <div className="p-2">
+                  <a
+                    href="https://apoios.crescentia.pt"
+                    className={`block px-4 py-3 rounded-xl transition-colors ${
+                      theme === 'dark'
+                        ? 'hover:bg-white/5'
+                        : 'hover:bg-gray-50'
+                    }`}
+                  >
+                    <div className={`font-semibold mb-1 ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
+                    }`}>
+                      For Portuguese SMEs
+                    </div>
+                    <div className={`text-xs ${
+                      theme === 'dark' ? 'text-white/50' : 'text-gray-500'
+                    }`}>
+                      EU Funding & Grants
+                    </div>
+                  </a>
+
+                  <a
+                    href="https://crescentia.pt"
+                    className={`block px-4 py-3 rounded-xl transition-colors ${
+                      theme === 'dark'
+                        ? 'hover:bg-white/5'
+                        : 'hover:bg-gray-50'
+                    }`}
+                  >
+                    <div className={`font-semibold mb-1 ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
+                    }`}>
+                      Corporate
+                    </div>
+                    <div className={`text-xs ${
+                      theme === 'dark' ? 'text-white/50' : 'text-gray-500'
+                    }`}>
+                      About Crescentia
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
             {/* Theme toggle */}
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -1178,6 +1242,60 @@ export default function HomePage() {
             </motion.div>
           </div>
         </section>
+
+        {/* Newsletter Section */}
+        <section className={`relative py-16 md:py-20 ${
+          theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-white'
+        }`}>
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className={`max-w-3xl mx-auto p-8 md:p-12 rounded-3xl text-center ${
+                theme === 'dark'
+                  ? 'bg-yellow-500/5 border border-yellow-500/20'
+                  : 'bg-yellow-50 border border-yellow-500/30'
+              }`}
+            >
+              <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${
+                theme === 'dark' ? 'text-white' : 'text-black'
+              }`}>
+                Stay Updated on Tax Changes
+              </h3>
+              <p className={`text-base md:text-lg mb-6 ${
+                theme === 'dark' ? 'text-white/70' : 'text-gray-700'
+              }`}>
+                Get exclusive insights on IFICI updates, tax optimization strategies, and Portugal residence news
+              </p>
+
+              <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  required
+                  className={`flex-1 px-6 py-3 rounded-full text-base focus:outline-none focus:ring-2 focus:ring-yellow-500 ${
+                    theme === 'dark'
+                      ? 'bg-white/10 border border-white/20 text-white placeholder:text-white/50'
+                      : 'bg-white border border-gray-300 text-black placeholder:text-gray-500'
+                  }`}
+                />
+                <button
+                  type="submit"
+                  className="px-8 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold hover:shadow-lg transition-all whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </form>
+
+              <p className={`text-xs mt-4 ${
+                theme === 'dark' ? 'text-white/50' : 'text-gray-500'
+              }`}>
+                No spam. Unsubscribe anytime.
+              </p>
+            </motion.div>
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
@@ -1205,6 +1323,9 @@ export default function HomePage() {
         ]}
         copyright="© 2024 Crescentia Wealth. All rights reserved."
       />
+
+      {/* Cookie Consent Banner */}
+      <CookieBanner theme={theme} />
     </>
   )
 }
