@@ -2,32 +2,42 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Crescentia Incentivos | European Funding & Wealth Optimization',
+  title: 'Crescentia | Financiamento Europeu & Otimização Fiscal',
   description:
-    'Exclusive advisory for ambitious businesses and professionals. European funding for SMEs and premium tax optimization for international professionals.',
+    'Consultoria especializada em apoios europeus para PMEs e otimização fiscal para profissionais internacionais. Portugal 2030, PRR e regime IFICI.',
   keywords: [
-    'European funding',
-    'Portugal 2030',
+    'crescentia',
+    'apoios europeus',
+    'portugal 2030',
+    'financiamento empresas',
+    'ifici',
+    'otimização fiscal',
+    'consultoria portugal',
     'PRR',
-    'IFICI',
-    'tax optimization',
+    'fundos europeus',
     'wealth optimization',
-    'Crescentia',
-    'SME funding',
-    'international professionals',
   ],
-  authors: [{ name: 'Crescentia Incentivos' }],
+  authors: [{ name: 'Crescentia' }],
   icons: {
     icon: '/logos/Crescentia-Icon-Yellow.svg',
     apple: '/logos/Crescentia-Icon-Yellow.svg',
   },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
+    title: 'Crescentia | Financiamento Europeu & Otimização Fiscal',
+    description: 'Aceda a €24B+ em fundos europeus. Consultoria especializada para PMEs e profissionais internacionais.',
     url: 'https://crescentia.pt',
-    siteName: 'Crescentia Incentivos',
-    title: 'European Funding & Wealth Optimization - Crescentia Incentivos',
-    description: 'Exclusive advisory for ambitious businesses and professionals.',
+    siteName: 'Crescentia',
+    locale: 'pt_PT',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Crescentia | Financiamento Europeu & Otimização Fiscal',
+    description: 'Aceda a €24B+ em fundos europeus. Consultoria especializada.',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
@@ -36,8 +46,36 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Crescentia",
+    "description": "Consultoria em fundos europeus e otimização fiscal",
+    "url": "https://crescentia.pt",
+    "logo": "https://crescentia.pt/logos/Crescentia-Icon-Yellow.svg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+351-913-960-220",
+      "contactType": "Customer Service",
+      "email": "info@crescentia.pt",
+      "areaServed": "PT",
+      "availableLanguage": ["Portuguese", "English"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PT",
+      "addressLocality": "Porto"
+    }
+  }
+
   return (
-    <html lang="en">
+    <html lang="pt">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className="font-sans antialiased bg-[#0a0a0a] text-white">
         {children}
       </body>

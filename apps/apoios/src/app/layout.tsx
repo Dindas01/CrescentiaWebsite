@@ -2,32 +2,42 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Crescentia Incentivos | European Funding & Wealth Optimization',
+  title: 'Crescentia Apoios | Fundos Europeus para PMEs Portuguesas',
   description:
-    'Exclusive advisory for ambitious businesses and professionals. European funding for SMEs and premium tax optimization for international professionals.',
+    'Aceda a €24B+ em apoios europeus. Especialistas em Portugal 2030, PRR e fundos estruturais. Consultoria para PMEs portuguesas com foco em inovação, digitalização e internacionalização.',
   keywords: [
-    'European funding',
-    'Portugal 2030',
-    'PRR',
-    'IFICI',
-    'tax optimization',
-    'wealth optimization',
-    'Crescentia',
-    'SME funding',
-    'international professionals',
+    'apoios europeus',
+    'portugal 2030',
+    'prr',
+    'fundos europeus',
+    'financiamento pme',
+    'inovação',
+    'digitalização',
+    'internacionalização',
+    'incentivos empresas',
+    'crescentia apoios',
   ],
-  authors: [{ name: 'Crescentia Incentivos' }],
+  authors: [{ name: 'Crescentia' }],
   icons: {
     icon: '/logos/Crescentia-Icon-Yellow.svg',
     apple: '/logos/Crescentia-Icon-Yellow.svg',
   },
   openGraph: {
+    title: 'Crescentia Apoios | Fundos Europeus para PMEs',
+    description: 'Aceda a €24B+ disponíveis. Especialistas em Portugal 2030, PRR e fundos estruturais para PMEs portuguesas.',
+    url: 'https://apoios.crescentia.pt',
+    siteName: 'Crescentia Apoios',
+    locale: 'pt_PT',
     type: 'website',
-    locale: 'en_US',
-    url: 'https://crescentia.pt',
-    siteName: 'Crescentia Incentivos',
-    title: 'European Funding & Wealth Optimization - Crescentia Incentivos',
-    description: 'Exclusive advisory for ambitious businesses and professionals.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Crescentia Apoios | Fundos Europeus para PMEs',
+    description: 'Aceda a €24B+ em apoios. Portugal 2030 & PRR experts.',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
@@ -36,8 +46,36 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "Crescentia Apoios",
+    "description": "Consultoria em apoios europeus para PMEs portuguesas",
+    "url": "https://apoios.crescentia.pt",
+    "logo": "https://apoios.crescentia.pt/logos/Crescentia-Icon-Yellow.svg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+351-913-960-220",
+      "contactType": "Customer Service",
+      "email": "info@crescentia.pt",
+      "areaServed": "PT",
+      "availableLanguage": ["Portuguese", "English"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PT",
+      "addressLocality": "Porto"
+    }
+  }
+
   return (
-    <html lang="en">
+    <html lang="pt">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+      </head>
       <body className="font-sans antialiased bg-[#0a0a0a] text-white">
         {children}
       </body>
