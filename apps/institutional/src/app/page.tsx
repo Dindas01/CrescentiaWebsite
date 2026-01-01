@@ -353,13 +353,27 @@ export default function InstitutionalPage() {
       <section className={`relative py-32 md:py-40 overflow-hidden ${
         theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#fffdf7]'
       }`}>
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1920&q=80"
+            alt="Modern corporate office"
+            className="w-full h-full object-cover"
+          />
+          <div className={`absolute inset-0 ${
+            theme === 'dark'
+              ? 'bg-gradient-to-b from-[#0a0a0a]/95 via-[#0a0a0a]/92 to-[#0a0a0a]/95'
+              : 'bg-gradient-to-b from-[#fffdf7]/95 via-[#fffdf7]/90 to-[#fffdf7]/95'
+          }`} />
+        </div>
+
         {/* Layer 1: Base */}
-        <div className={`absolute inset-0 ${
-          theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#fffdf7]'
+        <div className={`absolute inset-0 z-[1] ${
+          theme === 'dark' ? 'bg-[#0a0a0a]/20' : 'bg-[#fffdf7]/20'
         }`} />
 
         {/* Layer 2: Radial gradient */}
-        <div className={`absolute inset-0 ${
+        <div className={`absolute inset-0 z-[2] ${
           theme === 'dark'
             ? 'bg-[radial-gradient(ellipse_at_center,#1a1d2e_0%,#0a0a0a_50%)]'
             : 'bg-[radial-gradient(ellipse_at_top,#faf8f2_0%,#fffdf7_50%)]'
@@ -368,18 +382,18 @@ export default function InstitutionalPage() {
         {/* Layer 3: Yellow accent glows - MORE VISIBLE in light */}
         {theme === 'dark' ? (
           <>
-            <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-yellow-500/12 rounded-full blur-[120px] animate-pulse-slow" />
-            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-yellow-600/10 rounded-full blur-[100px] animate-pulse-slower" />
+            <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-yellow-500/12 rounded-full blur-[120px] animate-pulse-slow z-[3]" />
+            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-yellow-600/10 rounded-full blur-[100px] animate-pulse-slower z-[3]" />
           </>
         ) : (
           <>
-            <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-yellow-400/12 rounded-full blur-[120px] animate-pulse-slow" />
-            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-yellow-300/10 rounded-full blur-[100px] animate-pulse-slower" />
+            <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-yellow-400/12 rounded-full blur-[120px] animate-pulse-slow z-[3]" />
+            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-yellow-300/10 rounded-full blur-[100px] animate-pulse-slower z-[3]" />
           </>
         )}
 
         {/* Layer 4: Gradient mesh - more visible in light */}
-        <div className={`absolute inset-0 ${theme === 'dark' ? 'opacity-25' : 'opacity-50'}`}>
+        <div className={`absolute inset-0 z-[4] ${theme === 'dark' ? 'opacity-25' : 'opacity-50'}`}>
           <div className={`absolute inset-0 bg-gradient-to-br ${
             theme === 'dark'
               ? 'from-yellow-500/8 via-transparent to-yellow-600/8'
@@ -389,7 +403,7 @@ export default function InstitutionalPage() {
 
         {/* Layer 5: Noise texture - more visible */}
         <div
-          className={`absolute inset-0 mix-blend-overlay ${
+          className={`absolute inset-0 z-[5] mix-blend-overlay ${
             theme === 'dark' ? 'opacity-[0.02]' : 'opacity-[0.04]'
           }`}
           style={{
@@ -398,9 +412,9 @@ export default function InstitutionalPage() {
         />
 
         {/* Layer 6: Subtle top highlight (premium depth) */}
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-yellow-200 to-transparent opacity-50" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-yellow-200 to-transparent opacity-50 z-[6]" />
 
-        <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
+        <div className="relative z-[10] container mx-auto px-4 md:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

@@ -147,8 +147,22 @@ export default function ApoiosPage() {
       <section className={`relative py-32 md:py-40 overflow-hidden ${
         theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#fffdf7]'
       }`}>
-        {/* Simple background - just gradient + noise */}
-        <div className="absolute inset-0">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1554224311-beee460ae6fb?w=1920&q=80"
+            alt="Portuguese business"
+            className="w-full h-full object-cover"
+          />
+          <div className={`absolute inset-0 ${
+            theme === 'dark'
+              ? 'bg-gradient-to-b from-[#0a0a0a]/95 via-[#0a0a0a]/90 to-[#0a0a0a]/95'
+              : 'bg-gradient-to-b from-[#fffdf7]/95 via-[#fffdf7]/85 to-[#fffdf7]/95'
+          }`} />
+        </div>
+
+        {/* Gradient + noise layers */}
+        <div className="absolute inset-0 z-[1]">
           <div className={theme === 'dark'
             ? 'bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a] to-[#12141C]'
             : 'bg-gradient-to-b from-[#fffdf7] via-[#faf8f2] to-[#fffdf7]'
@@ -240,6 +254,88 @@ export default function ApoiosPage() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Programas Oficiais - Logo Section */}
+      <section className={`relative py-12 border-y ${
+        theme === 'dark'
+          ? 'border-white/5 bg-[#0a0a0a]'
+          : 'border-gray-200 bg-white'
+      }`}>
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className={`text-center text-xs uppercase tracking-wider mb-8 ${
+              theme === 'dark' ? 'text-white/40' : 'text-gray-400'
+            }`}
+          >
+            Programas com que trabalhamos
+          </motion.p>
+
+          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 max-w-4xl mx-auto">
+            {/* Portugal 2030 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className={`transition-all duration-300 ${
+                theme === 'dark'
+                  ? 'opacity-50 hover:opacity-100'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
+            >
+              <div className={`text-center ${
+                theme === 'dark' ? 'text-white/80' : 'text-gray-700'
+              }`}>
+                <div className="text-4xl font-bold mb-2">PT2030</div>
+                <div className="text-xs">Portugal 2030</div>
+              </div>
+            </motion.div>
+
+            {/* PRR */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className={`transition-all duration-300 ${
+                theme === 'dark'
+                  ? 'opacity-50 hover:opacity-100'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
+            >
+              <div className={`text-center ${
+                theme === 'dark' ? 'text-white/80' : 'text-gray-700'
+              }`}>
+                <div className="text-4xl font-bold mb-2">PRR</div>
+                <div className="text-xs">Recuperação e Resiliência</div>
+              </div>
+            </motion.div>
+
+            {/* UE */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className={`transition-all duration-300 ${
+                theme === 'dark'
+                  ? 'opacity-50 hover:opacity-100'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
+            >
+              <div className={`text-center ${
+                theme === 'dark' ? 'text-white/80' : 'text-gray-700'
+              }`}>
+                <div className="text-4xl font-bold mb-2">🇪🇺</div>
+                <div className="text-xs">União Europeia</div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

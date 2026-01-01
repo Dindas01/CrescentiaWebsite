@@ -282,13 +282,27 @@ export default function HomePage() {
             theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#fafafa]'
           }`}
         >
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1920&q=80"
+              alt="Cascais Portugal lifestyle"
+              className="w-full h-full object-cover"
+            />
+            <div className={`absolute inset-0 ${
+              theme === 'dark'
+                ? 'bg-gradient-to-b from-[#0a0a0a]/95 via-[#0a0a0a]/92 to-[#0a0a0a]/95'
+                : 'bg-gradient-to-b from-[#fafafa]/95 via-[#fafafa]/90 to-[#fafafa]/95'
+            }`} />
+          </div>
+
           {/* Layer 1: Deep base */}
-          <div className={`absolute inset-0 ${
-            theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-gradient-to-b from-[#fafafa] via-[#f5f5f5] to-[#ffffff]'
+          <div className={`absolute inset-0 z-[1] ${
+            theme === 'dark' ? 'bg-[#0a0a0a]/20' : 'bg-gradient-to-b from-[#fafafa]/20 via-[#f5f5f5]/20 to-[#ffffff]/20'
           }`} />
 
           {/* Layer 2: Radial gradient center glow */}
-          <div className={`absolute inset-0 ${
+          <div className={`absolute inset-0 z-[2] ${
             theme === 'dark'
               ? 'bg-[radial-gradient(ellipse_at_center,#1a1d2e_0%,#0a0a0a_50%)]'
               : 'bg-[radial-gradient(ellipse_at_center,#ffffff_0%,#fafafa_50%)]'
@@ -297,18 +311,18 @@ export default function HomePage() {
           {/* Layer 3: Yellow accent glows - ANIMATED */}
           {theme === 'dark' ? (
             <>
-              <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-yellow-500/20 rounded-full blur-[150px] animate-pulse-slow" />
-              <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-yellow-600/15 rounded-full blur-[120px] animate-pulse-slower" />
+              <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-yellow-500/20 rounded-full blur-[150px] animate-pulse-slow z-[3]" />
+              <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-yellow-600/15 rounded-full blur-[120px] animate-pulse-slower z-[3]" />
             </>
           ) : (
             <>
-              <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-yellow-500/3 rounded-full blur-[150px] animate-pulse-slow" />
-              <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-yellow-600/2 rounded-full blur-[120px] animate-pulse-slower" />
+              <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-yellow-500/3 rounded-full blur-[150px] animate-pulse-slow z-[3]" />
+              <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-yellow-600/2 rounded-full blur-[120px] animate-pulse-slower z-[3]" />
             </>
           )}
 
           {/* Layer 4: Animated gradient mesh */}
-          <div className={`absolute inset-0 ${theme === 'dark' ? 'opacity-30' : 'opacity-10'}`}>
+          <div className={`absolute inset-0 z-[4] ${theme === 'dark' ? 'opacity-30' : 'opacity-10'}`}>
             <div className={`absolute inset-0 bg-gradient-to-br ${
               theme === 'dark'
                 ? 'from-yellow-500/10 via-transparent to-yellow-600/10'
@@ -318,7 +332,7 @@ export default function HomePage() {
 
           {/* Layer 5: Noise texture (subtle) */}
           <div
-            className={`absolute inset-0 mix-blend-overlay ${
+            className={`absolute inset-0 z-[5] mix-blend-overlay ${
               theme === 'dark' ? 'opacity-[0.02]' : 'opacity-[0.01]'
             }`}
             style={{
@@ -327,7 +341,7 @@ export default function HomePage() {
           />
 
           {/* Layer 6: WEALTH background text - PREMIUM STYLE */}
-          <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+          <div className="absolute inset-0 z-[6] flex items-center justify-center overflow-hidden pointer-events-none">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -351,7 +365,7 @@ export default function HomePage() {
 
           <motion.div
             style={{ y: heroY, willChange: 'transform' }}
-            className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-24 md:py-32 lg:py-40 w-full z-10"
+            className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-24 md:py-32 lg:py-40 w-full z-[10]"
           >
             <div className="text-center max-w-5xl mx-auto">
               {/* Small Badge - Minimal */}
@@ -477,7 +491,7 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10"
+            className="absolute bottom-12 left-1/2 -translate-x-1/2 z-[10]"
           >
             <motion.div
               animate={{ y: [0, 8, 0] }}
@@ -492,6 +506,92 @@ export default function HomePage() {
             </motion.div>
           </motion.div>
         </motion.section>
+
+        {/* CRYPTO TICKER - Infinite Scroll */}
+        <section className={`relative py-12 border-y ${
+          theme === 'dark'
+            ? 'border-white/5 bg-[#0a0a0a]'
+            : 'border-gray-200 bg-white'
+        }`}>
+          <div className="relative overflow-hidden">
+            {/* Gradient fade edges */}
+            <div className={`absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none ${
+              theme === 'dark'
+                ? 'bg-gradient-to-r from-[#0a0a0a] to-transparent'
+                : 'bg-gradient-to-r from-white to-transparent'
+            }`} />
+            <div className={`absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none ${
+              theme === 'dark'
+                ? 'bg-gradient-to-l from-[#0a0a0a] to-transparent'
+                : 'bg-gradient-to-l from-white to-transparent'
+            }`} />
+
+            {/* Ticker content */}
+            <div className="ticker-wrapper">
+              <div className="ticker-content">
+                {[
+                  { name: 'Bitcoin', symbol: 'BTC', icon: '₿' },
+                  { name: 'Ethereum', symbol: 'ETH', icon: 'Ξ' },
+                  { name: 'Solana', symbol: 'SOL', icon: '◎' },
+                  { name: 'Cardano', symbol: 'ADA', icon: '₳' },
+                  { name: 'Polkadot', symbol: 'DOT', icon: '●' },
+                  { name: 'Avalanche', symbol: 'AVAX', icon: '▲' },
+                  { name: 'Polygon', symbol: 'MATIC', icon: '⬡' },
+                  { name: 'Chainlink', symbol: 'LINK', icon: '⬢' },
+                ].map((crypto, index) => (
+                  <div
+                    key={index}
+                    className={`inline-flex items-center gap-3 px-8 ${
+                      theme === 'dark' ? 'text-white/60' : 'text-gray-600'
+                    }`}
+                  >
+                    <span className="text-2xl font-bold text-yellow-500/80">
+                      {crypto.icon}
+                    </span>
+                    <span className="text-sm font-semibold tracking-wide">
+                      {crypto.symbol}
+                    </span>
+                    <span className={`text-xs ${
+                      theme === 'dark' ? 'text-white/40' : 'text-gray-400'
+                    }`}>
+                      {crypto.name}
+                    </span>
+                  </div>
+                ))}
+                {/* Duplicate for seamless loop */}
+                {[
+                  { name: 'Bitcoin', symbol: 'BTC', icon: '₿' },
+                  { name: 'Ethereum', symbol: 'ETH', icon: 'Ξ' },
+                  { name: 'Solana', symbol: 'SOL', icon: '◎' },
+                  { name: 'Cardano', symbol: 'ADA', icon: '₳' },
+                  { name: 'Polkadot', symbol: 'DOT', icon: '●' },
+                  { name: 'Avalanche', symbol: 'AVAX', icon: '▲' },
+                  { name: 'Polygon', symbol: 'MATIC', icon: '⬡' },
+                  { name: 'Chainlink', symbol: 'LINK', icon: '⬢' },
+                ].map((crypto, index) => (
+                  <div
+                    key={`dup-${index}`}
+                    className={`inline-flex items-center gap-3 px-8 ${
+                      theme === 'dark' ? 'text-white/60' : 'text-gray-600'
+                    }`}
+                  >
+                    <span className="text-2xl font-bold text-yellow-500/80">
+                      {crypto.icon}
+                    </span>
+                    <span className="text-sm font-semibold tracking-wide">
+                      {crypto.symbol}
+                    </span>
+                    <span className={`text-xs ${
+                      theme === 'dark' ? 'text-white/40' : 'text-gray-400'
+                    }`}>
+                      {crypto.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* SOPHISTICATED GOLD BENEFITS SECTION */}
         <section id="benefits" className="relative py-32 md:py-48 overflow-hidden bg-gradient-to-br from-[#E8C547] via-[#DFC13F] to-[#D4AF37]">
