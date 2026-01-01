@@ -359,108 +359,209 @@ export default function ApoiosPage() {
         </div>
       </section>
 
-      {/* 5. QUEM SOMOS - Credenciais da Equipa */}
-      <section className={`relative py-20 md:py-28 ${
-        theme === 'dark' ? 'bg-[#12141C]' : 'bg-white'
+      {/* Quem Somos - História do Fundador */}
+      <section className={`relative py-24 md:py-32 ${
+        theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#fffdf7]'
       }`}>
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${
+            <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${
               theme === 'dark' ? 'text-white' : 'text-black'
             }`}>
-              Quem{' '}
+              Sobre a{' '}
               <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-                Somos
+                Crescentia
               </span>
             </h2>
-            <p className={`text-lg md:text-xl max-w-3xl mx-auto ${
-              theme === 'dark' ? 'text-white/70' : 'text-gray-700'
-            }`}>
-              Uma equipa multidisciplinar especializada em financiamento europeu para PMEs.
-            </p>
           </motion.div>
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12">
-            {/* Expertise */}
+          <div className="max-w-5xl mx-auto space-y-8">
+            {/* História do Fundador */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              className={`p-8 md:p-12 rounded-3xl ${
+                theme === 'dark'
+                  ? 'bg-white/[0.02] backdrop-blur-xl border border-white/[0.06]'
+                  : 'bg-white backdrop-blur-xl border border-gray-200 shadow-lg'
+              }`}
             >
-              <h3 className={`text-2xl md:text-3xl font-bold mb-6 ${
-                theme === 'dark' ? 'text-white' : 'text-black'
-              }`}>
-                Expertise
-              </h3>
-              <div className="space-y-4">
-                {[
-                  'Fundos Europeus Estruturais (FEDER, FSE+)',
-                  'Portugal 2030 (competitividade, inovação, I&D)',
-                  'Plano de Recuperação e Resiliência (PRR)',
-                  'Programas setoriais (Mar, Agricultura, Turismo)',
-                  'Internacionalização e captação de investimento',
-                  'Due diligence e apoio à execução de projetos',
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className={`flex items-start gap-3 text-base md:text-lg ${
-                      theme === 'dark' ? 'text-white/70' : 'text-gray-700'
-                    }`}
-                  >
-                    <svg className={`w-6 h-6 mt-0.5 flex-shrink-0 ${
+              <div className="mb-8">
+                <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${
+                  theme === 'dark' ? 'text-white' : 'text-black'
+                }`}>
+                  A Nossa História
+                </h3>
+                <div className={`space-y-4 text-base md:text-lg leading-relaxed ${
+                  theme === 'dark' ? 'text-white/80' : 'text-gray-700'
+                }`}>
+                  <p>
+                    A Crescentia foi fundada por <span className="font-semibold">Diogo Costa</span>, português de gema,
+                    com uma missão clara: <span className={`font-semibold ${
                       theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'
-                    }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>{item}</span>
-                  </div>
-                ))}
+                    }`}>incentivar as empresas portuguesas a crescer</span>.
+                  </p>
+                  <p>
+                    Depois de testemunhar inúmeras PMEs com projetos excelentes a deixarem passar oportunidades
+                    de financiamento por desconhecimento ou falta de apoio especializado, decidi criar uma
+                    consultoria focada exclusivamente em apoios europeus.
+                  </p>
+                  <p>
+                    Acreditamos que o acesso a financiamento não deve ser um privilégio de grandes empresas
+                    com departamentos jurídicos. Todas as PMEs portuguesas com ambição e bons projetos
+                    merecem ter oportunidade de crescer.
+                  </p>
+                </div>
+              </div>
+
+              <div className={`pt-8 border-t ${
+                theme === 'dark' ? 'border-white/10' : 'border-gray-200'
+              }`}>
+                <h4 className={`text-xl font-bold mb-6 ${
+                  theme === 'dark' ? 'text-white' : 'text-black'
+                }`}>
+                  A Nossa Missão
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {[
+                    {
+                      title: 'Democratizar Acesso',
+                      description: 'Tornar fundos europeus acessíveis a todas as PMEs portuguesas, independentemente da dimensão'
+                    },
+                    {
+                      title: 'Transparência Total',
+                      description: 'Processo claro, pricing justo, sem taxas escondidas ou falsas promessas'
+                    },
+                    {
+                      title: 'Crescimento Real',
+                      description: 'Foco em projetos que realmente impulsionam o crescimento das empresas portuguesas'
+                    },
+                  ].map((item, idx) => (
+                    <div key={idx}>
+                      <h5 className={`text-base font-semibold mb-2 ${
+                        theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'
+                      }`}>
+                        {item.title}
+                      </h5>
+                      <p className={`text-sm ${
+                        theme === 'dark' ? 'text-white/70' : 'text-gray-600'
+                      }`}>
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
 
-            {/* Experiência */}
+            {/* Expertise & Credenciais */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ delay: 0.2 }}
+              className={`p-8 md:p-12 rounded-3xl ${
+                theme === 'dark'
+                  ? 'bg-white/[0.02] backdrop-blur-xl border border-white/[0.06]'
+                  : 'bg-white backdrop-blur-xl border border-gray-200 shadow-lg'
+              }`}
             >
-              <h3 className={`text-2xl md:text-3xl font-bold mb-6 ${
+              <h3 className={`text-2xl md:text-3xl font-bold mb-8 text-center ${
                 theme === 'dark' ? 'text-white' : 'text-black'
               }`}>
-                Experiência
+                Expertise & Resultados
               </h3>
-              <div className="space-y-4">
-                {[
-                  'Mais de 50 candidaturas submetidas desde 2020',
-                  'Projetos aprovados em 6 áreas de especialização',
-                  'Acompanhamento desde diagnóstico até execução',
-                  'Parcerias com entidades gestoras e certificadas',
-                  'Conhecimento profundo de legislação e normativos',
-                  'Network consolidado no ecossistema de fundos EU',
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className={`flex items-start gap-3 text-base md:text-lg ${
-                      theme === 'dark' ? 'text-white/70' : 'text-gray-700'
-                    }`}
-                  >
-                    <svg className={`w-6 h-6 mt-0.5 flex-shrink-0 ${
-                      theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'
-                    }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>{item}</span>
-                  </div>
-                ))}
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Especialização */}
+                <div>
+                  <h4 className={`text-lg font-bold mb-4 ${
+                    theme === 'dark' ? 'text-white' : 'text-black'
+                  }`}>
+                    Áreas de Especialização
+                  </h4>
+                  <ul className="space-y-3">
+                    {[
+                      'Fundos Europeus & Portugal 2030',
+                      'PRR - Plano de Recuperação e Resiliência',
+                      'Gestão e acompanhamento de projetos',
+                      'Análise de elegibilidade',
+                      'Consultoria estratégica',
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <svg className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                          theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'
+                        }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className={`text-sm md:text-base ${
+                          theme === 'dark' ? 'text-white/80' : 'text-gray-700'
+                        }`}>
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Track Record */}
+                <div>
+                  <h4 className={`text-lg font-bold mb-4 ${
+                    theme === 'dark' ? 'text-white' : 'text-black'
+                  }`}>
+                    Track Record
+                  </h4>
+                  <ul className="space-y-3">
+                    {[
+                      '50+ candidaturas submetidas',
+                      '6 áreas de especialização',
+                      'Parcerias com contabilistas certificados',
+                      'Conhecimento profundo dos programas',
+                      'Acompanhamento pós-aprovação',
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <svg className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                          theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'
+                        }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className={`text-sm md:text-base ${
+                          theme === 'dark' ? 'text-white/80' : 'text-gray-700'
+                        }`}>
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
+            </motion.div>
+
+            {/* Compromisso */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className={`p-6 md:p-8 rounded-2xl text-center ${
+                theme === 'dark'
+                  ? 'bg-yellow-500/5 border border-yellow-500/20'
+                  : 'bg-yellow-50 border border-yellow-500/30'
+              }`}
+            >
+              <p className={`text-base md:text-lg font-medium ${
+                theme === 'dark' ? 'text-white/90' : 'text-gray-800'
+              }`}>
+                <span className="font-bold">O nosso compromisso:</span> ajudar cada empresa portuguesa a aproveitar
+                ao máximo os €24 mil milhões disponíveis em fundos europeus, com transparência,
+                profissionalismo e foco em resultados reais.
+              </p>
             </motion.div>
           </div>
         </div>
