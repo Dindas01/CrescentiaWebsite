@@ -276,19 +276,19 @@ export default function ApoiosPage() {
             Programas com que trabalhamos
           </motion.p>
 
-          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 max-w-5xl mx-auto">
-            {/* Portugal 2030 Logo */}
+          <div className="flex flex-wrap items-center justify-center gap-16 md:gap-20 max-w-5xl mx-auto">
+            {/* Portugal 2030 + UE Logo */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+              className="transition-all duration-300 hover:scale-105"
             >
               <img
                 src="/logos/portugal2030.png"
-                alt="Portugal 2030"
-                className="h-20 md:h-24 w-auto"
+                alt="Portugal 2030 - Cofinanciado pela União Europeia"
+                className="h-16 md:h-20 w-auto"
               />
             </motion.div>
 
@@ -298,27 +298,12 @@ export default function ApoiosPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+              className="transition-all duration-300 hover:scale-105"
             >
               <img
                 src="/logos/prr.png"
                 alt="Plano de Recuperação e Resiliência"
-                className="h-20 md:h-24 w-auto"
-              />
-            </motion.div>
-
-            {/* União Europeia Logo */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
-            >
-              <img
-                src="/logos/uniao-europeia.png"
-                alt="União Europeia"
-                className="h-20 md:h-24 w-auto"
+                className="h-16 md:h-20 w-auto"
               />
             </motion.div>
           </div>
