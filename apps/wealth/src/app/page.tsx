@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { Button, Footer, PricingCard, CalendlyModal } from '@crescentia/ui'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import CookieBanner from '@/components/CookieBanner'
+import CookieBanner from '../components/CookieBanner'
 
 // Throttle utility for performance
 function throttle<T extends (...args: any[]) => any>(func: T, delay: number): T {

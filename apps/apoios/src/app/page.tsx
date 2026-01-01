@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import CookieBanner from '@/components/CookieBanner'
+import CookieBanner from '../components/CookieBanner'
 
 export default function ApoiosPage() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark')
