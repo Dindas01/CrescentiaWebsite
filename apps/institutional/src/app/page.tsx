@@ -87,7 +87,7 @@ const content = {
       contact: 'Contact Us'
     },
     footer: {
-      copyright: '© 2025 Crescentia Incentivos. Exclusive advisory services.',
+      copyright: '© 2026 Crescentia. Exclusive advisory services.',
       email: 'info@crescentia.pt',
       phone: '+351 913 960 220'
     }

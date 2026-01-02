@@ -1421,7 +1421,7 @@ export default function HomePage() {
             ],
           },
         ]}
-        copyright="© 2024 Crescentia Wealth. All rights reserved."
+        copyright="© 2026 Crescentia Wealth. All rights reserved."
       />
 
       {/* Cookie Consent Banner */}
