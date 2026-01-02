@@ -95,8 +95,10 @@ const content = {
         title: '14. Contacto',
         intro: 'Para questões sobre estes Termos e Condições, contacte-nos:',
         company: 'Crescentia',
-        email: 'info@crescentia.pt',
-        phone: '+351 913 960 220'
+        address1: 'Travessa Teixeira de Pascoaes 100',
+        address2: '4460-431 Senhora da Hora',
+        country: 'Portugal',
+        email: 'info@crescentia.pt'
       }
     }
   },
@@ -191,8 +193,10 @@ const content = {
         title: '14. Contact',
         intro: 'For questions about these Terms and Conditions, contact us:',
         company: 'Crescentia',
-        email: 'info@crescentia.pt',
-        phone: '+351 913 960 220'
+        address1: 'Travessa Teixeira de Pascoaes 100',
+        address2: '4460-431 Senhora da Hora',
+        country: 'Portugal',
+        email: 'info@crescentia.pt'
       }
     }
   }
@@ -465,10 +469,10 @@ export default function TermsPage() {
                 theme === 'dark' ? 'bg-white/5' : 'bg-gray-100'
               }`}>
                 <p><strong>{t.sections.contact.company}</strong></p>
-                <p>Email: <a href={`mailto:${t.sections.contact.email}`} className="text-yellow-500 hover:text-yellow-400">{t.sections.contact.email}</a></p>
-                <p>
-                  {language === 'pt' ? 'Telefone' : 'Phone'}: <a href={`tel:${t.sections.contact.phone.replace(/\s/g, '')}`} className="text-yellow-500 hover:text-yellow-400">{t.sections.contact.phone}</a>
-                </p>
+                <p>{t.sections.contact.address1}</p>
+                <p>{t.sections.contact.address2}</p>
+                <p>{t.sections.contact.country}</p>
+                <p className="mt-4">Email: <a href={`mailto:${t.sections.contact.email}`} className="text-yellow-500 hover:text-yellow-400">{t.sections.contact.email}</a></p>
               </div>
             </section>
           </div>

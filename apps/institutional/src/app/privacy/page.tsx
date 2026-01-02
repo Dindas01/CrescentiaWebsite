@@ -116,8 +116,10 @@ const content = {
         title: '13. Contacto',
         intro: 'Para questões sobre esta Política de Privacidade ou para exercer os seus direitos, contacte-nos:',
         company: 'Crescentia',
+        address1: 'Travessa Teixeira de Pascoaes 100',
+        address2: '4460-431 Senhora da Hora',
+        country: 'Portugal',
         email: 'info@crescentia.pt',
-        phone: '+351 913 960 220',
         footer: 'Tem também o direito de apresentar uma reclamação junto da Comissão Nacional de Proteção de Dados (CNPD) se considerar que os seus direitos de proteção de dados foram violados.'
       }
     }
@@ -234,8 +236,10 @@ const content = {
         title: '13. Contact Us',
         intro: 'For questions about this Privacy Policy or to exercise your rights, contact us at:',
         company: 'Crescentia',
+        address1: 'Travessa Teixeira de Pascoaes 100',
+        address2: '4460-431 Senhora da Hora',
+        country: 'Portugal',
         email: 'info@crescentia.pt',
-        phone: '+351 913 960 220',
         footer: 'You also have the right to lodge a complaint with the Portuguese Data Protection Authority (CNPD) if you believe your data protection rights have been violated.'
       }
     }
@@ -525,10 +529,10 @@ export default function PrivacyPage() {
                 theme === 'dark' ? 'bg-white/5' : 'bg-gray-100'
               }`}>
                 <p><strong>{t.sections.contact.company}</strong></p>
-                <p>Email: <a href={`mailto:${t.sections.contact.email}`} className="text-yellow-500 hover:text-yellow-400">{t.sections.contact.email}</a></p>
-                <p>
-                  {language === 'pt' ? 'Telefone' : 'Phone'}: <a href={`tel:${t.sections.contact.phone.replace(/\s/g, '')}`} className="text-yellow-500 hover:text-yellow-400">{t.sections.contact.phone}</a>
-                </p>
+                <p>{t.sections.contact.address1}</p>
+                <p>{t.sections.contact.address2}</p>
+                <p>{t.sections.contact.country}</p>
+                <p className="mt-4">Email: <a href={`mailto:${t.sections.contact.email}`} className="text-yellow-500 hover:text-yellow-400">{t.sections.contact.email}</a></p>
               </div>
               <p className="mt-4 text-sm">{t.sections.contact.footer}</p>
             </section>

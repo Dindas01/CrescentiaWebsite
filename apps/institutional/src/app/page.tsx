@@ -89,7 +89,6 @@ const content = {
     footer: {
       copyright: '© 2026 Crescentia. Exclusive advisory services.',
       email: 'info@crescentia.pt',
-      phone: '+351 913 960 220',
       privacy: 'Privacy Policy',
       terms: 'Terms of Service'
     }
@@ -177,7 +176,6 @@ const content = {
     footer: {
       copyright: '© 2026 Crescentia. Serviços de consultoria exclusiva.',
       email: 'info@crescentia.pt',
-      phone: '+351 913 960 220',
       privacy: 'Política de Privacidade',
       terms: 'Termos e Condições'
     }
@@ -887,7 +885,7 @@ export default function InstitutionalPage() {
               </motion.a>
 
               <motion.a
-                href="tel:+351913960220"
+                href="mailto:info@crescentia.pt"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className={`px-8 py-4 rounded-full font-semibold text-lg transition-all ${
@@ -896,7 +894,7 @@ export default function InstitutionalPage() {
                     : 'bg-black/5 border border-black/10 hover:border-black/20 text-black'
                 }`}
               >
-                +351 913 960 220
+                info@crescentia.pt
               </motion.a>
             </div>
           </motion.div>
@@ -956,17 +954,6 @@ export default function InstitutionalPage() {
                   }`}
                 >
                   {content[language].footer.email}
-                </a>
-                <span className={theme === 'dark' ? 'text-white/30' : 'text-gray-400'}>|</span>
-                <a
-                  href={`tel:${content[language].footer.phone.replace(/\s/g, '')}`}
-                  className={`transition-colors ${
-                    theme === 'dark'
-                      ? 'text-white/60 hover:text-yellow-400'
-                      : 'text-gray-600 hover:text-yellow-600'
-                  }`}
-                >
-                  {content[language].footer.phone}
                 </a>
               </div>
             </div>

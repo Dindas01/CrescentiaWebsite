@@ -273,9 +273,11 @@ export default function PrivacyPolicy() {
               <div className={`p-6 rounded-xl ${
                 theme === 'dark' ? 'bg-white/5' : 'bg-gray-100'
               }`}>
-                <p><strong>Crescentia Wealth</strong></p>
-                <p>Email: <a href="mailto:info@crescentia.pt" className="text-yellow-500 hover:text-yellow-400">info@crescentia.pt</a></p>
-                <p>Phone: <a href="tel:+351913960220" className="text-yellow-500 hover:text-yellow-400">+351 913 960 220</a></p>
+                <p><strong>Crescentia</strong></p>
+                <p>Travessa Teixeira de Pascoaes 100</p>
+                <p>4460-431 Senhora da Hora</p>
+                <p>Portugal</p>
+                <p className="mt-4">Email: <a href="mailto:info@crescentia.pt" className="text-yellow-500 hover:text-yellow-400">info@crescentia.pt</a></p>
               </div>
               <p className="mt-4 text-sm">
                 You also have the right to lodge a complaint with the Portuguese Data Protection Authority (CNPD) if you believe your data protection rights have been violated.
