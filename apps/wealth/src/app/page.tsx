@@ -1420,6 +1420,13 @@ export default function HomePage() {
               { label: 'Blog', href: '#' },
             ],
           },
+          {
+            title: 'Legal',
+            links: [
+              { label: 'Privacy Policy', href: '/privacy' },
+              { label: 'Terms of Service', href: '/terms' },
+            ],
+          },
         ]}
         copyright="© 2026 Crescentia Wealth. All rights reserved."
       />
