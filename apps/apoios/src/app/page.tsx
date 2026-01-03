@@ -230,7 +230,7 @@ export default function ApoiosPage() {
               { value: '€24B+', label: 'Fundos Disponíveis' },
               { value: '6', label: 'Áreas Especializadas' },
               { value: '50+', label: 'Projetos Submetidos' },
-              { value: '2020', label: 'No Mercado Desde' },
+              { value: '85%', label: 'Taxa de Aprovação' },
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
