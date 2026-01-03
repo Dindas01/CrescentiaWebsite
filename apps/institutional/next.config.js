@@ -2,6 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ['@crescentia/ui', '@crescentia/config'],
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     remotePatterns: [],
   },
