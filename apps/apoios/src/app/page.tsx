@@ -276,64 +276,50 @@ export default function ApoiosPage() {
             Programas com que trabalhamos
           </motion.p>
 
-          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 max-w-4xl mx-auto">
-            {/* Portugal 2030 */}
+          <div className="flex flex-wrap items-center justify-center gap-16 md:gap-20 max-w-5xl mx-auto">
+            {/* Portugal 2030 + UE - Temporary text badge until PNG logos added */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className={`transition-all duration-300 ${
-                theme === 'dark'
-                  ? 'opacity-50 hover:opacity-100'
-                  : 'opacity-60 hover:opacity-100'
-              }`}
+              className="transition-all duration-300 hover:scale-105"
             >
-              <div className={`text-center ${
-                theme === 'dark' ? 'text-white/80' : 'text-gray-700'
+              <div className={`px-8 py-6 rounded-2xl border-2 ${
+                theme === 'dark'
+                  ? 'border-blue-500/30 bg-blue-500/5'
+                  : 'border-blue-600/30 bg-blue-50'
               }`}>
-                <div className="text-4xl font-bold mb-2">PT2030</div>
-                <div className="text-xs">Portugal 2030</div>
+                <div className={`text-center ${
+                  theme === 'dark' ? 'text-blue-400' : 'text-blue-700'
+                }`}>
+                  <div className="text-3xl font-bold mb-1">PT 2030</div>
+                  <div className="text-xs font-semibold opacity-80">Portugal 2030</div>
+                  <div className="text-[10px] mt-2 opacity-60">+ União Europeia</div>
+                </div>
               </div>
             </motion.div>
 
-            {/* PRR */}
+            {/* PRR - Temporary text badge until PNG logo added */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className={`transition-all duration-300 ${
-                theme === 'dark'
-                  ? 'opacity-50 hover:opacity-100'
-                  : 'opacity-60 hover:opacity-100'
-              }`}
+              className="transition-all duration-300 hover:scale-105"
             >
-              <div className={`text-center ${
-                theme === 'dark' ? 'text-white/80' : 'text-gray-700'
-              }`}>
-                <div className="text-4xl font-bold mb-2">PRR</div>
-                <div className="text-xs">Recuperação e Resiliência</div>
-              </div>
-            </motion.div>
-
-            {/* UE */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className={`transition-all duration-300 ${
+              <div className={`px-8 py-6 rounded-2xl border-2 ${
                 theme === 'dark'
-                  ? 'opacity-50 hover:opacity-100'
-                  : 'opacity-60 hover:opacity-100'
-              }`}
-            >
-              <div className={`text-center ${
-                theme === 'dark' ? 'text-white/80' : 'text-gray-700'
+                  ? 'border-green-500/30 bg-green-500/5'
+                  : 'border-green-600/30 bg-green-50'
               }`}>
-                <div className="text-4xl font-bold mb-2">🇪🇺</div>
-                <div className="text-xs">União Europeia</div>
+                <div className={`text-center ${
+                  theme === 'dark' ? 'text-green-400' : 'text-green-700'
+                }`}>
+                  <div className="text-3xl font-bold mb-1">PRR</div>
+                  <div className="text-xs font-semibold opacity-80">Recuperação e</div>
+                  <div className="text-xs font-semibold opacity-80">Resiliência</div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -562,20 +548,27 @@ export default function ApoiosPage() {
                   theme === 'dark' ? 'text-white/80' : 'text-gray-700'
                 }`}>
                   <p>
-                    A Crescentia foi fundada por <span className="font-semibold">Diogo Costa</span>, português de gema,
-                    com uma missão clara: <span className={`font-semibold ${
+                    Fundámos a Crescentia com uma <span className={`font-semibold ${
                       theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'
-                    }`}>incentivar as empresas portuguesas a crescer</span>.
+                    }`}>missão clara: aumentar a competitividade das empresas portuguesas</span> através
+                    do acesso facilitado a fundos europeus.
                   </p>
                   <p>
-                    Depois de testemunhar inúmeras PMEs com projetos excelentes a deixarem passar oportunidades
-                    de financiamento por desconhecimento ou falta de apoio especializado, decidi criar uma
-                    consultoria focada exclusivamente em apoios europeus.
+                    Testemunhámos ao longo dos anos inúmeras PMEs com projetos de excelência
+                    a deixarem passar oportunidades de financiamento por desconhecimento dos
+                    programas disponíveis ou pela complexidade burocrática dos processos.
                   </p>
                   <p>
-                    Acreditamos que o acesso a financiamento não deve ser um privilégio de grandes empresas
-                    com departamentos jurídicos. Todas as PMEs portuguesas com ambição e bons projetos
-                    merecem ter oportunidade de crescer.
+                    Decidimos criar uma consultoria especializada, focada exclusivamente em
+                    apoios comunitários, com uma abordagem diferente: <span className="font-semibold">transparência
+                    total, expertise profundo e compromisso com resultados reais</span>.
+                  </p>
+                  <p>
+                    Acreditamos que todas as empresas portuguesas com ambição e bons projetos
+                    merecem ter acesso aos <span className={`font-semibold ${
+                      theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'
+                    }`}>€24 mil milhões disponíveis</span> em fundos europeus. É esse o
+                    nosso compromisso diário.
                   </p>
                 </div>
               </div>
@@ -586,21 +579,21 @@ export default function ApoiosPage() {
                 <h4 className={`text-xl font-bold mb-6 ${
                   theme === 'dark' ? 'text-white' : 'text-black'
                 }`}>
-                  A Nossa Missão
+                  Os Nossos Valores
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {[
                     {
-                      title: 'Democratizar Acesso',
-                      description: 'Tornar fundos europeus acessíveis a todas as PMEs portuguesas, independentemente da dimensão'
+                      title: 'Competitividade',
+                      description: 'Ajudamos empresas a crescer e a competir em mercados nacionais e internacionais'
                     },
                     {
-                      title: 'Transparência Total',
-                      description: 'Processo claro, pricing justo, sem taxas escondidas ou falsas promessas'
+                      title: 'Transparência',
+                      description: 'Processo claro desde o primeiro contacto. Sem taxas escondidas, sem falsas promessas'
                     },
                     {
-                      title: 'Crescimento Real',
-                      description: 'Foco em projetos que realmente impulsionam o crescimento das empresas portuguesas'
+                      title: 'Resultados',
+                      description: 'Foco absoluto em projetos que realmente impulsionam o desenvolvimento empresarial'
                     },
                   ].map((item, idx) => (
                     <div key={idx}>
@@ -718,9 +711,10 @@ export default function ApoiosPage() {
               <p className={`text-base md:text-lg font-medium ${
                 theme === 'dark' ? 'text-white/90' : 'text-gray-800'
               }`}>
-                <span className="font-bold">O nosso compromisso:</span> ajudar cada empresa portuguesa a aproveitar
-                ao máximo os €24 mil milhões disponíveis em fundos europeus, com transparência,
-                profissionalismo e foco em resultados reais.
+                <span className="font-bold">O nosso compromisso:</span> aumentar a competitividade
+                das empresas portuguesas através do acesso facilitado aos €24 mil milhões
+                disponíveis em fundos europeus. Com transparência, profissionalismo e foco
+                em crescimento real.
               </p>
             </motion.div>
           </div>
@@ -830,7 +824,7 @@ export default function ApoiosPage() {
               </motion.a>
 
               <motion.a
-                href="tel:+351913960220"
+                href="mailto:info@crescentia.pt"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className={`px-8 py-4 rounded-full font-semibold text-lg transition-all ${
@@ -839,7 +833,7 @@ export default function ApoiosPage() {
                     : 'bg-black/5 border border-black/10 hover:border-black/20 text-black'
                 }`}
               >
-                +351 913 960 220
+                info@crescentia.pt
               </motion.a>
             </div>
 
@@ -896,37 +890,54 @@ export default function ApoiosPage() {
           : 'border-t border-yellow-500/10 bg-[#fffdf7]'
       }`}>
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left">
-            {/* Copyright */}
-            <p className={`text-sm ${
-              theme === 'dark' ? 'text-white/60' : 'text-gray-600'
-            }`}>
-              © 2024 Crescentia. Todos os direitos reservados.
-            </p>
-
-            {/* Contact */}
-            <div className="flex items-center gap-4 md:gap-6 text-sm">
+          <div className="space-y-6">
+            {/* Legal Links */}
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm">
               <a
-                href="mailto:info@crescentia.pt"
+                href="/privacy"
                 className={`transition-colors ${
                   theme === 'dark'
                     ? 'text-white/60 hover:text-yellow-400'
                     : 'text-gray-600 hover:text-yellow-600'
                 }`}
               >
-                info@crescentia.pt
+                Política de Privacidade
               </a>
               <span className={theme === 'dark' ? 'text-white/30' : 'text-gray-400'}>|</span>
               <a
-                href="tel:+351913960220"
+                href="/terms"
                 className={`transition-colors ${
                   theme === 'dark'
                     ? 'text-white/60 hover:text-yellow-400'
                     : 'text-gray-600 hover:text-yellow-600'
                 }`}
               >
-                +351 913 960 220
+                Termos e Condições
               </a>
+            </div>
+
+            {/* Copyright & Contact */}
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left">
+              {/* Copyright */}
+              <p className={`text-sm ${
+                theme === 'dark' ? 'text-white/60' : 'text-gray-600'
+              }`}>
+                © 2026 Crescentia Apoios. Todos os direitos reservados.
+              </p>
+
+              {/* Contact */}
+              <div className="flex items-center gap-4 md:gap-6 text-sm">
+                <a
+                  href="mailto:info@crescentia.pt"
+                  className={`transition-colors ${
+                    theme === 'dark'
+                      ? 'text-white/60 hover:text-yellow-400'
+                      : 'text-gray-600 hover:text-yellow-600'
+                  }`}
+                >
+                  info@crescentia.pt
+                </a>
+              </div>
             </div>
           </div>
         </div>

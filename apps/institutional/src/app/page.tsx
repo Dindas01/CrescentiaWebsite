@@ -87,9 +87,10 @@ const content = {
       contact: 'Contact Us'
     },
     footer: {
-      copyright: '© 2025 Crescentia Incentivos. Exclusive advisory services.',
+      copyright: '© 2026 Crescentia. Exclusive advisory services.',
       email: 'info@crescentia.pt',
-      phone: '+351 913 960 220'
+      privacy: 'Privacy Policy',
+      terms: 'Terms of Service'
     }
   },
   pt: {
@@ -173,9 +174,10 @@ const content = {
       contact: 'Contactar'
     },
     footer: {
-      copyright: '© 2025 Crescentia Incentivos. Serviços de consultoria exclusiva.',
+      copyright: '© 2026 Crescentia. Serviços de consultoria exclusiva.',
       email: 'info@crescentia.pt',
-      phone: '+351 913 960 220'
+      privacy: 'Política de Privacidade',
+      terms: 'Termos e Condições'
     }
   }
 }
@@ -883,7 +885,7 @@ export default function InstitutionalPage() {
               </motion.a>
 
               <motion.a
-                href="tel:+351913960220"
+                href="mailto:info@crescentia.pt"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className={`px-8 py-4 rounded-full font-semibold text-lg transition-all ${
@@ -892,7 +894,7 @@ export default function InstitutionalPage() {
                     : 'bg-black/5 border border-black/10 hover:border-black/20 text-black'
                 }`}
               >
-                +351 913 960 220
+                info@crescentia.pt
               </motion.a>
             </div>
           </motion.div>
@@ -906,37 +908,54 @@ export default function InstitutionalPage() {
           : 'border-t border-yellow-500/10 bg-[#fffdf7]'
       }`}>
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left">
-            {/* Copyright */}
-            <p className={`text-sm ${
-              theme === 'dark' ? 'text-white/60' : 'text-gray-600'
-            }`}>
-              {content[language].footer.copyright}
-            </p>
-
-            {/* Contact */}
-            <div className="flex items-center gap-4 md:gap-6 text-sm">
+          <div className="flex flex-col gap-6">
+            {/* Legal Links */}
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm">
               <a
-                href={`mailto:${content[language].footer.email}`}
+                href="/privacy"
                 className={`transition-colors ${
                   theme === 'dark'
                     ? 'text-white/60 hover:text-yellow-400'
                     : 'text-gray-600 hover:text-yellow-600'
                 }`}
               >
-                {content[language].footer.email}
+                {content[language].footer.privacy}
               </a>
               <span className={theme === 'dark' ? 'text-white/30' : 'text-gray-400'}>|</span>
               <a
-                href={`tel:${content[language].footer.phone.replace(/\s/g, '')}`}
+                href="/terms"
                 className={`transition-colors ${
                   theme === 'dark'
                     ? 'text-white/60 hover:text-yellow-400'
                     : 'text-gray-600 hover:text-yellow-600'
                 }`}
               >
-                {content[language].footer.phone}
+                {content[language].footer.terms}
               </a>
+            </div>
+
+            {/* Copyright & Contact */}
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left">
+              {/* Copyright */}
+              <p className={`text-sm ${
+                theme === 'dark' ? 'text-white/60' : 'text-gray-600'
+              }`}>
+                {content[language].footer.copyright}
+              </p>
+
+              {/* Contact */}
+              <div className="flex items-center gap-4 md:gap-6 text-sm">
+                <a
+                  href={`mailto:${content[language].footer.email}`}
+                  className={`transition-colors ${
+                    theme === 'dark'
+                      ? 'text-white/60 hover:text-yellow-400'
+                      : 'text-gray-600 hover:text-yellow-600'
+                  }`}
+                >
+                  {content[language].footer.email}
+                </a>
+              </div>
             </div>
           </div>
         </div>
