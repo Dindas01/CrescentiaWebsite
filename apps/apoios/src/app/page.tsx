@@ -4,6 +4,124 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import CookieBanner from '../components/CookieBanner'
 
+// Newsletter Section Component with Web3Forms
+const NewsletterSection = ({ theme }: { theme: 'light' | 'dark' }) => {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [message, setMessage] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('loading')
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_KEY', // TODO: Replace with actual Web3Forms key
+          subject: 'Nova Subscrição Newsletter - Crescentia Apoios',
+          from_name: 'Crescentia Apoios Newsletter',
+          email: email,
+          message: `Nova subscrição de: ${email}`,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setStatus('success')
+        setMessage('Subscrito com sucesso! Verifica teu email.')
+        setEmail('')
+
+        setTimeout(() => {
+          setStatus('idle')
+          setMessage('')
+        }, 5000)
+      } else {
+        throw new Error('Submission failed')
+      }
+    } catch (error) {
+      setStatus('error')
+      setMessage('Erro ao subscrever. Tenta novamente.')
+
+      setTimeout(() => {
+        setStatus('idle')
+        setMessage('')
+      }, 5000)
+    }
+  }
+
+  return (
+    <section className={`relative py-16 md:py-20 ${
+      theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#faf8f2]'
+    }`}>
+      <div className="container mx-auto px-4 md:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={`max-w-3xl mx-auto p-8 md:p-12 rounded-3xl text-center ${
+            theme === 'dark'
+              ? 'bg-yellow-500/5 border border-yellow-500/20'
+              : 'bg-yellow-50 border border-yellow-500/30'
+          }`}
+        >
+          <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${
+            theme === 'dark' ? 'text-white' : 'text-black'
+          }`}>
+            Receba Avisos de Novos Concursos
+          </h3>
+          <p className={`text-base md:text-lg mb-6 ${
+            theme === 'dark' ? 'text-white/70' : 'text-gray-700'
+          }`}>
+            Fique a par de novas oportunidades de financiamento e dicas exclusivas para PMEs
+          </p>
+
+          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={handleSubmit}>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="O seu email"
+              required
+              disabled={status === 'loading'}
+              className={`flex-1 px-6 py-3 rounded-full text-base focus:outline-none focus:ring-2 focus:ring-yellow-500 ${
+                theme === 'dark'
+                  ? 'bg-white/10 border border-white/20 text-white placeholder:text-white/50 disabled:opacity-50'
+                  : 'bg-white border border-gray-300 text-black placeholder:text-gray-500 disabled:opacity-50'
+              }`}
+            />
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              className="px-8 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold hover:shadow-lg transition-all whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {status === 'loading' ? 'Enviando...' : 'Subscrever'}
+            </button>
+          </form>
+
+          {message && (
+            <p className={`text-sm mt-4 ${
+              status === 'success' ? 'text-green-500' : 'text-red-500'
+            }`}>
+              {message}
+            </p>
+          )}
+
+          <p className={`text-xs mt-4 ${
+            theme === 'dark' ? 'text-white/50' : 'text-gray-500'
+          }`}>
+            Sem spam. Pode cancelar a qualquer momento.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
 export default function ApoiosPage() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark')
   const [scrolled, setScrolled] = useState(false)
@@ -78,6 +196,8 @@ export default function ApoiosPage() {
                 <div className="p-2">
                   <a
                     href="https://wealth.crescentia.pt"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`block px-4 py-3 rounded-xl transition-colors ${
                       theme === 'dark'
                         ? 'hover:bg-white/5'
@@ -97,7 +217,9 @@ export default function ApoiosPage() {
                   </a>
 
                   <a
-                    href="https://crescentia.pt"
+                    href="https://www.crescentia.pt"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`block px-4 py-3 rounded-xl transition-colors ${
                       theme === 'dark'
                         ? 'hover:bg-white/5'
@@ -230,7 +352,7 @@ export default function ApoiosPage() {
               { value: '€24B+', label: 'Fundos Disponíveis' },
               { value: '6', label: 'Áreas Especializadas' },
               { value: '50+', label: 'Projetos Submetidos' },
-              { value: '2020', label: 'No Mercado Desde' },
+              { value: '85%', label: 'Taxa de Aprovação' },
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -721,59 +843,265 @@ export default function ApoiosPage() {
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className={`relative py-16 md:py-20 ${
-        theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#faf8f2]'
+      {/* Pricing Section */}
+      <section className={`py-20 md:py-32 ${
+        theme === 'dark' ? 'bg-[#12141C]' : 'bg-white'
       }`}>
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className={`max-w-3xl mx-auto p-8 md:p-12 rounded-3xl text-center ${
-              theme === 'dark'
-                ? 'bg-yellow-500/5 border border-yellow-500/20'
-                : 'bg-yellow-50 border border-yellow-500/30'
-            }`}
+            className="text-center mb-16"
           >
-            <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${
+            <h2 className={`text-3xl md:text-5xl font-bold mb-4 ${
               theme === 'dark' ? 'text-white' : 'text-black'
             }`}>
-              Receba Avisos de Novos Concursos
-            </h3>
-            <p className={`text-base md:text-lg mb-6 ${
-              theme === 'dark' ? 'text-white/70' : 'text-gray-700'
+              Modelos de Pricing
+            </h2>
+            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${
+              theme === 'dark' ? 'text-white/70' : 'text-gray-600'
             }`}>
-              Fique a par de novas oportunidades de financiamento e dicas exclusivas para PMEs
-            </p>
-
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="O seu email"
-                required
-                className={`flex-1 px-6 py-3 rounded-full text-base focus:outline-none focus:ring-2 focus:ring-yellow-500 ${
-                  theme === 'dark'
-                    ? 'bg-white/10 border border-white/20 text-white placeholder:text-white/50'
-                    : 'bg-white border border-gray-300 text-black placeholder:text-gray-500'
-                }`}
-              />
-              <button
-                type="submit"
-                className="px-8 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold hover:shadow-lg transition-all whitespace-nowrap"
-              >
-                Subscrever
-              </button>
-            </form>
-
-            <p className={`text-xs mt-4 ${
-              theme === 'dark' ? 'text-white/50' : 'text-gray-500'
-            }`}>
-              Sem spam. Pode cancelar a qualquer momento.
+              Transparência total. Escolhe o modelo ideal para o teu negócio.
             </p>
           </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Model 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className={`relative p-8 rounded-2xl border-2 transition-all duration-300 hover:scale-105 ${
+                theme === 'dark'
+                  ? 'bg-white/5 border-white/10 hover:border-yellow-400/50'
+                  : 'bg-white border-gray-200 hover:border-yellow-400'
+              }`}
+            >
+              <div className="mb-6">
+                <h3 className={`text-2xl font-bold mb-2 ${
+                  theme === 'dark' ? 'text-white' : 'text-black'
+                }`}>
+                  Projeto Único
+                </h3>
+                <p className={`text-sm ${
+                  theme === 'dark' ? 'text-white/60' : 'text-gray-500'
+                }`}>
+                  Ideal para primeira candidatura
+                </p>
+              </div>
+
+              <div className="mb-6">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold text-yellow-400">€2.000</span>
+                  <span className={`text-sm ${
+                    theme === 'dark' ? 'text-white/60' : 'text-gray-500'
+                  }`}>
+                    + IVA fixo
+                  </span>
+                </div>
+                <div className="mt-2">
+                  <span className="text-2xl font-bold text-yellow-400">+ 8%</span>
+                  <span className={`text-sm ml-2 ${
+                    theme === 'dark' ? 'text-white/60' : 'text-gray-500'
+                  }`}>
+                    sobre valor aprovado
+                  </span>
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-8">
+                {[
+                  'Análise elegibilidade',
+                  'Business plan completo',
+                  'Submissão e acompanhamento',
+                  'Suporte pós-aprovação'
+                ].map((feature, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className={theme === 'dark' ? 'text-white/80' : 'text-gray-700'}>
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href="mailto:info@crescentia.pt?subject=Modelo 1 - Projeto Único"
+                className="block w-full py-3 px-6 rounded-full bg-yellow-400 text-black font-semibold text-center hover:bg-yellow-500 transition-colors"
+              >
+                Escolher Modelo
+              </a>
+            </motion.div>
+
+            {/* Model 2 - Popular */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className={`relative p-8 rounded-2xl border-2 border-yellow-400 transition-all duration-300 hover:scale-105 ${
+                theme === 'dark' ? 'bg-yellow-400/10' : 'bg-yellow-50'
+              }`}
+            >
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span className="bg-yellow-400 text-black px-4 py-1 rounded-full text-sm font-bold">
+                  MAIS POPULAR
+                </span>
+              </div>
+
+              <div className="mb-6 mt-2">
+                <h3 className={`text-2xl font-bold mb-2 ${
+                  theme === 'dark' ? 'text-white' : 'text-black'
+                }`}>
+                  Success Fee Only
+                </h3>
+                <p className={`text-sm ${
+                  theme === 'dark' ? 'text-white/60' : 'text-gray-600'
+                }`}>
+                  Zero risco, só pagas se aprovado
+                </p>
+              </div>
+
+              <div className="mb-6">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold text-yellow-400">€0</span>
+                  <span className={`text-sm ${
+                    theme === 'dark' ? 'text-white/60' : 'text-gray-600'
+                  }`}>
+                    fixo
+                  </span>
+                </div>
+                <div className="mt-2">
+                  <span className="text-2xl font-bold text-yellow-400">+ 12%</span>
+                  <span className={`text-sm ml-2 ${
+                    theme === 'dark' ? 'text-white/60' : 'text-gray-600'
+                  }`}>
+                    sobre valor aprovado
+                  </span>
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-8">
+                {[
+                  'Sem investimento inicial',
+                  'Business plan completo',
+                  'Submissão e acompanhamento',
+                  'Suporte pós-aprovação',
+                  'Ideal orçamento limitado'
+                ].map((feature, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className={theme === 'dark' ? 'text-white/80' : 'text-gray-700'}>
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href="mailto:info@crescentia.pt?subject=Modelo 2 - Success Fee Only"
+                className="block w-full py-3 px-6 rounded-full bg-yellow-400 text-black font-semibold text-center hover:bg-yellow-500 transition-colors"
+              >
+                Escolher Modelo
+              </a>
+            </motion.div>
+
+            {/* Model 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className={`relative p-8 rounded-2xl border-2 transition-all duration-300 hover:scale-105 ${
+                theme === 'dark'
+                  ? 'bg-white/5 border-white/10 hover:border-yellow-400/50'
+                  : 'bg-white border-gray-200 hover:border-yellow-400'
+              }`}
+            >
+              <div className="mb-6">
+                <h3 className={`text-2xl font-bold mb-2 ${
+                  theme === 'dark' ? 'text-white' : 'text-black'
+                }`}>
+                  Pacote 3 Candidaturas
+                </h3>
+                <p className={`text-sm ${
+                  theme === 'dark' ? 'text-white/60' : 'text-gray-500'
+                }`}>
+                  Crescimento agressivo
+                </p>
+              </div>
+
+              <div className="mb-6">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold text-yellow-400">€5.000</span>
+                  <span className={`text-sm ${
+                    theme === 'dark' ? 'text-white/60' : 'text-gray-500'
+                  }`}>
+                    + IVA fixo
+                  </span>
+                </div>
+                <div className="mt-2">
+                  <span className="text-2xl font-bold text-yellow-400">+ 7%</span>
+                  <span className={`text-sm ml-2 ${
+                    theme === 'dark' ? 'text-white/60' : 'text-gray-500'
+                  }`}>
+                    sobre valor aprovado
+                  </span>
+                </div>
+                <p className={`text-xs mt-2 ${
+                  theme === 'dark' ? 'text-white/50' : 'text-gray-400'
+                }`}>
+                  Validade: 18 meses
+                </p>
+              </div>
+
+              <ul className="space-y-3 mb-8">
+                {[
+                  '3 candidaturas incluídas',
+                  'Melhor custo/benefício',
+                  'Business plans completos',
+                  'Acompanhamento prioritário',
+                  'Válido 18 meses'
+                ].map((feature, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className={theme === 'dark' ? 'text-white/80' : 'text-gray-700'}>
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href="mailto:info@crescentia.pt?subject=Modelo 3 - Pacote 3 Candidaturas"
+                className="block w-full py-3 px-6 rounded-full bg-yellow-400 text-black font-semibold text-center hover:bg-yellow-500 transition-colors"
+              >
+                Escolher Modelo
+              </a>
+            </motion.div>
+          </div>
+
+          <p className={`text-center mt-8 text-sm ${
+            theme === 'dark' ? 'text-white/60' : 'text-gray-500'
+          }`}>
+            Todos os modelos incluem suporte completo durante todo o processo.
+            <br />
+            Preços sem IVA. Success fee apenas pago após aprovação oficial.
+          </p>
         </div>
       </section>
+
+      {/* Newsletter Section */}
+      <NewsletterSection theme={theme} />
 
       {/* 6. CTA FINAL - Soft Sell */}
       <section className={`relative py-20 md:py-28 overflow-hidden ${

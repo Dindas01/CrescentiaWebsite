@@ -517,7 +517,9 @@ export default function InstitutionalPage() {
 
               {/* CTA */}
               <motion.a
-                href="/funding"
+                href="https://apoios.crescentia.pt"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ x: 6 }}
                 className={`inline-flex items-center gap-2 font-semibold transition-colors ${
                   theme === 'dark' ? 'text-yellow-400 hover:text-yellow-300' : 'text-yellow-600 hover:text-yellow-700'

@@ -5,6 +5,7 @@ import { Button, Footer, PricingCard, CalendlyModal } from '@crescentia/ui'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import CookieBanner from '../components/CookieBanner'
+import TaxCalculator from '../components/TaxCalculator'
 
 // Throttle utility for performance
 function throttle<T extends (...args: any[]) => any>(func: T, delay: number): T {
@@ -67,6 +68,124 @@ const BriefcaseIcon = () => (
     <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
   </svg>
 )
+
+// Newsletter Section Component with Web3Forms
+const NewsletterSection = ({ theme }: { theme: 'light' | 'dark' }) => {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [message, setMessage] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('loading')
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_KEY', // TODO: Replace with actual Web3Forms key
+          subject: 'New Newsletter Subscription - Crescentia Wealth',
+          from_name: 'Crescentia Wealth Newsletter',
+          email: email,
+          message: `New subscription from: ${email}`,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setStatus('success')
+        setMessage('Successfully subscribed! Check your email.')
+        setEmail('')
+
+        setTimeout(() => {
+          setStatus('idle')
+          setMessage('')
+        }, 5000)
+      } else {
+        throw new Error('Submission failed')
+      }
+    } catch (error) {
+      setStatus('error')
+      setMessage('Error subscribing. Please try again.')
+
+      setTimeout(() => {
+        setStatus('idle')
+        setMessage('')
+      }, 5000)
+    }
+  }
+
+  return (
+    <section className={`relative py-16 md:py-20 ${
+      theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-white'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={`max-w-3xl mx-auto p-8 md:p-12 rounded-3xl text-center ${
+            theme === 'dark'
+              ? 'bg-yellow-500/5 border border-yellow-500/20'
+              : 'bg-yellow-50 border border-yellow-500/30'
+          }`}
+        >
+          <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${
+            theme === 'dark' ? 'text-white' : 'text-black'
+          }`}>
+            Stay Updated on Tax Changes
+          </h3>
+          <p className={`text-base md:text-lg mb-6 ${
+            theme === 'dark' ? 'text-white/70' : 'text-gray-700'
+          }`}>
+            Get exclusive insights on IFICI updates, tax optimization strategies, and Portugal residence news
+          </p>
+
+          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={handleSubmit}>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your email"
+              required
+              disabled={status === 'loading'}
+              className={`flex-1 px-6 py-3 rounded-full text-base focus:outline-none focus:ring-2 focus:ring-yellow-500 ${
+                theme === 'dark'
+                  ? 'bg-white/10 border border-white/20 text-white placeholder:text-white/50 disabled:opacity-50'
+                  : 'bg-white border border-gray-300 text-black placeholder:text-gray-500 disabled:opacity-50'
+              }`}
+            />
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              className="px-8 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold hover:shadow-lg transition-all whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
+            </button>
+          </form>
+
+          {message && (
+            <p className={`text-sm mt-4 ${
+              status === 'success' ? 'text-green-500' : 'text-red-500'
+            }`}>
+              {message}
+            </p>
+          )}
+
+          <p className={`text-xs mt-4 ${
+            theme === 'dark' ? 'text-white/50' : 'text-gray-500'
+          }`}>
+            No spam. Unsubscribe anytime.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
 
 // Apple-style Premium Header Component - ADAPTIVE LOGO WITH THEME
 const PremiumHeader = ({ onCtaClick, theme, setTheme }: { onCtaClick: () => void; theme: 'light' | 'dark'; setTheme: (theme: 'light' | 'dark') => void }) => {
@@ -164,6 +283,8 @@ const PremiumHeader = ({ onCtaClick, theme, setTheme }: { onCtaClick: () => void
                 <div className="p-2">
                   <a
                     href="https://apoios.crescentia.pt"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`block px-4 py-3 rounded-xl transition-colors ${
                       theme === 'dark'
                         ? 'hover:bg-white/5'
@@ -183,7 +304,9 @@ const PremiumHeader = ({ onCtaClick, theme, setTheme }: { onCtaClick: () => void
                   </a>
 
                   <a
-                    href="https://crescentia.pt"
+                    href="https://www.crescentia.pt"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`block px-4 py-3 rounded-xl transition-colors ${
                       theme === 'dark'
                         ? 'hover:bg-white/5'
@@ -1042,6 +1165,36 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Tax Calculator Section */}
+        <section className={`relative py-32 md:py-48 overflow-hidden ${
+          theme === 'dark' ? 'bg-[#12141C]' : 'bg-gray-50'
+        }`}>
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-center mb-12"
+              >
+                <h2 className={`text-3xl md:text-5xl font-bold mb-4 ${
+                  theme === 'dark' ? 'text-white' : 'text-black'
+                }`}>
+                  Calculate Your Tax Savings
+                </h2>
+                <p className={`text-lg md:text-xl ${
+                  theme === 'dark' ? 'text-white/70' : 'text-gray-600'
+                }`}>
+                  See how much you could save with IFICI regime
+                </p>
+              </motion.div>
+
+              <TaxCalculator theme={theme} />
+            </div>
+          </div>
+        </section>
+
         {/* PRICING SECTION - Ultra-Premium Cards */}
         <section id="pricing" className={`relative py-32 md:py-48 overflow-hidden ${
           theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-white'
@@ -1344,58 +1497,7 @@ export default function HomePage() {
         </section>
 
         {/* Newsletter Section */}
-        <section className={`relative py-16 md:py-20 ${
-          theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-white'
-        }`}>
-          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className={`max-w-3xl mx-auto p-8 md:p-12 rounded-3xl text-center ${
-                theme === 'dark'
-                  ? 'bg-yellow-500/5 border border-yellow-500/20'
-                  : 'bg-yellow-50 border border-yellow-500/30'
-              }`}
-            >
-              <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${
-                theme === 'dark' ? 'text-white' : 'text-black'
-              }`}>
-                Stay Updated on Tax Changes
-              </h3>
-              <p className={`text-base md:text-lg mb-6 ${
-                theme === 'dark' ? 'text-white/70' : 'text-gray-700'
-              }`}>
-                Get exclusive insights on IFICI updates, tax optimization strategies, and Portugal residence news
-              </p>
-
-              <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  required
-                  className={`flex-1 px-6 py-3 rounded-full text-base focus:outline-none focus:ring-2 focus:ring-yellow-500 ${
-                    theme === 'dark'
-                      ? 'bg-white/10 border border-white/20 text-white placeholder:text-white/50'
-                      : 'bg-white border border-gray-300 text-black placeholder:text-gray-500'
-                  }`}
-                />
-                <button
-                  type="submit"
-                  className="px-8 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold hover:shadow-lg transition-all whitespace-nowrap"
-                >
-                  Subscribe
-                </button>
-              </form>
-
-              <p className={`text-xs mt-4 ${
-                theme === 'dark' ? 'text-white/50' : 'text-gray-500'
-              }`}>
-                No spam. Unsubscribe anytime.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+        <NewsletterSection theme={theme} />
       </main>
 
       {/* Footer */}
