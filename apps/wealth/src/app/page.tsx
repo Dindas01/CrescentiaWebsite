@@ -1209,17 +1209,22 @@ export default function HomePage() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
               viewport={{ once: true }}
-              className="text-center mb-24"
+              className="text-center mb-16"
             >
               <h2 className={`text-7xl md:text-8xl font-bold mb-8 tracking-[-0.03em] leading-[1.05] ${
                 theme === 'dark' ? 'text-white-100' : 'text-black'
               }`}>
                 Investment in Your Future
               </h2>
-              <p className={`text-xl max-w-3xl mx-auto font-light leading-relaxed tracking-[-0.01em] ${
+              <p className={`text-xl max-w-3xl mx-auto font-light leading-relaxed tracking-[-0.01em] mb-6 ${
                 theme === 'dark' ? 'text-white-100/50' : 'text-gray-600'
               }`}>
                 Professional IFICI setup and optimization. Save thousands in taxes for years to come.
+              </p>
+              <p className={`text-sm max-w-2xl mx-auto font-light tracking-wide ${
+                theme === 'dark' ? 'text-white-100/40' : 'text-gray-500'
+              }`}>
+                All packages are customized during private consultation to match your specific circumstances and objectives.
               </p>
             </motion.div>
 
@@ -1228,47 +1233,53 @@ export default function HomePage() {
                 {
                   name: 'Essential',
                   price: '€12,000',
+                  priceSubtext: 'One-time investment',
                   description: 'Complete IFICI setup for individuals',
                   features: [
-                    'Full IFICI application',
-                    'Tax residency setup',
-                    'NIF & tax registration',
-                    'Bank account setup',
-                    'Healthcare registration',
-                    '1 year email support',
+                    'Complete IFICI application and approval support',
+                    'Tax residency establishment in Portugal',
+                    'NIF and tax registration coordination',
+                    'Bank account setup guidance',
+                    'Healthcare system registration',
+                    '1-year email support for tax queries',
                   ],
                   popular: false,
+                  cta: 'Get Started',
                 },
                 {
                   name: 'Professional',
-                  price: '€24,000',
+                  price: 'Starting from €24,000',
+                  priceSubtext: 'Customized to your needs',
                   description: 'For entrepreneurs and complex cases',
                   features: [
                     'Everything in Essential',
-                    'Company formation',
-                    'Crypto tax optimization',
-                    'International tax planning',
-                    'Dual residency strategy',
-                    'Priority support',
-                    'Annual tax filing (1 year)',
+                    'Portuguese company formation and structuring',
+                    'International tax planning across jurisdictions',
+                    'Crypto asset tax optimization strategies',
+                    'Dual residency strategy and compliance',
+                    'Priority response (24h guaranteed)',
+                    'Annual tax filing included (1 year)',
                   ],
                   popular: true,
+                  cta: 'Schedule Consultation',
                 },
                 {
                   name: 'Executive',
-                  price: '€49,000',
+                  price: 'Bespoke Engagement',
+                  priceSubtext: 'Investment tailored to complexity — typically €40,000+',
                   description: 'White-glove concierge service',
                   features: [
                     'Everything in Professional',
-                    'Property acquisition support',
-                    'Private banking introductions',
-                    'Investment structuring',
-                    'Family relocation assistance',
+                    'Property acquisition tax structuring',
+                    'Private banking introductions (3+ institutions)',
+                    'Investment portfolio structuring',
+                    'Family relocation coordination',
                     'Dedicated account manager',
-                    'Annual tax filing (3 years)',
-                    'Quarterly strategy reviews',
+                    'Annual tax filing included (3 years)',
+                    'Quarterly strategic tax reviews',
                   ],
                   popular: false,
+                  cta: 'Apply Now',
                 },
               ].map((plan, index) => (
                 <motion.div
@@ -1292,7 +1303,11 @@ export default function HomePage() {
                   )}
 
                   <div className={`relative h-full p-12 rounded-[32px] backdrop-blur-2xl border transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                    theme === 'dark'
+                    plan.name === 'Executive'
+                      ? theme === 'dark'
+                        ? 'bg-white-100/[0.03] border-yellow-500/20 hover:bg-white-100/[0.05] shadow-[0_16px_48px_rgba(245,207,0,0.15),inset_0_1px_0_rgba(255,255,255,0.05)] hover:shadow-[0_32px_72px_rgba(245,207,0,0.25),inset_0_2px_0_rgba(255,255,255,0.08)]'
+                        : 'bg-white border-yellow-500/30 hover:border-yellow-500/50 shadow-[0_16px_48px_rgba(245,207,0,0.1)] hover:shadow-[0_32px_72px_rgba(245,207,0,0.2)]'
+                      : theme === 'dark'
                       ? 'bg-white-100/[0.02] border-white-100/[0.06] hover:bg-white-100/[0.04] shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.03)] hover:shadow-[0_24px_64px_rgba(0,0,0,0.24),inset_0_2px_0_rgba(255,255,255,0.06)]'
                       : 'bg-white border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-xl'
                   }`}>
@@ -1322,7 +1337,9 @@ export default function HomePage() {
 
                       {/* Price */}
                       <div className="mb-12">
-                        <div className={`text-6xl font-bold tracking-[-0.03em] mb-2 ${
+                        <div className={`${
+                          plan.name === 'Executive' ? 'text-4xl' : 'text-6xl'
+                        } font-bold tracking-[-0.03em] mb-2 ${
                           theme === 'dark' ? 'text-white-100' : 'text-black'
                         }`}>
                           {plan.price}
@@ -1330,7 +1347,7 @@ export default function HomePage() {
                         <div className={`text-sm font-light tracking-wide ${
                           theme === 'dark' ? 'text-white-100/40' : 'text-gray-500'
                         }`}>
-                          One-time investment
+                          {plan.priceSubtext}
                         </div>
                       </div>
 
@@ -1341,7 +1358,7 @@ export default function HomePage() {
                         onClick={() => setIsCalendlyOpen(true)}
                         className="w-full mb-12 group/btn relative overflow-hidden"
                       >
-                        <span className="relative z-10">Get Started</span>
+                        <span className="relative z-10">{plan.cta}</span>
                         {plan.popular && (
                           <motion.div
                             className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-yellow-500"
@@ -1400,7 +1417,7 @@ export default function HomePage() {
                 theme === 'dark' ? 'text-white-100/40' : 'text-gray-500'
               }`}
             >
-              All prices include Portuguese VAT. Payment plans available for Executive package.
+              All prices include Portuguese VAT. Payment plans available for Executive package. Minimum engagement €12,000.
             </motion.p>
           </div>
         </section>
