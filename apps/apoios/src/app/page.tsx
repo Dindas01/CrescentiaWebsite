@@ -21,7 +21,7 @@ const NewsletterSection = ({ theme }: { theme: 'light' | 'dark' }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'YOUR_WEB3FORMS_KEY', // TODO: Replace with actual Web3Forms key
+          access_key: 'cfbe1831-61c4-4447-9d9e-32c2ddad4eae',
           subject: 'Nova Subscrição Newsletter - Crescentia Apoios',
           from_name: 'Crescentia Apoios Newsletter',
           email: email,

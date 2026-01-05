@@ -86,7 +86,7 @@ const NewsletterSection = ({ theme }: { theme: 'light' | 'dark' }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'YOUR_WEB3FORMS_KEY', // TODO: Replace with actual Web3Forms key
+          access_key: 'cfbe1831-61c4-4447-9d9e-32c2ddad4eae',
           subject: 'New Newsletter Subscription - Crescentia Wealth',
           from_name: 'Crescentia Wealth Newsletter',
           email: email,
@@ -370,7 +370,6 @@ export default function HomePage() {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
   const [theme, setTheme] = useState<'light' | 'dark'>('dark')
   const { scrollY } = useScroll()
-  const heroOpacity = useTransform(scrollY, [0, 300], [1, 0])
   const heroY = useTransform(scrollY, [0, 300], [0, -50])
 
   // Detect system theme preference
@@ -400,7 +399,6 @@ export default function HomePage() {
       <main className="min-h-screen pt-20">
         {/* ULTRA-PREMIUM HERO - Apple Vision Pro Level */}
         <motion.section
-          style={{ opacity: heroOpacity }}
           className={`relative overflow-hidden min-h-screen flex items-center ${
             theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#fafafa]'
           }`}
