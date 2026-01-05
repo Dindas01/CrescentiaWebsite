@@ -86,7 +86,7 @@ const NewsletterSection = ({ theme }: { theme: 'light' | 'dark' }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'cfbe1831-61c4-4447-9d9e-32c2ddad4eae',
+          access_key: '2870d717-cc56-43d6-a7b1-259c924cc073',
           subject: 'New Newsletter Subscription - Crescentia Wealth',
           from_name: 'Crescentia Wealth Newsletter',
           email: email,
