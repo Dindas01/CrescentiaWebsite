@@ -69,8 +69,6 @@ export default function RootLayout({
     }
   }
 
-  const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX' // TODO: Replace with actual GA4 measurement ID
-
   return (
     <html lang="pt">
       <head>
@@ -78,9 +76,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
         />
-        {/* Google Analytics */}
+        {/* Google Analytics - Apoios */}
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          src="https://www.googletagmanager.com/gtag/js?id=G-QV978BBKXN"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -88,7 +86,9 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
+            gtag('config', 'G-QV978BBKXN', {
+              page_path: window.location.pathname,
+            });
           `}
         </Script>
       </head>
