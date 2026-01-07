@@ -238,8 +238,8 @@ const PremiumHeader = ({ onCtaClick, theme, setTheme }: { onCtaClick: () => void
           <nav className="hidden md:flex items-center gap-12">
             {[
               { label: 'Benefits', href: '#benefits' },
-              { label: 'Who is this for', href: '#who' },
-              { label: 'Pricing', href: '#pricing' },
+              { label: 'Expertise', href: '#expertise' },
+              { label: 'Investment', href: '#pricing' },
             ].map((link, i) => (
               <motion.a
                 key={link.href}
@@ -494,82 +494,71 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
-                className="inline-block mb-12"
+                className="inline-block mb-8"
               >
                 <span className={`font-light text-xs tracking-[0.2em] uppercase ${
                   theme === 'dark' ? 'text-white-100/40' : 'text-gray-600'
                 }`}>
-                  IFICI Tax Regime
+                  Premium Wealth Consultancy
                 </span>
               </motion.div>
 
-              {/* HERO HEADLINE - MORE IMPACT */}
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[0.95] mb-8">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                >
-                  {/* "20% Tax" with gradient + glow/shadow + underline */}
-                  <span className="relative inline-block">
-                    <span className={`bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent ${
-                      theme === 'dark'
-                        ? 'drop-shadow-[0_0_80px_rgba(234,179,8,0.5)]'
-                        : 'drop-shadow-[0_4px_12px_rgba(234,179,8,0.25)]'
-                    }`}>
-                      20% Tax
-                    </span>
-                    {/* Subtle underline effect */}
-                    <div className="absolute -bottom-4 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent rounded-full" />
+              {/* HERO HEADLINE */}
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] mb-8"
+              >
+                <span className={theme === 'dark' ? 'text-white drop-shadow-2xl' : 'text-black drop-shadow-lg'}>
+                  Portugal's Premier{' '}
+                </span>
+                <span className="relative inline-block">
+                  <span className={`bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent ${
+                    theme === 'dark'
+                      ? 'drop-shadow-[0_0_80px_rgba(234,179,8,0.5)]'
+                      : 'drop-shadow-[0_4px_12px_rgba(234,179,8,0.25)]'
+                  }`}>
+                    IFICI & Crypto
                   </span>
-                </motion.div>
+                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent rounded-full" />
+                </span>
+                <span className={theme === 'dark' ? 'text-white drop-shadow-2xl' : 'text-black drop-shadow-lg'}>
+                  {' '}Tax Specialists
+                </span>
+              </motion.h1>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="mt-4"
-                >
-                  <span className={theme === 'dark' ? 'text-white drop-shadow-2xl' : 'text-black drop-shadow-lg'}>
-                    in Portugal for{" "}
-                  </span>
-                  {/* "10 Years" with gradient + glow/shadow + underline */}
-                  <span className="relative inline-block">
-                    <span className={`bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent ${
-                      theme === 'dark'
-                        ? 'drop-shadow-[0_0_80px_rgba(234,179,8,0.5)]'
-                        : 'drop-shadow-[0_4px_12px_rgba(234,179,8,0.25)]'
-                    }`}>
-                      10 Years
-                    </span>
-                    <div className="absolute -bottom-4 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent rounded-full" />
-                  </span>
-                </motion.div>
-              </h1>
-
-              {/* SUBHEADLINE - MORE CONTRAST AND LEGIBILITY */}
+              {/* SUBHEADLINE */}
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-                className="text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed mb-12"
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed mb-6"
               >
                 <span className={`font-medium ${
                   theme === 'dark' ? 'text-white/95' : 'text-gray-900'
                 }`}>
-                  Save thousands in taxes with Portugal's IFICI regime.
+                  We help high-income professionals and crypto investors legally reduce their tax burden by €50,000-€500,000+ over 10 years.
                 </span>
-                <br />
-                <span className={theme === 'dark' ? 'text-white/70' : 'text-gray-600'}>
-                  Designed for high-income professionals and business owners.
-                </span>
+              </motion.p>
+
+              {/* Trust Badge */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className={`text-sm md:text-base mb-12 font-light ${
+                  theme === 'dark' ? 'text-white/60' : 'text-gray-600'
+                }`}
+              >
+                Trusted by international executives, entrepreneurs, and investors
               </motion.p>
 
               {/* CTAs - PREMIUM GLOW EFFECTS */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
                 className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12"
               >
                 {/* Primary CTA - Yellow gradient with glow */}
@@ -584,7 +573,7 @@ export default function HomePage() {
                 >
                   {/* Animated gradient sweep on hover */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                  <span className="relative z-10">Book Free Consultation</span>
+                  <span className="relative z-10">Request Private Consultation</span>
                 </motion.button>
 
                 {/* Secondary CTA - Glassmorphism style */}
@@ -592,8 +581,8 @@ export default function HomePage() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => {
-                    const benefitsSection = document.getElementById('benefits')
-                    benefitsSection?.scrollIntoView({ behavior: 'smooth' })
+                    const calculatorSection = document.getElementById('calculator')
+                    calculatorSection?.scrollIntoView({ behavior: 'smooth' })
                   }}
                   className={`px-10 py-5 backdrop-blur-xl text-lg font-semibold rounded-full border transition-all duration-300 ${
                     theme === 'dark'
@@ -601,7 +590,7 @@ export default function HomePage() {
                       : 'bg-black/5 text-black border-black/10 hover:border-black/20 hover:bg-black/10'
                   }`}
                 >
-                  Learn More
+                  Calculate Your Savings
                 </motion.button>
               </motion.div>
             </div>
@@ -627,92 +616,6 @@ export default function HomePage() {
             </motion.div>
           </motion.div>
         </motion.section>
-
-        {/* CRYPTO TICKER - Infinite Scroll */}
-        <section className={`relative py-12 border-y ${
-          theme === 'dark'
-            ? 'border-white/5 bg-[#0a0a0a]'
-            : 'border-gray-200 bg-white'
-        }`}>
-          <div className="relative overflow-hidden">
-            {/* Gradient fade edges */}
-            <div className={`absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none ${
-              theme === 'dark'
-                ? 'bg-gradient-to-r from-[#0a0a0a] to-transparent'
-                : 'bg-gradient-to-r from-white to-transparent'
-            }`} />
-            <div className={`absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none ${
-              theme === 'dark'
-                ? 'bg-gradient-to-l from-[#0a0a0a] to-transparent'
-                : 'bg-gradient-to-l from-white to-transparent'
-            }`} />
-
-            {/* Ticker content */}
-            <div className="ticker-wrapper">
-              <div className="ticker-content">
-                {[
-                  { name: 'Bitcoin', symbol: 'BTC', icon: '₿' },
-                  { name: 'Ethereum', symbol: 'ETH', icon: 'Ξ' },
-                  { name: 'Solana', symbol: 'SOL', icon: '◎' },
-                  { name: 'Cardano', symbol: 'ADA', icon: '₳' },
-                  { name: 'Polkadot', symbol: 'DOT', icon: '●' },
-                  { name: 'Avalanche', symbol: 'AVAX', icon: '▲' },
-                  { name: 'Polygon', symbol: 'MATIC', icon: '⬡' },
-                  { name: 'Chainlink', symbol: 'LINK', icon: '⬢' },
-                ].map((crypto, index) => (
-                  <div
-                    key={index}
-                    className={`inline-flex items-center gap-3 px-8 ${
-                      theme === 'dark' ? 'text-white/60' : 'text-gray-600'
-                    }`}
-                  >
-                    <span className="text-2xl font-bold text-yellow-500/80">
-                      {crypto.icon}
-                    </span>
-                    <span className="text-sm font-semibold tracking-wide">
-                      {crypto.symbol}
-                    </span>
-                    <span className={`text-xs ${
-                      theme === 'dark' ? 'text-white/40' : 'text-gray-400'
-                    }`}>
-                      {crypto.name}
-                    </span>
-                  </div>
-                ))}
-                {/* Duplicate for seamless loop */}
-                {[
-                  { name: 'Bitcoin', symbol: 'BTC', icon: '₿' },
-                  { name: 'Ethereum', symbol: 'ETH', icon: 'Ξ' },
-                  { name: 'Solana', symbol: 'SOL', icon: '◎' },
-                  { name: 'Cardano', symbol: 'ADA', icon: '₳' },
-                  { name: 'Polkadot', symbol: 'DOT', icon: '●' },
-                  { name: 'Avalanche', symbol: 'AVAX', icon: '▲' },
-                  { name: 'Polygon', symbol: 'MATIC', icon: '⬡' },
-                  { name: 'Chainlink', symbol: 'LINK', icon: '⬢' },
-                ].map((crypto, index) => (
-                  <div
-                    key={`dup-${index}`}
-                    className={`inline-flex items-center gap-3 px-8 ${
-                      theme === 'dark' ? 'text-white/60' : 'text-gray-600'
-                    }`}
-                  >
-                    <span className="text-2xl font-bold text-yellow-500/80">
-                      {crypto.icon}
-                    </span>
-                    <span className="text-sm font-semibold tracking-wide">
-                      {crypto.symbol}
-                    </span>
-                    <span className={`text-xs ${
-                      theme === 'dark' ? 'text-white/40' : 'text-gray-400'
-                    }`}>
-                      {crypto.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* SOPHISTICATED GOLD BENEFITS SECTION */}
         <section id="benefits" className="relative py-32 md:py-48 overflow-hidden bg-gradient-to-br from-[#E8C547] via-[#DFC13F] to-[#D4AF37]">
@@ -764,8 +667,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* WHO IS THIS FOR - Premium Cards */}
-        <section id="who" className={`relative py-32 md:py-48 overflow-hidden ${
+        {/* OUR EXPERTISE - Premium Cards */}
+        <section id="expertise" className={`relative py-32 md:py-48 overflow-hidden ${
           theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-white'
         }`}>
           {/* Subtle gradient */}
@@ -785,79 +688,325 @@ export default function HomePage() {
               <h2 className={`text-7xl md:text-8xl font-bold mb-8 tracking-[-0.03em] leading-[1.05] ${
                 theme === 'dark' ? 'text-white-100' : 'text-black'
               }`}>
-                Who is this for?
+                Our Expertise
               </h2>
               <p className={`text-xl max-w-2xl mx-auto font-light leading-relaxed tracking-[-0.01em] ${
                 theme === 'dark' ? 'text-white-100/50' : 'text-gray-600'
               }`}>
-                IFICI is designed for high-income professionals and entrepreneurs
-                relocating to Portugal
+                Specialized services for international professionals and investors
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div className="grid md:grid-cols-3 gap-10">
               {[
                 {
-                  icon: <BriefcaseIcon />,
-                  title: 'Business Executives',
-                  description: 'CEOs, directors, and senior management professionals',
+                  title: 'IFICI Tax Regime Setup',
+                  description: 'Complete management of your IFICI application and Portuguese tax residency. From initial eligibility assessment to final approval, we handle every step with precision.',
+                  features: [
+                    'IFICI application & approval guarantee',
+                    'Tax residency establishment',
+                    'NIF and fiscal coordination',
+                    'Healthcare & social security setup',
+                    'Banking relationships',
+                    'Ongoing compliance support',
+                  ],
                 },
                 {
-                  icon: <RocketIcon />,
-                  title: 'Entrepreneurs',
-                  description: 'Business owners and founders across all industries',
+                  title: 'Cryptocurrency Tax Optimization',
+                  description: 'Specialized strategies for crypto investors navigating Portugal\'s favorable tax environment. We understand DeFi, staking, NFTs, and complex digital asset structures.',
+                  features: [
+                    'Crypto portfolio tax analysis',
+                    'Long-term vs short-term gain strategies',
+                    'Crypto-friendly banking introductions',
+                    'International crypto tax coordination',
+                    'OTC trading tax structure',
+                    'Exit strategy planning',
+                  ],
                 },
                 {
-                  icon: <TrendingUpIcon />,
-                  title: 'Investors',
-                  description: 'Investment professionals, traders, and portfolio managers',
+                  title: 'International Wealth Planning',
+                  description: 'Comprehensive tax and wealth structuring for high-net-worth individuals and families relocating to Portugal or managing multi-jurisdiction affairs.',
+                  features: [
+                    'Portuguese company formation',
+                    'Dual residency compliance',
+                    'International tax treaties',
+                    'Property acquisition structuring',
+                    'Private banking introductions',
+                    'Investment portfolio optimization',
+                    'Family relocation coordination',
+                  ],
                 },
-                {
-                  icon: <CodeIcon />,
-                  title: 'Digital Professionals',
-                  description: 'Consultants, freelancers, and remote professionals',
-                },
-              ].map((persona, index) => (
+              ].map((service, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.12, ease: [0.4, 0, 0.2, 1] }}
+                  transition={{ duration: 0.8, delay: index * 0.15, ease: [0.4, 0, 0.2, 1] }}
                   viewport={{ once: true }}
                   whileHover={{ y: -8 }}
                   className="group"
                 >
-                  <div className={`relative h-full p-12 rounded-[32px] backdrop-blur-2xl border transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                  <div className={`relative h-full p-10 rounded-[32px] backdrop-blur-2xl border transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                     theme === 'dark'
                       ? 'bg-white-100/[0.02] border-white-100/[0.06] hover:bg-white-100/[0.04] hover:border-white-100/10 shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.03)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.06)]'
                       : 'bg-white border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-xl'
                   }`}>
                     {/* Gradient border effect on hover */}
-                    <div className={`absolute inset-0 rounded-[32px] bg-gradient-to-br from-yellow-500/0 via-transparent to-transparent opacity-0 group-hover:opacity-${
-                      theme === 'dark' ? '5' : '10'
-                    } transition-opacity duration-700`} />
+                    <div className={`absolute inset-0 rounded-[32px] bg-gradient-to-br from-yellow-500/0 via-transparent to-transparent opacity-0 group-hover:opacity-5 transition-opacity duration-700`} />
 
-                    <div className={`relative flex justify-center mb-10 group-hover:scale-110 transition-all duration-700 ${
-                      theme === 'dark'
-                        ? 'text-yellow-500/80 group-hover:text-yellow-500'
-                        : 'text-yellow-600 group-hover:text-yellow-500'
-                    }`}>
-                      {persona.icon}
+                    <div className="relative">
+                      <h3 className={`text-2xl font-bold mb-4 tracking-tight ${
+                        theme === 'dark' ? 'text-white-100' : 'text-black'
+                      }`}>
+                        {service.title}
+                      </h3>
+                      <p className={`text-base leading-relaxed mb-6 font-light tracking-[-0.01em] ${
+                        theme === 'dark' ? 'text-white-100/60' : 'text-gray-600'
+                      }`}>
+                        {service.description}
+                      </p>
+                      <ul className="space-y-3">
+                        {service.features.map((feature, i) => (
+                          <li
+                            key={i}
+                            className={`flex items-start gap-3 text-sm font-light ${
+                              theme === 'dark' ? 'text-white-100/70' : 'text-gray-700'
+                            }`}
+                          >
+                            <svg
+                              className="w-5 h-5 text-yellow-500/80 flex-shrink-0 mt-0.5"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth={2.5}
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <path d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <h3 className={`text-2xl font-bold mb-5 text-center tracking-tight ${
-                      theme === 'dark' ? 'text-white-100' : 'text-black'
-                    }`}>
-                      {persona.title}
-                    </h3>
-                    <p className={`text-base leading-relaxed text-center font-light tracking-[-0.01em] ${
-                      theme === 'dark' ? 'text-white-100/50' : 'text-gray-600'
-                    }`}>
-                      {persona.description}
-                    </p>
                   </div>
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* WHO WE WORK WITH */}
+        <section className={`relative py-32 md:py-48 overflow-hidden ${
+          theme === 'dark' ? 'bg-[#12141C]' : 'bg-gray-50'
+        }`}>
+          <div className={`absolute inset-0 opacity-50 ${
+            theme === 'dark'
+              ? 'bg-gradient-to-b from-[#0a0a0a] via-[#12141C] to-[#0a0a0a]'
+              : 'bg-gradient-to-b from-white via-gray-50 to-white'
+          }`} />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+              viewport={{ once: true }}
+              className="text-center mb-24"
+            >
+              <h2 className={`text-7xl md:text-8xl font-bold mb-8 tracking-[-0.03em] leading-[1.05] ${
+                theme === 'dark' ? 'text-white-100' : 'text-black'
+              }`}>
+                Who We Work With
+              </h2>
+              <p className={`text-xl max-w-3xl mx-auto font-light leading-relaxed tracking-[-0.01em] ${
+                theme === 'dark' ? 'text-white-100/50' : 'text-gray-600'
+              }`}>
+                We specialize in serving international professionals and investors who value expert guidance and absolute discretion.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-10">
+              {[
+                {
+                  title: 'Tech Executives & Entrepreneurs',
+                  description: 'CEOs, CTOs, and founders relocating to Portugal. Typical profile: €150k-€500k annual income, equity compensation, international exposure.',
+                  tag: 'Common needs: IFICI setup, company structuring, equity tax planning',
+                },
+                {
+                  title: 'Cryptocurrency Investors',
+                  description: 'Digital asset holders seeking Portugal\'s favorable crypto tax regime. Typical profile: €500k-€10M+ crypto portfolio, active trading or long-term holding.',
+                  tag: 'Common needs: Crypto tax optimization, banking relationships, exit strategies',
+                },
+                {
+                  title: 'High-Net-Worth Families',
+                  description: 'Established wealth seeking Portuguese residency for lifestyle and tax benefits. Typical profile: €2M-€50M+ net worth, multi-jurisdiction assets.',
+                  tag: 'Common needs: Family relocation, wealth structuring, private banking, succession planning',
+                },
+              ].map((profile, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.15, ease: [0.4, 0, 0.2, 1] }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -8 }}
+                  className="group"
+                >
+                  <div className={`relative h-full p-10 rounded-[32px] backdrop-blur-2xl border transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                    theme === 'dark'
+                      ? 'bg-white-100/[0.02] border-white-100/[0.06] hover:bg-white-100/[0.04] hover:border-white-100/10 shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.03)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.06)]'
+                      : 'bg-white border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-xl'
+                  }`}>
+                    <div className={`absolute inset-0 rounded-[32px] bg-gradient-to-br from-yellow-500/0 via-transparent to-transparent opacity-0 group-hover:opacity-5 transition-opacity duration-700`} />
+
+                    <div className="relative">
+                      <h3 className={`text-2xl font-bold mb-4 tracking-tight ${
+                        theme === 'dark' ? 'text-white-100' : 'text-black'
+                      }`}>
+                        {profile.title}
+                      </h3>
+                      <p className={`text-base leading-relaxed mb-6 font-light tracking-[-0.01em] ${
+                        theme === 'dark' ? 'text-white-100/60' : 'text-gray-600'
+                      }`}>
+                        {profile.description}
+                      </p>
+                      <div className={`px-4 py-3 rounded-xl text-sm font-medium ${
+                        theme === 'dark'
+                          ? 'bg-yellow-500/10 border border-yellow-500/20 text-yellow-400'
+                          : 'bg-yellow-500/10 border border-yellow-500/30 text-yellow-700'
+                      }`}>
+                        {profile.tag}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="text-center mt-16"
+            >
+              <Button
+                variant="primary"
+                size="lg"
+                onClick={() => setIsCalendlyOpen(true)}
+              >
+                See If You Qualify
+              </Button>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* HOW WE WORK */}
+        <section className={`relative py-32 md:py-48 overflow-hidden ${
+          theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-white'
+        }`}>
+          <div className={`absolute inset-0 opacity-50 ${
+            theme === 'dark'
+              ? 'bg-gradient-to-b from-[#12141C] via-[#0a0a0a] to-[#12141C]'
+              : 'bg-gradient-to-b from-gray-50 via-white to-gray-50'
+          }`} />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+              viewport={{ once: true }}
+              className="text-center mb-24"
+            >
+              <h2 className={`text-7xl md:text-8xl font-bold mb-8 tracking-[-0.03em] leading-[1.05] ${
+                theme === 'dark' ? 'text-white-100' : 'text-black'
+              }`}>
+                How We Work
+              </h2>
+              <p className={`text-xl max-w-3xl mx-auto font-light leading-relaxed tracking-[-0.01em] ${
+                theme === 'dark' ? 'text-white-100/50' : 'text-gray-600'
+              }`}>
+                Our engagements are fully customized to your specific situation and goals. Here's what you can expect:
+              </p>
+            </motion.div>
+
+            <div className="max-w-4xl mx-auto space-y-8">
+              {[
+                {
+                  number: '1',
+                  title: 'Discovery Consultation (Complimentary)',
+                  description: '60-minute confidential call to understand your situation, objectives, and challenges. We\'ll provide an initial assessment of potential savings and outline a tailored approach.',
+                },
+                {
+                  number: '2',
+                  title: 'Detailed Proposal',
+                  description: 'Within 48 hours, receive a comprehensive proposal outlining:\n• Recommended strategy and services\n• Timeline and key milestones\n• Investment required\n• Expected tax savings over 10 years',
+                },
+                {
+                  number: '3',
+                  title: 'White-Glove Execution',
+                  description: 'Once engaged, we handle everything:\n• All applications and registrations\n• Coordination with Portuguese authorities\n• Banking and service provider introductions\n• Regular progress updates\n• Complete documentation',
+                },
+                {
+                  number: '4',
+                  title: 'Ongoing Partnership (Optional)',
+                  description: 'For clients seeking continuous optimization:\n• Quarterly strategic reviews\n• Annual tax filing and planning\n• Network event access\n• Priority advisory support',
+                },
+              ].map((step, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.15, ease: [0.4, 0, 0.2, 1] }}
+                  viewport={{ once: true }}
+                  className="group"
+                >
+                  <div className={`relative p-10 rounded-[32px] backdrop-blur-2xl border transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                    theme === 'dark'
+                      ? 'bg-white-100/[0.02] border-white-100/[0.06] hover:bg-white-100/[0.04] hover:border-white-100/10'
+                      : 'bg-white border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-xl'
+                  }`}>
+                    <div className="flex gap-6">
+                      <div className={`flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-bold ${
+                        theme === 'dark'
+                          ? 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20'
+                          : 'bg-yellow-500/10 text-yellow-700 border border-yellow-500/30'
+                      }`}>
+                        {step.number}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className={`text-2xl font-bold mb-3 tracking-tight ${
+                          theme === 'dark' ? 'text-white-100' : 'text-black'
+                        }`}>
+                          {step.title}
+                        </h3>
+                        <p className={`text-base leading-relaxed font-light whitespace-pre-line ${
+                          theme === 'dark' ? 'text-white-100/60' : 'text-gray-600'
+                        }`}>
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mt-16"
+            >
+              <Button
+                variant="primary"
+                size="lg"
+                onClick={() => setIsCalendlyOpen(true)}
+              >
+                Start Your Discovery Call
+              </Button>
+            </motion.div>
           </div>
         </section>
 
@@ -1164,7 +1313,7 @@ export default function HomePage() {
         </section>
 
         {/* Tax Calculator Section */}
-        <section className={`relative py-32 md:py-48 overflow-hidden ${
+        <section id="calculator" className={`relative py-32 md:py-48 overflow-hidden ${
           theme === 'dark' ? 'bg-[#12141C]' : 'bg-gray-50'
         }`}>
           <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
@@ -1193,7 +1342,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* PRICING SECTION - Ultra-Premium Cards */}
+        {/* INVESTMENT IN YOUR FUTURE */}
         <section id="pricing" className={`relative py-32 md:py-48 overflow-hidden ${
           theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-white'
         }`}>
@@ -1203,7 +1352,7 @@ export default function HomePage() {
               ? 'bg-gradient-to-b from-[#12141C] via-[#0a0a0a] to-[#000000]'
               : 'bg-gradient-to-b from-white via-gray-50 to-white'
           }`} />
-          <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+          <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -1216,209 +1365,380 @@ export default function HomePage() {
               }`}>
                 Investment in Your Future
               </h2>
-              <p className={`text-xl max-w-3xl mx-auto font-light leading-relaxed tracking-[-0.01em] mb-6 ${
+              <p className={`text-xl max-w-3xl mx-auto font-light leading-relaxed tracking-[-0.01em] ${
                 theme === 'dark' ? 'text-white-100/50' : 'text-gray-600'
               }`}>
-                Professional IFICI setup and optimization. Save thousands in taxes for years to come.
-              </p>
-              <p className={`text-sm max-w-2xl mx-auto font-light tracking-wide ${
-                theme === 'dark' ? 'text-white-100/40' : 'text-gray-500'
-              }`}>
-                All packages are customized during private consultation to match your specific circumstances and objectives.
+                Our fees are tailored to the complexity of your situation and scope of services required.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-10">
-              {[
-                {
-                  name: 'Essential',
-                  price: '€12,000',
-                  priceSubtext: 'One-time investment',
-                  description: 'Complete IFICI setup for individuals',
-                  features: [
-                    'Complete IFICI application and approval support',
-                    'Tax residency establishment in Portugal',
-                    'NIF and tax registration coordination',
-                    'Bank account setup guidance',
-                    'Healthcare system registration',
-                    '1-year email support for tax queries',
-                  ],
-                  popular: false,
-                  cta: 'Get Started',
-                },
-                {
-                  name: 'Professional',
-                  price: 'Starting from €24,000',
-                  priceSubtext: 'Customized to your needs',
-                  description: 'For entrepreneurs and complex cases',
-                  features: [
-                    'Everything in Essential',
-                    'Portuguese company formation and structuring',
-                    'International tax planning across jurisdictions',
-                    'Crypto asset tax optimization strategies',
-                    'Dual residency strategy and compliance',
-                    'Priority response (24h guaranteed)',
-                    'Annual tax filing included (1 year)',
-                  ],
-                  popular: true,
-                  cta: 'Schedule Consultation',
-                },
-                {
-                  name: 'Executive',
-                  price: 'Bespoke Engagement',
-                  priceSubtext: 'Investment tailored to complexity — typically €40,000+',
-                  description: 'White-glove concierge service',
-                  features: [
-                    'Everything in Professional',
-                    'Property acquisition tax structuring',
-                    'Private banking introductions (3+ institutions)',
-                    'Investment portfolio structuring',
-                    'Family relocation coordination',
-                    'Dedicated account manager',
-                    'Annual tax filing included (3 years)',
-                    'Quarterly strategic tax reviews',
-                  ],
-                  popular: false,
-                  cta: 'Apply Now',
-                },
-              ].map((plan, index) => (
-                <motion.div
-                  key={plan.name}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.15, ease: [0.4, 0, 0.2, 1] }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -12, scale: 1.02 }}
-                  className="group relative"
-                >
-                  {/* Most Popular Badge */}
-                  {plan.popular && (
-                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-10">
-                      <div className="px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full">
-                        <span className="text-sm font-bold text-[#0a0a0a] tracking-wide">
-                          MOST POPULAR
-                        </span>
-                      </div>
-                    </div>
-                  )}
+            {/* Typical Engagement Ranges */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="mb-16"
+            >
+              <h3 className={`text-2xl font-bold mb-10 text-center tracking-tight ${
+                theme === 'dark' ? 'text-white-100' : 'text-black'
+              }`}>
+                Typical engagement ranges:
+              </h3>
 
-                  <div className={`relative h-full p-12 rounded-[32px] backdrop-blur-2xl border transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                    plan.name === 'Executive'
-                      ? theme === 'dark'
-                        ? 'bg-white-100/[0.03] border-yellow-500/20 hover:bg-white-100/[0.05] shadow-[0_16px_48px_rgba(245,207,0,0.15),inset_0_1px_0_rgba(255,255,255,0.05)] hover:shadow-[0_32px_72px_rgba(245,207,0,0.25),inset_0_2px_0_rgba(255,255,255,0.08)]'
-                        : 'bg-white border-yellow-500/30 hover:border-yellow-500/50 shadow-[0_16px_48px_rgba(245,207,0,0.1)] hover:shadow-[0_32px_72px_rgba(245,207,0,0.2)]'
-                      : theme === 'dark'
-                      ? 'bg-white-100/[0.02] border-white-100/[0.06] hover:bg-white-100/[0.04] shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.03)] hover:shadow-[0_24px_64px_rgba(0,0,0,0.24),inset_0_2px_0_rgba(255,255,255,0.06)]'
-                      : 'bg-white border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-xl'
-                  }`}>
-                    {/* Gradient border glow on hover */}
-                    <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-yellow-500/0 via-yellow-500/0 to-transparent opacity-0 group-hover:opacity-10 transition-opacity duration-700" />
-                    <div className={`absolute inset-0 rounded-[32px] border border-yellow-500/0 transition-all duration-700 ${
-                      theme === 'dark' ? 'group-hover:border-yellow-500/20' : 'group-hover:border-yellow-500/30'
-                    }`} />
-
-                    {/* Subtle outer glow */}
-                    <div className="absolute -inset-[1px] rounded-[32px] bg-gradient-to-br from-yellow-500/0 to-transparent opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-700" />
-
-                    <div className="relative">
-                      {/* Plan Name */}
-                      <h3 className={`text-2xl font-bold mb-3 tracking-tight ${
+              <div className="space-y-6 max-w-3xl mx-auto">
+                {[
+                  {
+                    title: 'For straightforward IFICI applications with basic crypto tax planning:',
+                    price: '€5,000 - €12,000',
+                    subtitle: '(one-time)',
+                  },
+                  {
+                    title: 'For comprehensive optimization including company formation and advanced strategies:',
+                    price: '€15,000 - €30,000',
+                    subtitle: '(one-time)',
+                  },
+                  {
+                    title: 'For white-glove family office services with ongoing wealth management:',
+                    price: '€35,000 - €75,000+',
+                    subtitle: '(annually)',
+                  },
+                ].map((range, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className={`p-6 rounded-2xl border ${
+                      theme === 'dark'
+                        ? 'bg-white-100/[0.02] border-white-100/[0.06]'
+                        : 'bg-white border-gray-200'
+                    }`}
+                  >
+                    <p className={`text-base mb-2 font-light ${
+                      theme === 'dark' ? 'text-white-100/70' : 'text-gray-600'
+                    }`}>
+                      {range.title}
+                    </p>
+                    <div className="flex items-baseline gap-2">
+                      <span className={`text-3xl font-bold ${
                         theme === 'dark' ? 'text-white-100' : 'text-black'
                       }`}>
-                        {plan.name}
-                      </h3>
-
-                      {/* Description */}
-                      <p className={`text-sm mb-10 font-light leading-relaxed tracking-[-0.01em] ${
-                        theme === 'dark' ? 'text-white-100/50' : 'text-gray-600'
+                        {range.price}
+                      </span>
+                      <span className={`text-sm font-light ${
+                        theme === 'dark' ? 'text-white-100/50' : 'text-gray-500'
                       }`}>
-                        {plan.description}
+                        {range.subtitle}
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* What's Included */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className={`p-10 rounded-[32px] border mb-8 ${
+                theme === 'dark'
+                  ? 'bg-white-100/[0.02] border-white-100/[0.06]'
+                  : 'bg-white border-gray-200'
+              }`}
+            >
+              <h3 className={`text-2xl font-bold mb-6 text-center tracking-tight ${
+                theme === 'dark' ? 'text-white-100' : 'text-black'
+              }`}>
+                What's included in every engagement:
+              </h3>
+              <ul className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+                {[
+                  'Dedicated advisor throughout process',
+                  'Complete application management',
+                  'All coordination with Portuguese authorities',
+                  'Banking and service provider introductions',
+                  'First tax return preparation',
+                  '12-month support for questions and updates',
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className={`flex items-start gap-3 text-base font-light ${
+                      theme === 'dark' ? 'text-white-100/70' : 'text-gray-700'
+                    }`}
+                  >
+                    <svg
+                      className="w-6 h-6 text-yellow-500/80 flex-shrink-0 mt-0.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Premium Clients */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className={`p-10 rounded-[32px] border mb-12 ${
+                theme === 'dark'
+                  ? 'bg-gradient-to-br from-yellow-500/10 to-yellow-500/5 border-yellow-500/20'
+                  : 'bg-gradient-to-br from-yellow-500/15 to-yellow-500/10 border-yellow-500/30'
+              }`}
+            >
+              <h3 className={`text-2xl font-bold mb-6 text-center tracking-tight ${
+                theme === 'dark' ? 'text-white-100' : 'text-black'
+              }`}>
+                Premium clients additionally receive:
+              </h3>
+              <ul className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+                {[
+                  'Private banking introductions (3+ institutions)',
+                  'Access to our exclusive investor network',
+                  'Quarterly in-person strategy sessions',
+                  'Multi-year tax planning and filing',
+                  'Priority response (24h guarantee)',
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className={`flex items-start gap-3 text-base font-light ${
+                      theme === 'dark' ? 'text-white-100/70' : 'text-gray-700'
+                    }`}
+                  >
+                    <svg
+                      className="w-6 h-6 text-yellow-500/80 flex-shrink-0 mt-0.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Final Text */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="text-center space-y-6"
+            >
+              <p className={`text-lg font-light ${
+                theme === 'dark' ? 'text-white-100/60' : 'text-gray-600'
+              }`}>
+                Your exact investment will be determined during the discovery consultation based on your specific needs and objectives.
+              </p>
+              <p className={`text-xl font-semibold ${
+                theme === 'dark' ? 'text-white-100' : 'text-black'
+              }`}>
+                Average client saves 3-5x their investment in the first year alone.
+              </p>
+
+              <div className="pt-8">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  onClick={() => setIsCalendlyOpen(true)}
+                >
+                  Schedule Discovery Consultation
+                </Button>
+              </div>
+
+              <p className={`text-sm font-light pt-4 ${
+                theme === 'dark' ? 'text-white-100/40' : 'text-gray-500'
+              }`}>
+                All fees are agreed upon in advance. No hidden costs. No surprises.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* WHY CRESCENTIA */}
+        <section className={`relative py-32 md:py-48 overflow-hidden ${
+          theme === 'dark' ? 'bg-[#12141C]' : 'bg-gray-50'
+        }`}>
+          <div className={`absolute inset-0 opacity-50 ${
+            theme === 'dark'
+              ? 'bg-gradient-to-b from-[#0a0a0a] via-[#12141C] to-[#0a0a0a]'
+              : 'bg-gradient-to-b from-white via-gray-50 to-white'
+          }`} />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+              viewport={{ once: true }}
+              className="text-center mb-24"
+            >
+              <h2 className={`text-7xl md:text-8xl font-bold mb-8 tracking-[-0.03em] leading-[1.05] ${
+                theme === 'dark' ? 'text-white-100' : 'text-black'
+              }`}>
+                Why Leading Professionals Choose Us
+              </h2>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  title: 'Crypto Specialization',
+                  description: 'Portugal\'s only IFICI consultancy with deep cryptocurrency expertise. We understand your digital assets.',
+                },
+                {
+                  title: '100% Success Rate',
+                  description: 'Every IFICI application we submit gets approved. We pre-screen to ensure perfect qualification.',
+                },
+                {
+                  title: 'Premium Network',
+                  description: 'Direct relationships with crypto-friendly banks, private bankers, and wealth managers. Your introduction is our reputation.',
+                },
+                {
+                  title: 'Absolute Discretion',
+                  description: 'White-glove service with complete confidentiality. Your privacy is paramount.',
+                },
+                {
+                  title: 'Long-Term Partnership',
+                  description: 'We\'re not transactional. Many clients have been with us for years, continuously optimizing as life evolves.',
+                },
+                {
+                  title: 'Proven Results',
+                  description: 'Average client tax savings: €85,000 over 10 years. Your investment pays for itself many times over.',
+                },
+              ].map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1, ease: [0.4, 0, 0.2, 1] }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -8 }}
+                  className="group"
+                >
+                  <div className={`relative h-full p-8 rounded-[32px] backdrop-blur-2xl border transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                    theme === 'dark'
+                      ? 'bg-white-100/[0.02] border-white-100/[0.06] hover:bg-white-100/[0.04] hover:border-white-100/10'
+                      : 'bg-white border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-xl'
+                  }`}>
+                    <div className={`absolute inset-0 rounded-[32px] bg-gradient-to-br from-yellow-500/0 via-transparent to-transparent opacity-0 group-hover:opacity-5 transition-opacity duration-700`} />
+
+                    <div className="relative">
+                      <h3 className={`text-xl font-bold mb-3 tracking-tight ${
+                        theme === 'dark' ? 'text-white-100' : 'text-black'
+                      }`}>
+                        {feature.title}
+                      </h3>
+                      <p className={`text-base leading-relaxed font-light tracking-[-0.01em] ${
+                        theme === 'dark' ? 'text-white-100/60' : 'text-gray-600'
+                      }`}>
+                        {feature.description}
                       </p>
-
-                      {/* Price */}
-                      <div className="mb-12">
-                        <div className={`${
-                          plan.name === 'Executive' ? 'text-4xl' : 'text-6xl'
-                        } font-bold tracking-[-0.03em] mb-2 ${
-                          theme === 'dark' ? 'text-white-100' : 'text-black'
-                        }`}>
-                          {plan.price}
-                        </div>
-                        <div className={`text-sm font-light tracking-wide ${
-                          theme === 'dark' ? 'text-white-100/40' : 'text-gray-500'
-                        }`}>
-                          {plan.priceSubtext}
-                        </div>
-                      </div>
-
-                      {/* CTA Button */}
-                      <Button
-                        variant={plan.popular ? 'primary' : 'secondary'}
-                        size="lg"
-                        onClick={() => setIsCalendlyOpen(true)}
-                        className="w-full mb-12 group/btn relative overflow-hidden"
-                      >
-                        <span className="relative z-10">{plan.cta}</span>
-                        {plan.popular && (
-                          <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-yellow-500"
-                            initial={{ x: '-100%' }}
-                            whileHover={{ x: '100%' }}
-                            transition={{ duration: 0.6 }}
-                          />
-                        )}
-                      </Button>
-
-                      {/* Features List */}
-                      <ul className="space-y-5">
-                        {plan.features.map((feature, i) => (
-                          <motion.li
-                            key={i}
-                            initial={{ opacity: 0, x: -10 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 + i * 0.05 }}
-                            viewport={{ once: true }}
-                            className={`flex items-start gap-4 font-light leading-relaxed ${
-                              theme === 'dark' ? 'text-white-100/70' : 'text-gray-700'
-                            }`}
-                          >
-                            <motion.svg
-                              initial={{ scale: 0 }}
-                              whileInView={{ scale: 1 }}
-                              transition={{ duration: 0.4, delay: index * 0.1 + i * 0.05 + 0.2 }}
-                              viewport={{ once: true }}
-                              className="w-6 h-6 text-yellow-500/80 flex-shrink-0 mt-0.5"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth={2.5}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            >
-                              <path d="M20 6L9 17l-5-5" />
-                            </motion.svg>
-                            <span>{feature}</span>
-                          </motion.li>
-                        ))}
-                      </ul>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
 
-            {/* Trust Signal */}
-            <motion.p
+        {/* FAQ SECTION */}
+        <section className={`relative py-32 md:py-48 overflow-hidden ${
+          theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-white'
+        }`}>
+          <div className={`absolute inset-0 opacity-50 ${
+            theme === 'dark'
+              ? 'bg-gradient-to-b from-[#12141C] via-[#0a0a0a] to-[#12141C]'
+              : 'bg-gradient-to-b from-gray-50 via-white to-gray-50'
+          }`} />
+          <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
+            <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
               viewport={{ once: true }}
-              className={`text-center mt-16 text-sm font-light tracking-wide ${
-                theme === 'dark' ? 'text-white-100/40' : 'text-gray-500'
-              }`}
+              className="text-center mb-24"
             >
-              All prices include Portuguese VAT. Payment plans available for Executive package. Minimum engagement €12,000.
-            </motion.p>
+              <h2 className={`text-7xl md:text-8xl font-bold mb-8 tracking-[-0.03em] leading-[1.05] ${
+                theme === 'dark' ? 'text-white-100' : 'text-black'
+              }`}>
+                Frequently Asked Questions
+              </h2>
+            </motion.div>
+
+            <div className="space-y-6">
+              {[
+                {
+                  question: 'What makes you different from other IFICI consultants?',
+                  answer: 'We\'re the only consultancy specializing in both IFICI and cryptocurrency tax optimization. Most firms understand one or the other—we excel at both.',
+                },
+                {
+                  question: 'Do I need to have crypto to work with you?',
+                  answer: 'No. While we specialize in crypto, we serve all high-income professionals relocating to Portugal. Our expertise simply extends further than others.',
+                },
+                {
+                  question: 'What\'s your typical client profile?',
+                  answer: 'Tech executives, entrepreneurs, and investors earning €150k+ annually or with portfolios exceeding €1M. We work with clients from Silicon Valley to Singapore.',
+                },
+                {
+                  question: 'How long does the process take?',
+                  answer: 'IFICI approval typically takes 6-12 weeks from application. Complete relocation and optimization can take 3-6 months depending on complexity.',
+                },
+                {
+                  question: 'Do you provide ongoing services?',
+                  answer: 'Yes. Many clients retain us for annual tax planning, filings, and strategic advisory. This is optional but recommended for complex situations.',
+                },
+                {
+                  question: 'What if I\'m not eligible for IFICI?',
+                  answer: 'We\'ll tell you during the discovery call—honestly and free of charge. We only take on clients we can genuinely help.',
+                },
+                {
+                  question: 'Are your fees negotiable?',
+                  answer: 'Our fees reflect the significant value we deliver and expertise we provide. That said, we\'re always transparent about costs and tailor our scope to your budget where possible.',
+                },
+              ].map((faq, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className={`p-8 rounded-[32px] border ${
+                    theme === 'dark'
+                      ? 'bg-white-100/[0.02] border-white-100/[0.06]'
+                      : 'bg-white border-gray-200'
+                  }`}
+                >
+                  <h3 className={`text-xl font-bold mb-3 tracking-tight ${
+                    theme === 'dark' ? 'text-white-100' : 'text-black'
+                  }`}>
+                    {faq.question}
+                  </h3>
+                  <p className={`text-base leading-relaxed font-light tracking-[-0.01em] ${
+                    theme === 'dark' ? 'text-white-100/60' : 'text-gray-600'
+                  }`}>
+                    {faq.answer}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -1440,19 +1760,25 @@ export default function HomePage() {
               transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
               viewport={{ once: true }}
             >
-              <h2 className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-12 tracking-[-0.03em] leading-[0.95] ${
+              <h2 className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 tracking-[-0.03em] leading-[1.05] ${
                 theme === 'dark' ? 'text-white-100' : 'text-black'
               }`}>
-                Start Saving{' '}
-                <span className="block bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
-                  Today
+                Start Your{' '}
+                <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
+                  Tax Optimization Journey
                 </span>
               </h2>
 
-              <p className={`text-lg md:text-xl lg:text-2xl mb-16 max-w-3xl mx-auto font-light leading-relaxed tracking-[-0.01em] ${
+              <p className={`text-lg md:text-xl lg:text-2xl mb-6 max-w-3xl mx-auto font-light leading-relaxed tracking-[-0.01em] ${
                 theme === 'dark' ? 'text-white-100/60' : 'text-gray-600'
               }`}>
-                Book a free consultation with our IFICI specialists. We'll analyze your situation and show you exactly how much you can save.
+                Book a complimentary 60-minute discovery consultation. We'll analyze your situation and show you exactly how much you can save.
+              </p>
+
+              <p className={`text-base mb-12 font-light ${
+                theme === 'dark' ? 'text-white-100/50' : 'text-gray-500'
+              }`}>
+                No obligation. Complete confidentiality.
               </p>
 
               <motion.div
@@ -1460,7 +1786,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
                 viewport={{ once: true }}
-                className="flex flex-col sm:flex-row gap-6 justify-center"
+                className="flex flex-col items-center gap-6 mb-16"
               >
                 <Button
                   size="lg"
@@ -1468,7 +1794,7 @@ export default function HomePage() {
                   onClick={() => setIsCalendlyOpen(true)}
                   className="group relative overflow-hidden text-lg px-12 py-6"
                 >
-                  <span className="relative z-10">Book Free Consultation</span>
+                  <span className="relative z-10">Schedule Your Discovery Call</span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-yellow-500"
                     initial={{ x: '-100%' }}
@@ -1476,36 +1802,61 @@ export default function HomePage() {
                     transition={{ duration: 0.6 }}
                   />
                 </Button>
+
+                <p className={`text-sm font-light ${
+                  theme === 'dark' ? 'text-white-100/50' : 'text-gray-500'
+                }`}>
+                  Or email us directly:{' '}
+                  <a
+                    href="mailto:wealth@crescentia.pt"
+                    className={`font-medium hover:text-yellow-500 transition-colors ${
+                      theme === 'dark' ? 'text-white-100/70' : 'text-gray-700'
+                    }`}
+                  >
+                    wealth@crescentia.pt
+                  </a>
+                </p>
               </motion.div>
 
-              {/* Trust indicators */}
+              {/* What to Prepare */}
               <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className={`mt-20 flex flex-col sm:flex-row items-center justify-center gap-12 text-sm font-light ${
-                  theme === 'dark' ? 'text-white-100/40' : 'text-gray-500'
+                className={`max-w-2xl mx-auto p-8 rounded-[32px] border ${
+                  theme === 'dark'
+                    ? 'bg-white-100/[0.02] border-white-100/[0.06]'
+                    : 'bg-white border-gray-200'
                 }`}
               >
-                <div className="flex items-center gap-3">
-                  <svg className="w-5 h-5 text-yellow-500/60" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                  <span>100+ successful applications</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <svg className="w-5 h-5 text-yellow-500/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                  <span>Fully licensed & regulated</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <svg className="w-5 h-5 text-yellow-500/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                    <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span>Average setup: 6-8 weeks</span>
-                </div>
+                <h3 className={`text-xl font-bold mb-6 text-center tracking-tight ${
+                  theme === 'dark' ? 'text-white-100' : 'text-black'
+                }`}>
+                  What to prepare:
+                </h3>
+                <ul className={`space-y-3 text-base font-light ${
+                  theme === 'dark' ? 'text-white-100/70' : 'text-gray-700'
+                }`}>
+                  {[
+                    'Your current country of residence and tax status',
+                    'Annual income and sources (employment, business, investments)',
+                    'Cryptocurrency holdings (if applicable)',
+                    'Your objectives for relocating to Portugal',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className={`mt-1 ${
+                        theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'
+                      }`}>•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className={`text-center mt-6 font-medium ${
+                  theme === 'dark' ? 'text-white-100/80' : 'text-gray-800'
+                }`}>
+                  We'll handle the rest.
+                </p>
               </motion.div>
             </motion.div>
           </div>
