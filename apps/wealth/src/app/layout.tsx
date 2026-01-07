@@ -1,51 +1,99 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Space_Grotesk } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
+import { WebsiteSchema, ServiceSchema } from './schema'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-space-grotesk',
+  display: 'swap', // Critical for performance - prevents FOIT
+  preload: true,
 })
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#12141C',
+}
+
 export const metadata: Metadata = {
-  title: 'Crescentia Wealth | IFICI Tax Optimization Portugal',
-  description:
-    'Tax optimization for international professionals in Portugal. 20% flat tax under IFICI regime, 0% crypto tax. Expert wealth transition services.',
+  metadataBase: new URL('https://wealth.crescentia.pt'),
+  title: {
+    default: 'IFICI Tax Optimization Portugal | 20% Tax Rate for 10 Years | Crescentia Wealth',
+    template: '%s | Crescentia Wealth'
+  },
+  description: 'Expert IFICI and cryptocurrency tax optimization for high-income professionals relocating to Portugal. Reduce your tax burden by €50,000-€500,000+ over 10 years with Portugal\'s 20% tax regime.',
   keywords: [
-    'ifici portugal',
-    'nhr successor',
-    'portugal tax',
-    'crypto tax portugal',
-    'wealth optimization',
-    'tax planning portugal',
-    'international professionals',
-    '20% flat tax',
-    'expat tax portugal',
-    'crescentia wealth',
+    'IFICI Portugal',
+    'NHR 2.0',
+    'Portugal tax optimization',
+    'crypto tax Portugal',
+    'tax residency Portugal',
+    'Portuguese tax regime',
+    '20% tax Portugal',
+    'relocate to Portugal',
+    'HNWI Portugal',
+    'cryptocurrency tax planning',
+    'international tax planning',
+    'Portugal Golden Visa alternative',
+    'tech executives Portugal',
+    'digital nomad tax Portugal',
+    'high net worth Portugal',
+    'expat tax Portugal',
+    'wealth management Portugal',
+    'tax consultant Portugal',
+    'IFICI application',
+    'Portuguese residency tax benefits'
   ],
-  authors: [{ name: 'Crescentia' }],
+  authors: [{ name: 'Crescentia Wealth' }],
+  creator: 'Crescentia',
+  publisher: 'Crescentia',
   icons: {
     icon: '/logos/Crescentia-Icon-Yellow.svg',
     apple: '/logos/Crescentia-Icon-Yellow.svg',
   },
-  openGraph: {
-    title: 'Crescentia Wealth | IFICI Tax Optimization Portugal',
-    description: '20% flat income tax. 0% crypto tax. Expert IFICI regime advisory for high-income professionals.',
-    url: 'https://wealth.crescentia.pt',
-    siteName: 'Crescentia Wealth',
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Crescentia Wealth | IFICI Tax Optimization',
-    description: '20% flat tax. 0% crypto tax. Portugal IFICI regime experts.',
-  },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://wealth.crescentia.pt',
+    siteName: 'Crescentia Wealth',
+    title: 'IFICI Tax Optimization Portugal | 20% Tax for 10 Years',
+    description: 'Expert IFICI and cryptocurrency tax optimization for high-income professionals. Reduce your tax burden by €50,000-€500,000+ over 10 years.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Crescentia Wealth - IFICI Tax Optimization Portugal',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'IFICI Tax Optimization Portugal | Crescentia Wealth',
+    description: 'Expert IFICI and cryptocurrency tax optimization for high-income professionals relocating to Portugal.',
+    images: ['/og-image.jpg'],
+    creator: '@crescentia',
+  },
+  alternates: {
+    canonical: 'https://wealth.crescentia.pt',
+  },
+  verification: {
+    // google: 'ADD_GOOGLE_VERIFICATION_CODE_HERE', // User needs to add from Search Console
   },
 }
 
@@ -54,35 +102,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Crescentia Wealth",
-    "description": "IFICI tax optimization for international professionals in Portugal",
-    "url": "https://wealth.crescentia.pt",
-    "logo": "https://wealth.crescentia.pt/logos/Crescentia-Icon-Yellow.svg",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+351-913-960-220",
-      "contactType": "Customer Service",
-      "email": "info@crescentia.pt",
-      "areaServed": "PT",
-      "availableLanguage": ["English", "Portuguese"]
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "PT",
-      "addressLocality": "Porto"
-    }
-  }
-
   return (
     <html lang="en" className={spaceGrotesk.variable}>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-        />
+        {/* Preconnect to external resources for performance */}
+        <link rel="preconnect" href="https://calendly.com" />
+        <link rel="dns-prefetch" href="https://calendly.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        {/* Schema.org structured data */}
+        <WebsiteSchema />
+        <ServiceSchema />
+
         {/* Google Analytics - Wealth */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-V47LMR3NQ4"
