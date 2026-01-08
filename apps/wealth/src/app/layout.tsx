@@ -19,6 +19,14 @@ export const viewport: Viewport = {
   themeColor: '#12141C',
 }
 
+/**
+ * SEO Metadata Configuration
+ *
+ * To add OG image in the future:
+ * 1. Add image file: apps/wealth/public/og-image.jpg (1200x630px)
+ * 2. Uncomment image sections in openGraph and twitter objects below
+ * 3. Change twitter.card back to 'summary_large_image'
+ */
 export const metadata: Metadata = {
   metadataBase: new URL('https://wealth.crescentia.pt'),
   title: {
@@ -73,20 +81,23 @@ export const metadata: Metadata = {
     siteName: 'Crescentia Wealth',
     title: 'IFICI Tax Optimization Portugal | 20% Tax for 10 Years',
     description: 'Expert IFICI and cryptocurrency tax optimization for high-income professionals. Reduce your tax burden by €50,000-€500,000+ over 10 years.',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Crescentia Wealth - IFICI Tax Optimization Portugal',
-      },
-    ],
+    // No images - clean social sharing with title and description only
+    // Uncomment below to add OG image:
+    // images: [
+    //   {
+    //     url: '/og-image.jpg',
+    //     width: 1200,
+    //     height: 630,
+    //     alt: 'Crescentia Wealth - IFICI Tax Optimization Portugal',
+    //   },
+    // ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary', // Changed from 'summary_large_image' - no image card
     title: 'IFICI Tax Optimization Portugal | Crescentia Wealth',
     description: 'Expert IFICI and cryptocurrency tax optimization for high-income professionals relocating to Portugal.',
-    images: ['/og-image.jpg'],
+    // Uncomment below to add Twitter image:
+    // images: ['/og-image.jpg'],
     creator: '@crescentia',
   },
   alternates: {
