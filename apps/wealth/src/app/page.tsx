@@ -793,6 +793,21 @@ export default function HomePage() {
                 </motion.div>
               ))}
             </div>
+
+            {/* Note below cards */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="text-center mt-16"
+            >
+              <p className={`text-base font-light max-w-3xl mx-auto ${
+                theme === 'dark' ? 'text-white-100/60' : 'text-gray-600'
+              }`}>
+                All services are available individually or as part of our comprehensive relocation packages tailored to your needs.
+              </p>
+            </motion.div>
           </div>
         </section>
 
@@ -821,26 +836,45 @@ export default function HomePage() {
               <p className={`text-xl max-w-3xl mx-auto font-light leading-relaxed tracking-[-0.01em] ${
                 theme === 'dark' ? 'text-white-100/50' : 'text-gray-600'
               }`}>
-                We specialize in serving international professionals and investors who value expert guidance and absolute discretion.
+                Choose the service package that matches your relocation and wealth management needs.
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-10">
               {[
                 {
-                  title: 'Tech Executives & Entrepreneurs',
-                  description: 'CEOs, CTOs, and founders relocating to Portugal. Typical profile: €150k-€500k annual income, equity compensation, international exposure.',
-                  tag: 'Common needs: IFICI setup, company structuring, equity tax planning',
+                  title: 'Professional Relocator',
+                  description: 'For professionals relocating to Portugal',
+                  features: [
+                    'IFICI application & approval',
+                    'Tax residency & NIF setup',
+                    'Portuguese bank account',
+                    'Relocation essentials (housing, utilities)',
+                    '3 months post-arrival support',
+                  ],
                 },
                 {
-                  title: 'Cryptocurrency Investors',
-                  description: 'Digital asset holders seeking Portugal\'s favorable crypto tax regime. Typical profile: €500k-€10M+ crypto portfolio, active trading or long-term holding.',
-                  tag: 'Common needs: Crypto tax optimization, banking relationships, exit strategies',
+                  title: 'Crypto Professional',
+                  description: 'For those with cryptocurrency holdings',
+                  features: [
+                    'Everything in Professional Relocator',
+                    'Crypto tax structuring & optimization',
+                    'Company formation (LDA) if needed',
+                    'Enhanced relocation (schools, healthcare, lifestyle)',
+                    '6 months ongoing tax planning support',
+                  ],
                 },
                 {
-                  title: 'High-Net-Worth Families',
-                  description: 'Established wealth seeking Portuguese residency for lifestyle and tax benefits. Typical profile: €2M-€50M+ net worth, multi-jurisdiction assets.',
-                  tag: 'Common needs: Family relocation, wealth structuring, private banking, succession planning',
+                  title: 'Wealth Management Premium',
+                  description: 'Comprehensive family relocation & wealth structuring',
+                  features: [
+                    'Everything in Crypto Professional',
+                    'Advanced wealth structuring (holdings, trusts)',
+                    'Luxury real estate advisory',
+                    'Full family relocation coordination',
+                    '12 months ongoing advisory + priority support',
+                    'Exclusive network access',
+                  ],
                 },
               ].map((profile, index) => (
                 <motion.div
@@ -870,34 +904,51 @@ export default function HomePage() {
                       }`}>
                         {profile.description}
                       </p>
-                      <div className={`px-4 py-3 rounded-xl text-sm font-medium ${
-                        theme === 'dark'
-                          ? 'bg-yellow-500/10 border border-yellow-500/20 text-yellow-400'
-                          : 'bg-yellow-500/10 border border-yellow-500/30 text-yellow-700'
-                      }`}>
-                        {profile.tag}
+
+                      <div className="mb-6">
+                        <h4 className={`text-sm font-semibold mb-3 ${
+                          theme === 'dark' ? 'text-white-100/80' : 'text-gray-800'
+                        }`}>
+                          What's included:
+                        </h4>
+                        <ul className="space-y-2">
+                          {profile.features.map((feature, i) => (
+                            <li
+                              key={i}
+                              className={`flex items-start gap-2 text-sm font-light ${
+                                theme === 'dark' ? 'text-white-100/70' : 'text-gray-700'
+                              }`}
+                            >
+                              <svg
+                                className="w-4 h-4 text-yellow-500/80 flex-shrink-0 mt-0.5"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth={2.5}
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <path d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
+
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        onClick={() => setIsCalendlyOpen(true)}
+                        className="w-full"
+                      >
+                        Book Consultation
+                      </Button>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              viewport={{ once: true }}
-              className="text-center mt-16"
-            >
-              <Button
-                variant="primary"
-                size="lg"
-                onClick={() => setIsCalendlyOpen(true)}
-              >
-                See If You Qualify
-              </Button>
-            </motion.div>
           </div>
         </section>
 
@@ -940,7 +991,7 @@ export default function HomePage() {
                 {
                   number: '2',
                   title: 'Detailed Proposal',
-                  description: 'Within 48 hours, receive a comprehensive proposal outlining:\n• Recommended strategy and services\n• Timeline and key milestones\n• Investment required\n• Expected tax savings over 10 years',
+                  description: 'Within 48 hours, receive a comprehensive proposal outlining:\n• Recommended strategy and services\n• Timeline and key milestones\n• Investment required (tailored to your needs and complexity)\n• Expected tax savings over 10 years',
                 },
                 {
                   number: '3',
@@ -1372,72 +1423,6 @@ export default function HomePage() {
               </p>
             </motion.div>
 
-            {/* Typical Engagement Ranges */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="mb-16"
-            >
-              <h3 className={`text-2xl font-bold mb-10 text-center tracking-tight ${
-                theme === 'dark' ? 'text-white-100' : 'text-black'
-              }`}>
-                Typical engagement ranges:
-              </h3>
-
-              <div className="space-y-6 max-w-3xl mx-auto">
-                {[
-                  {
-                    title: 'For straightforward IFICI applications with basic crypto tax planning:',
-                    price: '€5,000 - €12,000',
-                    subtitle: '(one-time)',
-                  },
-                  {
-                    title: 'For comprehensive optimization including company formation and advanced strategies:',
-                    price: '€15,000 - €30,000',
-                    subtitle: '(one-time)',
-                  },
-                  {
-                    title: 'For white-glove family office services with ongoing wealth management:',
-                    price: '€35,000 - €75,000+',
-                    subtitle: '(annually)',
-                  },
-                ].map((range, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className={`p-6 rounded-2xl border ${
-                      theme === 'dark'
-                        ? 'bg-white-100/[0.02] border-white-100/[0.06]'
-                        : 'bg-white border-gray-200'
-                    }`}
-                  >
-                    <p className={`text-base mb-2 font-light ${
-                      theme === 'dark' ? 'text-white-100/70' : 'text-gray-600'
-                    }`}>
-                      {range.title}
-                    </p>
-                    <div className="flex items-baseline gap-2">
-                      <span className={`text-3xl font-bold ${
-                        theme === 'dark' ? 'text-white-100' : 'text-black'
-                      }`}>
-                        {range.price}
-                      </span>
-                      <span className={`text-sm font-light ${
-                        theme === 'dark' ? 'text-white-100/50' : 'text-gray-500'
-                      }`}>
-                        {range.subtitle}
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
             {/* What's Included */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1560,7 +1545,7 @@ export default function HomePage() {
                   size="lg"
                   onClick={() => setIsCalendlyOpen(true)}
                 >
-                  Schedule Discovery Consultation
+                  Schedule Discovery Consultation to Get Custom Quote
                 </Button>
               </div>
 
@@ -1685,6 +1670,10 @@ export default function HomePage() {
 
             <div className="space-y-6">
               {[
+                {
+                  question: 'What do your services cost?',
+                  answer: 'Investment varies based on your situation\'s complexity and the scope of services required. During your complimentary discovery call, we\'ll provide a transparent custom quote with no hidden fees. Our clients typically save 3-5x their investment in tax savings within the first year alone.',
+                },
                 {
                   question: 'What makes you different from other IFICI consultants?',
                   answer: 'We\'re the only consultancy specializing in both IFICI and cryptocurrency tax optimization. Most firms understand one or the other—we excel at both.',
