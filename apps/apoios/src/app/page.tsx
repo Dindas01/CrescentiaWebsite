@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import CookieBanner from '../components/CookieBanner'
+import { programs } from '@/data/programs'
 
 // Newsletter Section Component with Web3Forms
 const NewsletterSection = ({ theme }: { theme: 'light' | 'dark' }) => {
@@ -445,6 +447,158 @@ export default function ApoiosPage() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Programas Prioritários 2025 */}
+      <section className={`relative py-20 md:py-28 ${
+        theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#fffdf7]'
+      }`}>
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${
+              theme === 'dark' ? 'text-white' : 'text-black'
+            }`}>
+              Programas{' '}
+              <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                Prioritários 2025
+              </span>
+            </h2>
+            <p className={`text-lg md:text-xl max-w-3xl mx-auto ${
+              theme === 'dark' ? 'text-white/70' : 'text-gray-700'
+            }`}>
+              Explore os 7 programas com maior procura e impacto para PMEs portuguesas
+            </p>
+          </motion.div>
+
+          {/* Featured Programs Grid */}
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-12">
+            {programs.slice(0, 3).map((program, idx) => {
+              const statusConfig = {
+                open: {
+                  label: 'ABERTO',
+                  class: 'bg-green-500/10 border-green-500/30 text-green-400',
+                  dotClass: 'bg-green-400'
+                },
+                continuous: {
+                  label: 'CONTÍNUO',
+                  class: 'bg-blue-500/10 border-blue-500/30 text-blue-400',
+                  dotClass: 'bg-blue-400'
+                },
+                closed: {
+                  label: 'FECHADO',
+                  class: 'bg-red-500/10 border-red-500/30 text-red-400',
+                  dotClass: 'bg-red-400'
+                }
+              }
+              const config = statusConfig[program.status]
+
+              return (
+                <motion.div
+                  key={program.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                >
+                  <Link
+                    href={`/programas/${program.slug}`}
+                    className={`block h-full rounded-2xl p-6 md:p-8 transition-all duration-300 hover:scale-105 group ${
+                      theme === 'dark'
+                        ? 'bg-white/[0.02] border border-white/[0.06] hover:border-yellow-500/30'
+                        : 'bg-white border border-gray-200 hover:border-yellow-500/40 shadow-sm hover:shadow-md'
+                    }`}
+                  >
+                    {/* Status Badge */}
+                    <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mb-4 border ${config.class}`}>
+                      {(program.status === 'open' || program.status === 'continuous') && (
+                        <span className={`w-2 h-2 ${config.dotClass} rounded-full animate-pulse mr-2`} />
+                      )}
+                      {config.label}
+                    </div>
+
+                    {/* Program Name */}
+                    <h3 className={`text-xl md:text-2xl font-bold mb-3 group-hover:text-yellow-400 transition-colors ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
+                    }`}>
+                      {program.name}
+                    </h3>
+
+                    {/* Tagline */}
+                    <p className={`text-base mb-6 ${
+                      theme === 'dark' ? 'text-white/70' : 'text-gray-700'
+                    }`}>
+                      {program.tagline}
+                    </p>
+
+                    {/* Info Grid */}
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div>
+                        <div className={`text-xs mb-1 ${
+                          theme === 'dark' ? 'text-white/50' : 'text-gray-500'
+                        }`}>
+                          Investimento Mín.
+                        </div>
+                        <div className={`text-lg font-semibold ${
+                          theme === 'dark' ? 'text-white' : 'text-black'
+                        }`}>
+                          {program.minInvestment === 0 ? 'Variável' : `${(program.minInvestment / 1000).toFixed(0)}k€`}
+                        </div>
+                      </div>
+                      <div>
+                        <div className={`text-xs mb-1 ${
+                          theme === 'dark' ? 'text-white/50' : 'text-gray-500'
+                        }`}>
+                          Taxa de Apoio
+                        </div>
+                        <div className="text-lg font-semibold text-yellow-400">
+                          {program.fundingRate === program.fundingRateMax
+                            ? `${program.fundingRate}%`
+                            : `${program.fundingRate}%-${program.fundingRateMax}%`
+                          }
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* CTA Arrow */}
+                    <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                      <span className={`text-sm ${
+                        theme === 'dark' ? 'text-white/60' : 'text-gray-600'
+                      }`}>
+                        Saber mais
+                      </span>
+                      <span className="text-yellow-400 group-hover:translate-x-2 transition-transform">→</span>
+                    </div>
+                  </Link>
+                </motion.div>
+              )
+            })}
+          </div>
+
+          {/* View All CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center"
+          >
+            <Link
+              href="/programas"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold text-lg shadow-[0_0_30px_rgba(245,207,0,0.4)] hover:shadow-[0_0_40px_rgba(245,207,0,0.6)] hover:scale-105 transition-all"
+            >
+              Ver Todos os Programas
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
