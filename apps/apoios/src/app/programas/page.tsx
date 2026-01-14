@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { programs } from '@/data/programs'
+import { programs, searchPrograms, getProgramsByStatus } from '@/data/programs'
 import { Program, ProgramStatus } from '@/types/program'
+import ProgramCard from '@/components/program/ProgramCard'
 
 export default function ProgramasPage() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark')
@@ -32,30 +33,18 @@ export default function ProgramasPage() {
 
     // Filter by status
     if (statusFilter !== 'all') {
-      filtered = filtered.filter(p => p.status === statusFilter)
+      filtered = getProgramsByStatus(statusFilter)
     }
 
     // Filter by search term
-    if (searchTerm) {
-      const term = searchTerm.toLowerCase()
-      filtered = filtered.filter(p =>
-        p.name.toLowerCase().includes(term) ||
-        p.tagline.toLowerCase().includes(term) ||
-        p.description.some(d => d.toLowerCase().includes(term))
+    if (searchTerm.trim()) {
+      filtered = searchPrograms(searchTerm).filter(p =>
+        statusFilter === 'all' || p.status === statusFilter
       )
     }
 
     setFilteredPrograms(filtered)
   }, [searchTerm, statusFilter])
-
-  const getStatusBadge = (status: ProgramStatus) => {
-    const config = {
-      open: { label: 'Aberto', class: 'bg-green-500/10 border-green-500/30 text-green-400' },
-      closed: { label: 'Fechado', class: 'bg-red-500/10 border-red-500/30 text-red-400' },
-      continuous: { label: 'Contínuo', class: 'bg-blue-500/10 border-blue-500/30 text-blue-400' },
-    }
-    return config[status]
-  }
 
   return (
     <main className={theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-gray-50'}>
@@ -77,18 +66,16 @@ export default function ProgramasPage() {
             />
           </Link>
 
-          <div className="flex items-center gap-4">
-            <Link
-              href="/"
-              className={`text-sm font-medium transition-colors ${
-                theme === 'dark'
-                  ? 'text-white/80 hover:text-white'
-                  : 'text-gray-700 hover:text-black'
-              }`}
-            >
-              ← Voltar ao Site
-            </Link>
-          </div>
+          <Link
+            href="/"
+            className={`text-sm font-medium transition-colors ${
+              theme === 'dark'
+                ? 'text-white/80 hover:text-white'
+                : 'text-gray-700 hover:text-black'
+            }`}
+          >
+            ← Voltar ao Site
+          </Link>
         </div>
       </header>
 
@@ -113,7 +100,7 @@ export default function ProgramasPage() {
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto">
-                Explore os programas de financiamento disponíveis para PMEs portuguesas
+                Explore os 7 programas prioritários para PMEs portuguesas em 2025
               </p>
             </motion.div>
 
@@ -124,7 +111,7 @@ export default function ProgramasPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="max-w-4xl mx-auto"
             >
-              <div className="flex flex-col md:flex-row gap-4 mb-8">
+              <div className="flex flex-col md:flex-row gap-4">
                 {/* Search */}
                 <input
                   type="text"
@@ -138,7 +125,7 @@ export default function ProgramasPage() {
                 <select
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value as ProgramStatus | 'all')}
-                  className="px-6 py-4 rounded-lg bg-slate-900/50 border border-slate-800 text-white focus:outline-none focus:border-[#F5CF00] transition-colors"
+                  className="px-6 py-4 rounded-lg bg-slate-900/50 border border-slate-800 text-white focus:outline-none focus:border-[#F5CF00] transition-colors cursor-pointer"
                 >
                   <option value="all">Todos os Estados</option>
                   <option value="open">Abertos</option>
@@ -148,7 +135,7 @@ export default function ProgramasPage() {
               </div>
 
               {/* Results Count */}
-              <p className="text-slate-400 text-center">
+              <p className="text-slate-400 text-center mt-6">
                 {filteredPrograms.length} {filteredPrograms.length === 1 ? 'programa encontrado' : 'programas encontrados'}
               </p>
             </motion.div>
@@ -160,83 +147,15 @@ export default function ProgramasPage() {
           theme === 'dark' ? 'bg-[#12141C]' : 'bg-white'
         }`}>
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredPrograms.map((program, idx) => {
-                const statusBadge = getStatusBadge(program.status)
-
-                return (
-                  <motion.div
-                    key={program.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  >
-                    <Link
-                      href={`/programas/${program.slug}`}
-                      className={`block h-full rounded-xl p-6 border transition-all duration-300 hover:scale-105 ${
-                        theme === 'dark'
-                          ? 'bg-slate-900/50 border-slate-800 hover:border-[#F5CF00]/30 hover:shadow-2xl hover:shadow-[#F5CF00]/10'
-                          : 'bg-white border-gray-200 hover:border-[#F5CF00]/30 hover:shadow-xl'
-                      }`}
-                    >
-                      {/* Status Badge */}
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-semibold mb-4 ${statusBadge.class}`}>
-                        {statusBadge.label}
-                      </div>
-
-                      {/* Title */}
-                      <h3 className={`text-xl font-semibold mb-3 ${
-                        theme === 'dark' ? 'text-white' : 'text-black'
-                      }`}>
-                        {program.name}
-                      </h3>
-
-                      {/* Tagline */}
-                      <p className={`text-sm mb-4 ${
-                        theme === 'dark' ? 'text-slate-300' : 'text-gray-600'
-                      }`}>
-                        {program.tagline}
-                      </p>
-
-                      {/* Stats */}
-                      <div className="flex flex-wrap gap-3 text-xs text-slate-400 mb-4">
-                        <div className="flex items-center gap-1">
-                          <span>💰</span>
-                          <span>{(program.minInvestment / 1000).toFixed(0)}k€+</span>
-                        </div>
-                        <span>•</span>
-                        <div className="flex items-center gap-1">
-                          <span>📈</span>
-                          <span>{program.fundingRate}%-{program.fundingRateMax || program.fundingRate}%</span>
-                        </div>
-                        <span>•</span>
-                        <div className="flex items-center gap-1">
-                          <span>📍</span>
-                          <span>{program.territory}</span>
-                        </div>
-                      </div>
-
-                      {/* CTA */}
-                      <div className="flex items-center justify-between pt-4 border-t border-slate-800">
-                        <span className={`text-sm font-semibold ${
-                          theme === 'dark' ? 'text-[#F5CF00]' : 'text-yellow-600'
-                        }`}>
-                          Saber mais
-                        </span>
-                        <span className="text-[#F5CF00]">→</span>
-                      </div>
-                    </Link>
-                  </motion.div>
-                )
-              })}
-            </div>
-
-            {filteredPrograms.length === 0 && (
+            {filteredPrograms.length > 0 ? (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredPrograms.map((program, idx) => (
+                  <ProgramCard key={program.id} program={program} index={idx} />
+                ))}
+              </div>
+            ) : (
               <div className="text-center py-16">
-                <p className={`text-lg ${
-                  theme === 'dark' ? 'text-slate-300' : 'text-gray-600'
-                }`}>
+                <p className="text-lg text-slate-300 mb-4">
                   Nenhum programa encontrado com esses critérios.
                 </p>
                 <button
@@ -244,7 +163,7 @@ export default function ProgramasPage() {
                     setSearchTerm('')
                     setStatusFilter('all')
                   }}
-                  className="mt-4 text-[#F5CF00] hover:underline"
+                  className="text-[#F5CF00] hover:underline font-semibold"
                 >
                   Limpar filtros
                 </button>
@@ -255,7 +174,7 @@ export default function ProgramasPage() {
 
         {/* CTA */}
         <section className={`py-16 md:py-20 px-4 ${
-          theme === 'dark' ? 'bg-[#1a1d2e]' : 'bg-gray-100'
+          theme === 'dark' ? 'bg-[#F5CF00]' : 'bg-[#F5CF00]'
         }`}>
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
@@ -264,21 +183,17 @@ export default function ProgramasPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${
-                theme === 'dark' ? 'text-white' : 'text-black'
-              }`}>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#12141C] mb-6">
                 Não sabe qual o programa ideal?
               </h2>
-              <p className={`text-lg mb-8 ${
-                theme === 'dark' ? 'text-slate-300' : 'text-gray-700'
-              }`}>
-                Fazemos uma análise gratuita da sua empresa e identificamos as melhores oportunidades de financiamento.
+              <p className="text-lg text-[#12141C]/80 mb-8 max-w-2xl mx-auto">
+                Fazemos uma análise gratuita da sua empresa e identificamos as melhores oportunidades de financiamento disponíveis.
               </p>
               <a
                 href="mailto:info@crescentia.pt"
-                className="inline-block bg-[#F5CF00] text-[#12141C] px-8 py-4 rounded-lg font-semibold hover:bg-[#F5CF00]/90 transition-colors shadow-lg hover:shadow-xl"
+                className="inline-block bg-[#12141C] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#12141C]/90 transition-colors shadow-lg hover:shadow-xl"
               >
-                Análise Gratuita em 48h ➜
+                Análise Gratuita em 48h →
               </a>
             </motion.div>
           </div>

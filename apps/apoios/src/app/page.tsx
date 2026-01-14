@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import CookieBanner from '../components/CookieBanner'
-import ProgramOverview from '../components/ProgramOverview'
 
 // Newsletter Section Component with Web3Forms
 const NewsletterSection = ({ theme }: { theme: 'light' | 'dark' }) => {
@@ -843,9 +842,6 @@ export default function ApoiosPage() {
           </div>
         </div>
       </section>
-
-      {/* Program Overview - Condições do Programa */}
-      <ProgramOverview theme={theme} />
 
       {/* Pricing Section */}
       <section className={`py-20 md:py-32 ${
