@@ -401,7 +401,7 @@ export default function ApoiosPage() {
           </motion.p>
 
           <div className="flex flex-wrap items-center justify-center gap-16 md:gap-20 max-w-5xl mx-auto">
-            {/* Portugal 2030 + UE - Temporary text badge until PNG logos added */}
+            {/* Portugal 2030 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -409,22 +409,14 @@ export default function ApoiosPage() {
               transition={{ delay: 0.1 }}
               className="transition-all duration-300 hover:scale-105"
             >
-              <div className={`px-8 py-6 rounded-2xl border-2 ${
-                theme === 'dark'
-                  ? 'border-blue-500/30 bg-blue-500/5'
-                  : 'border-blue-600/30 bg-blue-50'
-              }`}>
-                <div className={`text-center ${
-                  theme === 'dark' ? 'text-blue-400' : 'text-blue-700'
-                }`}>
-                  <div className="text-3xl font-bold mb-1">PT 2030</div>
-                  <div className="text-xs font-semibold opacity-80">Portugal 2030</div>
-                  <div className="text-[10px] mt-2 opacity-60">+ União Europeia</div>
-                </div>
-              </div>
+              <img
+                src="/logos/portugal2030.png"
+                alt="Portugal 2030"
+                className="h-20 md:h-24 w-auto"
+              />
             </motion.div>
 
-            {/* PRR - Temporary text badge until PNG logo added */}
+            {/* PRR */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -432,19 +424,11 @@ export default function ApoiosPage() {
               transition={{ delay: 0.2 }}
               className="transition-all duration-300 hover:scale-105"
             >
-              <div className={`px-8 py-6 rounded-2xl border-2 ${
-                theme === 'dark'
-                  ? 'border-green-500/30 bg-green-500/5'
-                  : 'border-green-600/30 bg-green-50'
-              }`}>
-                <div className={`text-center ${
-                  theme === 'dark' ? 'text-green-400' : 'text-green-700'
-                }`}>
-                  <div className="text-3xl font-bold mb-1">PRR</div>
-                  <div className="text-xs font-semibold opacity-80">Recuperação e</div>
-                  <div className="text-xs font-semibold opacity-80">Resiliência</div>
-                </div>
-              </div>
+              <img
+                src="/logos/prr.png"
+                alt="PRR - Plano de Recuperação e Resiliência"
+                className="h-20 md:h-24 w-auto"
+              />
             </motion.div>
           </div>
         </div>
