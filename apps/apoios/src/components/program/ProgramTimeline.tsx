@@ -54,12 +54,9 @@ export default function ProgramTimeline({ steps, theme }: ProgramTimelineProps) 
                 <h3 className="text-xl font-semibold text-white mb-2">
                   {step.title}
                 </h3>
-                <p className="text-slate-300 mb-3 leading-relaxed">
+                <p className="text-slate-300 leading-relaxed">
                   {step.description}
                 </p>
-                <div className="inline-block bg-slate-800/50 px-3 py-1 rounded-full text-sm text-slate-400">
-                  ⏱️ {step.duration}
-                </div>
               </div>
             </motion.div>
           ))}

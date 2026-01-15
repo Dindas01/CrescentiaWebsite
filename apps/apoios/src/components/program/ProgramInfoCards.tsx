@@ -11,24 +11,24 @@ interface ProgramInfoCardsProps {
 export default function ProgramInfoCards({ program, theme }: ProgramInfoCardsProps) {
   const cards = [
     {
-      icon: '💰',
+      icon: '',
       label: 'Investimento',
       value: program.maxInvestment
         ? `${(program.minInvestment / 1000).toFixed(0)}k - ${(program.maxInvestment / 1000000).toFixed(1)}M€`
         : `${(program.minInvestment / 1000).toFixed(0)}k€+`
     },
     {
-      icon: '📍',
+      icon: '',
       label: 'Território',
       value: program.territory
     },
     {
-      icon: '⏰',
+      icon: '',
       label: 'Abertura',
       value: program.deadline || 'Contínuo'
     },
     {
-      icon: '💡',
+      icon: '',
       label: 'Taxa de Apoio',
       value: program.fundingRateMax
         ? `${program.fundingRate}% - ${program.fundingRateMax}%`
@@ -56,7 +56,6 @@ export default function ProgramInfoCards({ program, theme }: ProgramInfoCardsPro
                   : 'bg-gray-800/50 border-gray-700 hover:border-[#F5CF00]/30'
               } transition-colors`}
             >
-              <div className="text-2xl md:text-3xl mb-3">{card.icon}</div>
               <div className="text-xs text-slate-400 mb-2">{card.label}</div>
               <div className="text-white font-semibold text-sm md:text-base">
                 {card.value}

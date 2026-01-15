@@ -43,7 +43,7 @@ export const programs: Program[] = [
     sectors: [
       {
         name: 'Indústria',
-        icon: '🏭',
+        icon: '',
         rangeMin: 50000,
         rangeMax: 150000,
         examples: [
@@ -55,7 +55,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Retalho',
-        icon: '🛒',
+        icon: '',
         rangeMin: 30000,
         rangeMax: 100000,
         examples: [
@@ -67,7 +67,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Serviços',
-        icon: '💼',
+        icon: '',
         rangeMin: 25000,
         rangeMax: 80000,
         examples: [
@@ -79,7 +79,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Tecnologia',
-        icon: '💻',
+        icon: '',
         rangeMin: 40000,
         rangeMax: 200000,
         examples: [
@@ -95,37 +95,31 @@ export const programs: Program[] = [
         number: 1,
         title: 'Análise de Viabilidade',
         description: 'Avaliamos o potencial de implementação de IA na sua empresa e identificamos casos de uso prioritários.',
-        duration: '1-2 semanas'
       },
       {
         number: 2,
         title: 'Preparação da Candidatura',
         description: 'Desenvolvemos o projeto de IA, reunimos orçamentos de fornecedores especializados e preparamos documentação.',
-        duration: '2-3 semanas'
       },
       {
         number: 3,
         title: 'Submissão',
         description: 'Submetemos a candidatura na plataforma PRR dentro das fases disponíveis.',
-        duration: '1-2 dias'
       },
       {
         number: 4,
         title: 'Análise',
         description: 'Entidade gestora avalia tecnicamente o projeto de IA e a sua viabilidade de implementação.',
-        duration: '45-60 dias'
       },
       {
         number: 5,
         title: 'Implementação',
         description: 'Execução do projeto de IA com acompanhamento técnico especializado.',
-        duration: '12-18 meses'
       },
       {
         number: 6,
         title: 'Reembolso',
         description: 'Submissão de comprovativos e processamento do reembolso.',
-        duration: '4-6 meses'
       }
     ],
     faq: [
@@ -190,7 +184,7 @@ export const programs: Program[] = [
     sectors: [
       {
         name: 'Indústria',
-        icon: '🏭',
+        icon: '',
         rangeMin: 200000,
         rangeMax: 1000000,
         examples: [
@@ -202,7 +196,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Agroalimentar',
-        icon: '🌾',
+        icon: '',
         rangeMin: 150000,
         rangeMax: 600000,
         examples: [
@@ -214,7 +208,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Tecnologia',
-        icon: '💻',
+        icon: '',
         rangeMin: 100000,
         rangeMax: 500000,
         examples: [
@@ -226,7 +220,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Têxtil',
-        icon: '👔',
+        icon: '',
         rangeMin: 180000,
         rangeMax: 800000,
         examples: [
@@ -242,37 +236,31 @@ export const programs: Program[] = [
         number: 1,
         title: 'Análise de Inovação',
         description: 'Validamos a componente inovadora do projeto e alinhamos com prioridades do programa.',
-        duration: '1-2 semanas'
       },
       {
         number: 2,
         title: 'Projeto Técnico',
         description: 'Desenvolvemos projeto técnico detalhado, business plan e orçamentos de equipamentos.',
-        duration: '4-6 semanas'
       },
       {
         number: 3,
         title: 'Submissão em Fase',
         description: 'Submetemos na Fase 1 (28/11/2025) ou Fase 2 (31/03/2026).',
-        duration: '1-2 dias'
       },
       {
         number: 4,
         title: 'Avaliação',
         description: 'Análise técnica e financeira. Pode haver pedidos de esclarecimento.',
-        duration: '90-120 dias'
       },
       {
         number: 5,
         title: 'Execução',
         description: 'Implementação do investimento produtivo com milestones de acompanhamento.',
-        duration: '24 meses'
       },
       {
         number: 6,
         title: 'Reembolso',
         description: 'Pedidos de reembolso faseados com comprovativos de despesa.',
-        duration: '6-12 meses'
       }
     ],
     faq: [
@@ -337,7 +325,7 @@ export const programs: Program[] = [
     sectors: [
       {
         name: 'Serviços',
-        icon: '💼',
+        icon: '',
         rangeMin: 100000,
         rangeMax: 300000,
         examples: [
@@ -349,7 +337,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Comércio',
-        icon: '🛒',
+        icon: '',
         rangeMin: 120000,
         rangeMax: 350000,
         examples: [
@@ -361,7 +349,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Tecnologia',
-        icon: '💻',
+        icon: '',
         rangeMin: 150000,
         rangeMax: 400000,
         examples: [
@@ -373,7 +361,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Turismo',
-        icon: '🏨',
+        icon: '',
         rangeMin: 110000,
         rangeMax: 280000,
         examples: [
@@ -389,37 +377,31 @@ export const programs: Program[] = [
         number: 1,
         title: 'Análise Preliminar',
         description: 'Validação de elegibilidade e identificação do programa mais adequado.',
-        duration: '1 semana'
       },
       {
         number: 2,
         title: 'Preparação',
         description: 'Business plan, orçamentos e documentação de candidatura.',
-        duration: '3-4 semanas'
       },
       {
         number: 3,
         title: 'Submissão',
         description: 'Candidatura submetida em regime contínuo (sem prazos de fecho).',
-        duration: '1-2 dias'
       },
       {
         number: 4,
         title: 'Análise',
         description: 'Avaliação pela entidade gestora regional.',
-        duration: '60-90 dias'
       },
       {
         number: 5,
         title: 'Execução',
         description: 'Implementação do projeto com organização de comprovativos.',
-        duration: '24 meses'
       },
       {
         number: 6,
         title: 'Reembolso',
         description: 'Pedido de reembolso com comprovativos.',
-        duration: '6-12 meses'
       }
     ],
     faq: [
@@ -484,7 +466,7 @@ export const programs: Program[] = [
     sectors: [
       {
         name: 'Indústria',
-        icon: '🏭',
+        icon: '',
         rangeMin: 150000,
         rangeMax: 1000000,
         examples: [
@@ -496,7 +478,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Tecnologia',
-        icon: '💻',
+        icon: '',
         rangeMin: 100000,
         rangeMax: 500000,
         examples: [
@@ -508,7 +490,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Agroalimentar',
-        icon: '🌾',
+        icon: '',
         rangeMin: 75000,
         rangeMax: 400000,
         examples: [
@@ -520,7 +502,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Moda',
-        icon: '👔',
+        icon: '',
         rangeMin: 80000,
         rangeMax: 300000,
         examples: [
@@ -536,37 +518,31 @@ export const programs: Program[] = [
         number: 1,
         title: 'Análise de Mercados',
         description: 'Identificação de mercados-alvo e validação de potencial exportador.',
-        duration: '1-2 semanas'
       },
       {
         number: 2,
         title: 'Plano de Internacionalização',
         description: 'Estratégia de entrada, ações concretas e investimentos necessários.',
-        duration: '3-4 semanas'
       },
       {
         number: 3,
         title: 'Submissão',
         description: 'Candidatura com business plan de internacionalização.',
-        duration: '2-3 semanas'
       },
       {
         number: 4,
         title: 'Análise',
         description: 'Avaliação da viabilidade do plano de internacionalização.',
-        duration: '60-90 dias'
       },
       {
         number: 5,
         title: 'Execução',
         description: 'Implementação das ações de internacionalização.',
-        duration: '24 meses'
       },
       {
         number: 6,
         title: 'Reembolso',
         description: 'Submissão de comprovativos e processamento.',
-        duration: '6-12 meses'
       }
     ],
     faq: [
@@ -594,7 +570,7 @@ export const programs: Program[] = [
     slug: 'economia-circular',
     name: 'Economia Circular',
     tagline: 'Até 50% para sustentabilidade e gestão de resíduos',
-    status: 'open',
+    status: 'closed',
     minInvestment: 100000,
     maxInvestment: null,
     fundingRate: 50,
@@ -631,7 +607,7 @@ export const programs: Program[] = [
     sectors: [
       {
         name: 'Indústria',
-        icon: '🏭',
+        icon: '',
         rangeMin: 200000,
         rangeMax: 800000,
         examples: [
@@ -643,7 +619,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Têxtil',
-        icon: '👕',
+        icon: '',
         rangeMin: 150000,
         rangeMax: 500000,
         examples: [
@@ -655,7 +631,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Embalagem',
-        icon: '📦',
+        icon: '',
         rangeMin: 180000,
         rangeMax: 600000,
         examples: [
@@ -667,7 +643,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Agroalimentar',
-        icon: '🌾',
+        icon: '',
         rangeMin: 120000,
         rangeMax: 450000,
         examples: [
@@ -683,37 +659,31 @@ export const programs: Program[] = [
         number: 1,
         title: 'Diagnóstico Ambiental',
         description: 'Avaliação do potencial de circularidade e identificação de oportunidades.',
-        duration: '2-3 semanas'
       },
       {
         number: 2,
         title: 'Projeto de Economia Circular',
         description: 'Desenvolvimento de projeto técnico com metas de impacto ambiental.',
-        duration: '4-6 semanas'
       },
       {
         number: 3,
         title: 'Submissão Regional',
         description: 'Candidatura submetida na região (Norte ou Centro) dentro do prazo.',
-        duration: '1-2 dias'
       },
       {
         number: 4,
         title: 'Avaliação Técnica',
         description: 'Análise por peritos em ambiente e circularidade.',
-        duration: '90-120 dias'
       },
       {
         number: 5,
         title: 'Implementação',
         description: 'Execução do projeto circular com monitorização de KPIs ambientais.',
-        duration: '18-24 meses'
       },
       {
         number: 6,
         title: 'Reembolso',
         description: 'Submissão de comprovativos e verificação de metas.',
-        duration: '6-12 meses'
       }
     ],
     faq: [
@@ -778,7 +748,7 @@ export const programs: Program[] = [
     sectors: [
       {
         name: 'Comércio Local',
-        icon: '🏪',
+        icon: '',
         rangeMin: 25000,
         rangeMax: 80000,
         examples: [
@@ -790,7 +760,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Turismo Rural',
-        icon: '🏡',
+        icon: '',
         rangeMin: 40000,
         rangeMax: 150000,
         examples: [
@@ -802,7 +772,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Produção Local',
-        icon: '🏭',
+        icon: '',
         rangeMin: 50000,
         rangeMax: 250000,
         examples: [
@@ -814,7 +784,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Serviços',
-        icon: '💼',
+        icon: '',
         rangeMin: 30000,
         rangeMax: 100000,
         examples: [
@@ -830,37 +800,31 @@ export const programs: Program[] = [
         number: 1,
         title: 'Verificação de Elegibilidade',
         description: 'Confirmamos localização em baixa densidade e dimensão da empresa.',
-        duration: '1 semana'
       },
       {
         number: 2,
         title: 'Preparação Simplificada',
         description: 'Documentação reduzida adequada a micro/pequenas empresas.',
-        duration: '2-3 semanas'
       },
       {
         number: 3,
         title: 'Submissão Contínua',
         description: 'Candidatura por ordem de chegada, sem fases de concurso.',
-        duration: '1 dia'
       },
       {
         number: 4,
         title: 'Análise Rápida',
         description: 'Processo de análise simplificado e mais rápido.',
-        duration: '30-45 dias'
       },
       {
         number: 5,
         title: 'Execução',
         description: 'Implementação do investimento.',
-        duration: '12-18 meses'
       },
       {
         number: 6,
         title: 'Reembolso',
         description: 'Processamento simplificado de reembolso.',
-        duration: '4-6 meses'
       }
     ],
     faq: [
@@ -925,7 +889,7 @@ export const programs: Program[] = [
     sectors: [
       {
         name: 'Software & IT',
-        icon: '💻',
+        icon: '',
         rangeMin: 50000,
         rangeMax: 500000,
         examples: [
@@ -937,7 +901,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Indústria',
-        icon: '🏭',
+        icon: '',
         rangeMin: 100000,
         rangeMax: 1000000,
         examples: [
@@ -949,7 +913,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Biotecnologia',
-        icon: '🧬',
+        icon: '',
         rangeMin: 80000,
         rangeMax: 800000,
         examples: [
@@ -961,7 +925,7 @@ export const programs: Program[] = [
       },
       {
         name: 'Engenharia',
-        icon: '⚙️',
+        icon: '',
         rangeMin: 75000,
         rangeMax: 600000,
         examples: [
@@ -977,37 +941,31 @@ export const programs: Program[] = [
         number: 1,
         title: 'Identificação de I&D',
         description: 'Identificamos atividades que qualificam como I&D segundo Manual de Frascati.',
-        duration: '1-2 semanas'
       },
       {
         number: 2,
         title: 'Execução de I&D',
         description: 'Empresa realiza atividades de I&D ao longo do ano fiscal.',
-        duration: 'Contínuo'
       },
       {
         number: 3,
         title: 'Relatório Técnico-Científico',
         description: 'Preparamos relatório detalhado descrevendo as atividades de I&D realizadas.',
-        duration: '2-3 semanas'
       },
       {
         number: 4,
         title: 'Declaração de IRC',
         description: 'Incluímos dedução SIFIDE na declaração modelo 22 (IRC).',
-        duration: 'Maio/Junho'
       },
       {
         number: 5,
         title: 'Dedução Aplicada',
         description: 'Dedução é aplicada diretamente no IRC a pagar.',
-        duration: 'Imediato'
       },
       {
         number: 6,
         title: 'Report de Benefício',
         description: 'Se dedução exceder IRC, pode reportar para anos seguintes (até 10 anos).',
-        duration: 'Até 10 anos'
       }
     ],
     faq: [

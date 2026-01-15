@@ -39,7 +39,6 @@ export interface TimelineStep {
   number: number
   title: string
   description: string
-  duration: string
 }
 
 export interface FAQItem {
