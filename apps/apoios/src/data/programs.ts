@@ -848,6 +848,720 @@ export const programs: Program[] = [
     relatedPrograms: ['qualificacao-pme', 'economia-circular']
   },
   {
+    id: 'step-inovacao-produtiva-digital',
+    slug: 'step-inovacao-produtiva-digital',
+    name: 'STEP - Inovação Produtiva Digital',
+    tagline: 'Desenvolvimento ou fabrico de tecnologias digitais críticas e biotecnologia',
+    status: 'open',
+    minInvestment: 0,
+    maxInvestment: null,
+    fundingRate: 50,
+    fundingRateMax: 50,
+    territory: 'Portugal Continental',
+    deadline: 'Até 30/09/2026',
+    description: [
+      'Apoio ao desenvolvimento ou fabrico de tecnologias digitais críticas e biotecnologia no âmbito do programa STEP.',
+      'Investimento total de 401M€ disponível para projetos que promovam a inovação produtiva em tecnologias digitais estratégicas.',
+      'Programa orientado para o reforço da capacidade produtiva nacional em áreas tecnológicas de elevado valor acrescentado.'
+    ],
+    eligibility: [
+      { type: 'required', text: 'PME ou Grande Empresa' },
+      { type: 'required', text: 'Projeto em tecnologias digitais críticas' },
+      { type: 'required', text: 'Componente de produção ou desenvolvimento' },
+      { type: 'required', text: 'Situação fiscal regularizada' },
+      { type: 'excluded', text: 'Empresas em situação de dificuldade' },
+      { type: 'excluded', text: 'Projetos sem componente tecnológica crítica' },
+    ],
+    benefits: [
+      'Taxa de 50% a fundo perdido',
+      'Dotação de 401M€',
+      'Tecnologias digitais críticas',
+      'Biotecnologia elegível',
+      'Prazo até 30/09/2026'
+    ],
+    restrictions: [
+      'Candidaturas até 30/09/2026',
+      'Apenas tecnologias digitais críticas',
+      'Componente produtiva obrigatória',
+      'Despesas antes da submissão não elegíveis'
+    ],
+    sectors: [
+      {
+        name: 'Tecnologias Digitais',
+        icon: '',
+        rangeMin: 500000,
+        rangeMax: 5000000,
+        examples: [
+          'Semicondutores e microeletrónica',
+          'Inteligência artificial avançada',
+          'Computação quântica',
+          'Cibersegurança'
+        ]
+      },
+      {
+        name: 'Biotecnologia',
+        icon: '',
+        rangeMin: 400000,
+        rangeMax: 4000000,
+        examples: [
+          'Biofármacos',
+          'Biotecnologia industrial',
+          'Diagnóstico molecular',
+          'Terapias avançadas'
+        ]
+      }
+    ],
+    timeline: [
+      {
+        number: 1,
+        title: 'Análise de Elegibilidade',
+        description: 'Validação do enquadramento em tecnologias digitais críticas ou biotecnologia.',
+      },
+      {
+        number: 2,
+        title: 'Preparação da Candidatura',
+        description: 'Desenvolvimento do projeto técnico e reunião de documentação.',
+      },
+      {
+        number: 3,
+        title: 'Submissão',
+        description: 'Candidatura submetida até 30/09/2026.',
+      },
+      {
+        number: 4,
+        title: 'Análise',
+        description: 'Avaliação técnica e financeira do projeto.',
+      },
+      {
+        number: 5,
+        title: 'Implementação',
+        description: 'Execução do projeto de investimento.',
+      },
+      {
+        number: 6,
+        title: 'Reembolso',
+        description: 'Submissão de comprovativos e processamento do reembolso.',
+      }
+    ],
+    faq: [
+      {
+        question: 'O que são tecnologias digitais críticas?',
+        answer: 'Tecnologias consideradas estratégicas pela UE: semicondutores, IA, computação quântica, cibersegurança, entre outras definidas no regulamento STEP.'
+      },
+      {
+        question: 'Qual o montante disponível?',
+        answer: 'O programa dispõe de 401M€ para projetos de inovação produtiva digital e biotecnologia.'
+      },
+      {
+        question: 'Grandes empresas podem candidatar?',
+        answer: 'Sim, este programa está aberto tanto a PME como a grandes empresas.'
+      }
+    ],
+    relatedPrograms: ['step-inovacao-produtiva-energia', 'step-id-empresarial-digital']
+  },
+  {
+    id: 'step-inovacao-produtiva-energia',
+    slug: 'step-inovacao-produtiva-energia',
+    name: 'STEP - Inovação Produtiva Energia',
+    tagline: 'Produção de tecnologias para energias renováveis e transição energética',
+    status: 'open',
+    minInvestment: 0,
+    maxInvestment: null,
+    fundingRate: 50,
+    fundingRateMax: 50,
+    territory: 'Portugal Continental',
+    deadline: 'Até 30/09/2026',
+    description: [
+      'Apoio à produção de tecnologias para energias renováveis e transição energética no âmbito do programa STEP.',
+      'Investimento total de 400M€ disponível para projetos que promovam a capacidade produtiva nacional em tecnologias energéticas limpas.',
+      'Programa estratégico para o reforço da autonomia energética e desenvolvimento de tecnologias verdes.'
+    ],
+    eligibility: [
+      { type: 'required', text: 'PME ou Grande Empresa' },
+      { type: 'required', text: 'Projeto em tecnologias energéticas' },
+      { type: 'required', text: 'Componente de produção' },
+      { type: 'required', text: 'Situação fiscal regularizada' },
+      { type: 'excluded', text: 'Empresas em situação de dificuldade' },
+      { type: 'excluded', text: 'Projetos sem componente energética renovável' },
+    ],
+    benefits: [
+      'Taxa de 50% a fundo perdido',
+      'Dotação de 400M€',
+      'Energias renováveis',
+      'Transição energética',
+      'Prazo até 30/09/2026'
+    ],
+    restrictions: [
+      'Candidaturas até 30/09/2026',
+      'Apenas tecnologias energéticas elegíveis',
+      'Componente produtiva obrigatória',
+      'Despesas antes da submissão não elegíveis'
+    ],
+    sectors: [
+      {
+        name: 'Energia Solar',
+        icon: '',
+        rangeMin: 500000,
+        rangeMax: 5000000,
+        examples: [
+          'Painéis fotovoltaicos',
+          'Inversores solares',
+          'Sistemas de armazenamento',
+          'Componentes solares'
+        ]
+      },
+      {
+        name: 'Energia Eólica',
+        icon: '',
+        rangeMin: 600000,
+        rangeMax: 6000000,
+        examples: [
+          'Turbinas eólicas',
+          'Componentes eólicos',
+          'Sistemas de controlo',
+          'Manutenção preditiva'
+        ]
+      },
+      {
+        name: 'Hidrogénio Verde',
+        icon: '',
+        rangeMin: 800000,
+        rangeMax: 8000000,
+        examples: [
+          'Eletrolisadores',
+          'Células de combustível',
+          'Armazenamento de H2',
+          'Sistemas de distribuição'
+        ]
+      }
+    ],
+    timeline: [
+      {
+        number: 1,
+        title: 'Análise de Elegibilidade',
+        description: 'Validação do enquadramento em tecnologias energéticas elegíveis.',
+      },
+      {
+        number: 2,
+        title: 'Preparação da Candidatura',
+        description: 'Desenvolvimento do projeto técnico e reunião de documentação.',
+      },
+      {
+        number: 3,
+        title: 'Submissão',
+        description: 'Candidatura submetida até 30/09/2026.',
+      },
+      {
+        number: 4,
+        title: 'Análise',
+        description: 'Avaliação técnica e financeira do projeto.',
+      },
+      {
+        number: 5,
+        title: 'Implementação',
+        description: 'Execução do projeto de investimento.',
+      },
+      {
+        number: 6,
+        title: 'Reembolso',
+        description: 'Submissão de comprovativos e processamento do reembolso.',
+      }
+    ],
+    faq: [
+      {
+        question: 'Que tecnologias energéticas são elegíveis?',
+        answer: 'Tecnologias para produção de energia renovável (solar, eólica, hidrogénio verde), armazenamento de energia, e componentes para transição energética.'
+      },
+      {
+        question: 'Qual o montante disponível?',
+        answer: 'O programa dispõe de 400M€ para projetos de inovação produtiva em energia.'
+      },
+      {
+        question: 'É necessário ter produção em Portugal?',
+        answer: 'Sim, o projeto deve incluir componente de produção em território nacional.'
+      }
+    ],
+    relatedPrograms: ['step-inovacao-produtiva-digital', 'step-id-empresarial-energia']
+  },
+  {
+    id: 'step-id-empresarial-digital',
+    slug: 'step-id-empresarial-digital',
+    name: 'STEP - I&D&I Empresarial Digital',
+    tagline: 'Investigação e desenvolvimento em tecnologias digitais críticas (copromoção)',
+    status: 'open',
+    minInvestment: 0,
+    maxInvestment: null,
+    fundingRate: 50,
+    fundingRateMax: 50,
+    territory: 'Portugal Continental',
+    deadline: 'Até 30/09/2026',
+    description: [
+      'Apoio a projetos de investigação e desenvolvimento em tecnologias digitais críticas em regime de copromoção.',
+      'Investimento total de 210M€ disponível para projetos colaborativos entre empresas e entidades de I&D.',
+      'Programa focado no reforço das capacidades de I&D empresarial em tecnologias digitais estratégicas.'
+    ],
+    eligibility: [
+      { type: 'required', text: 'Projeto em copromoção' },
+      { type: 'required', text: 'Tecnologias digitais críticas' },
+      { type: 'required', text: 'Parceria com entidade I&D' },
+      { type: 'required', text: 'Situação fiscal regularizada' },
+      { type: 'excluded', text: 'Empresas em situação de dificuldade' },
+      { type: 'excluded', text: 'Projetos sem parceria I&D' },
+    ],
+    benefits: [
+      'Taxa de 50% a fundo perdido',
+      'Dotação de 210M€',
+      'Regime de copromoção',
+      'Tecnologias digitais críticas',
+      'Prazo até 30/09/2026'
+    ],
+    restrictions: [
+      'Candidaturas até 30/09/2026',
+      'Obrigatório regime de copromoção',
+      'Apenas tecnologias digitais críticas',
+      'Despesas antes da submissão não elegíveis'
+    ],
+    sectors: [
+      {
+        name: 'I&D Digital',
+        icon: '',
+        rangeMin: 300000,
+        rangeMax: 3000000,
+        examples: [
+          'Investigação em IA',
+          'Desenvolvimento de algoritmos',
+          'Cibersegurança avançada',
+          'Computação de alto desempenho'
+        ]
+      }
+    ],
+    timeline: [
+      {
+        number: 1,
+        title: 'Identificação de Parceiros',
+        description: 'Seleção de parceiros empresariais e entidades de I&D.',
+      },
+      {
+        number: 2,
+        title: 'Desenvolvimento do Projeto',
+        description: 'Preparação do projeto de I&D em copromoção.',
+      },
+      {
+        number: 3,
+        title: 'Submissão',
+        description: 'Candidatura submetida até 30/09/2026.',
+      },
+      {
+        number: 4,
+        title: 'Análise',
+        description: 'Avaliação técnico-científica do projeto.',
+      },
+      {
+        number: 5,
+        title: 'Execução',
+        description: 'Implementação do projeto de I&D.',
+      },
+      {
+        number: 6,
+        title: 'Reembolso',
+        description: 'Submissão de comprovativos e processamento.',
+      }
+    ],
+    faq: [
+      {
+        question: 'O que é copromoção?',
+        answer: 'Regime de colaboração entre empresas e entidades do sistema científico e tecnológico para desenvolvimento de projetos de I&D.'
+      },
+      {
+        question: 'Quantas entidades são necessárias?',
+        answer: 'Mínimo de 2 entidades, sendo pelo menos uma empresa e uma entidade de I&D (universidade, laboratório, etc).'
+      }
+    ],
+    relatedPrograms: ['step-inovacao-produtiva-digital', 'step-id-empresarial-energia']
+  },
+  {
+    id: 'step-id-empresarial-energia',
+    slug: 'step-id-empresarial-energia',
+    name: 'STEP - I&D&I Empresarial Energia',
+    tagline: 'Investigação e desenvolvimento em tecnologias energéticas (copromoção)',
+    status: 'open',
+    minInvestment: 0,
+    maxInvestment: null,
+    fundingRate: 50,
+    fundingRateMax: 50,
+    territory: 'Portugal Continental',
+    deadline: 'Até 30/09/2026',
+    description: [
+      'Apoio a projetos de investigação e desenvolvimento em tecnologias energéticas em regime de copromoção.',
+      'Investimento total de 115M€ disponível para projetos colaborativos em energias renováveis e transição energética.',
+      'Programa focado no desenvolvimento de soluções inovadoras para os desafios energéticos.'
+    ],
+    eligibility: [
+      { type: 'required', text: 'Projeto em copromoção' },
+      { type: 'required', text: 'Tecnologias energéticas' },
+      { type: 'required', text: 'Parceria com entidade I&D' },
+      { type: 'required', text: 'Situação fiscal regularizada' },
+      { type: 'excluded', text: 'Empresas em situação de dificuldade' },
+      { type: 'excluded', text: 'Projetos sem parceria I&D' },
+    ],
+    benefits: [
+      'Taxa de 50% a fundo perdido',
+      'Dotação de 115M€',
+      'Regime de copromoção',
+      'Tecnologias energéticas',
+      'Prazo até 30/09/2026'
+    ],
+    restrictions: [
+      'Candidaturas até 30/09/2026',
+      'Obrigatório regime de copromoção',
+      'Apenas tecnologias energéticas',
+      'Despesas antes da submissão não elegíveis'
+    ],
+    sectors: [
+      {
+        name: 'I&D Energética',
+        icon: '',
+        rangeMin: 250000,
+        rangeMax: 2500000,
+        examples: [
+          'Novas tecnologias solares',
+          'Armazenamento de energia',
+          'Redes inteligentes',
+          'Eficiência energética'
+        ]
+      }
+    ],
+    timeline: [
+      {
+        number: 1,
+        title: 'Identificação de Parceiros',
+        description: 'Seleção de parceiros empresariais e entidades de I&D.',
+      },
+      {
+        number: 2,
+        title: 'Desenvolvimento do Projeto',
+        description: 'Preparação do projeto de I&D em copromoção.',
+      },
+      {
+        number: 3,
+        title: 'Submissão',
+        description: 'Candidatura submetida até 30/09/2026.',
+      },
+      {
+        number: 4,
+        title: 'Análise',
+        description: 'Avaliação técnico-científica do projeto.',
+      },
+      {
+        number: 5,
+        title: 'Execução',
+        description: 'Implementação do projeto de I&D.',
+      },
+      {
+        number: 6,
+        title: 'Reembolso',
+        description: 'Submissão de comprovativos e processamento.',
+      }
+    ],
+    faq: [
+      {
+        question: 'Qual a diferença para Inovação Produtiva Energia?',
+        answer: 'Este programa é para I&D (investigação) em regime de copromoção. Inovação Produtiva é para investimentos em produção.'
+      },
+      {
+        question: 'Posso ter apenas empresas no consórcio?',
+        answer: 'Não, é obrigatória a participação de pelo menos uma entidade do sistema científico e tecnológico.'
+      }
+    ],
+    relatedPrograms: ['step-inovacao-produtiva-energia', 'step-id-empresarial-digital']
+  },
+  {
+    id: 'inovacao-produtiva-baixa-densidade',
+    slug: 'inovacao-produtiva-baixa-densidade',
+    name: 'Inovação Produtiva - Baixa Densidade',
+    tagline: 'Projetos inovadores de PME em territórios de baixa densidade',
+    status: 'open',
+    minInvestment: 0,
+    maxInvestment: null,
+    fundingRate: 50,
+    fundingRateMax: 60,
+    territory: 'Territórios de Baixa Densidade',
+    deadline: 'Até 31/03/2026',
+    description: [
+      'Apoio a projetos inovadores de PME localizadas em territórios de baixa densidade.',
+      'Investimento total de 117M€ disponível com taxas majoradas para zonas de baixa densidade.',
+      'Programa específico para dinamizar o tecido empresarial em territórios menos favorecidos.'
+    ],
+    eligibility: [
+      { type: 'required', text: 'PME' },
+      { type: 'required', text: 'Localização em baixa densidade' },
+      { type: 'required', text: 'Projeto inovador' },
+      { type: 'required', text: 'Situação fiscal regularizada' },
+      { type: 'excluded', text: 'Empresas em situação de dificuldade' },
+      { type: 'excluded', text: 'Empresas fora de baixa densidade' },
+    ],
+    benefits: [
+      'Taxa de 50% a 60% a fundo perdido',
+      'Dotação de 117M€',
+      'Específico para baixa densidade',
+      'Majoração territorial',
+      'Prazo até 31/03/2026'
+    ],
+    restrictions: [
+      'Candidaturas até 31/03/2026',
+      'Apenas territórios de baixa densidade',
+      'Apenas PME',
+      'Despesas antes da submissão não elegíveis'
+    ],
+    sectors: [
+      {
+        name: 'Inovação Local',
+        icon: '',
+        rangeMin: 100000,
+        rangeMax: 1000000,
+        examples: [
+          'Modernização produtiva',
+          'Novos produtos e serviços',
+          'Processos inovadores',
+          'Digitalização empresarial'
+        ]
+      }
+    ],
+    timeline: [
+      {
+        number: 1,
+        title: 'Verificação de Elegibilidade',
+        description: 'Validação da localização em território de baixa densidade.',
+      },
+      {
+        number: 2,
+        title: 'Preparação da Candidatura',
+        description: 'Desenvolvimento do projeto inovador.',
+      },
+      {
+        number: 3,
+        title: 'Submissão',
+        description: 'Candidatura submetida até 31/03/2026.',
+      },
+      {
+        number: 4,
+        title: 'Análise',
+        description: 'Avaliação técnica e financeira.',
+      },
+      {
+        number: 5,
+        title: 'Implementação',
+        description: 'Execução do projeto.',
+      },
+      {
+        number: 6,
+        title: 'Reembolso',
+        description: 'Submissão de comprovativos e processamento.',
+      }
+    ],
+    faq: [
+      {
+        question: 'O que são territórios de baixa densidade?',
+        answer: 'Territórios definidos pela legislação como de baixa densidade populacional, geralmente zonas do interior do país.'
+      },
+      {
+        question: 'Qual a taxa de financiamento?',
+        answer: 'Entre 50% e 60%, dependendo da dimensão da empresa e localização específica.'
+      }
+    ],
+    relatedPrograms: ['inovacao-produtiva', 'base-territorial']
+  },
+  {
+    id: 'internacionalizacao-pme-2026',
+    slug: 'internacionalizacao-pme-2026',
+    name: 'Internacionalização das PME',
+    tagline: 'Apoio à expansão internacional - feiras, marketing, certificações',
+    status: 'open',
+    minInvestment: 0,
+    maxInvestment: null,
+    fundingRate: 40,
+    fundingRateMax: 50,
+    territory: 'Portugal Continental',
+    deadline: 'Até 31/03/2026',
+    description: [
+      'Apoio à expansão internacional de PME através de ações de marketing, participação em feiras e certificações.',
+      'Investimento total de 57M€ disponível para promover a presença das empresas portuguesas em mercados internacionais.',
+      'Programa orientado para o reforço da capacidade exportadora e diversificação de mercados.'
+    ],
+    eligibility: [
+      { type: 'required', text: 'PME' },
+      { type: 'required', text: 'Potencial exportador' },
+      { type: 'required', text: 'Plano de internacionalização' },
+      { type: 'required', text: 'Situação fiscal regularizada' },
+      { type: 'excluded', text: 'Empresas em situação de dificuldade' },
+      { type: 'excluded', text: 'Projetos sem componente internacional' },
+    ],
+    benefits: [
+      'Taxa de 40% a 50% a fundo perdido',
+      'Dotação de 57M€',
+      'Feiras internacionais',
+      'Marketing e certificações',
+      'Prazo até 31/03/2026'
+    ],
+    restrictions: [
+      'Candidaturas até 31/03/2026',
+      'Apenas ações de internacionalização',
+      'Apenas PME',
+      'Despesas antes da submissão não elegíveis'
+    ],
+    sectors: [
+      {
+        name: 'Exportação',
+        icon: '',
+        rangeMin: 50000,
+        rangeMax: 500000,
+        examples: [
+          'Participação em feiras',
+          'Marketing internacional',
+          'Certificações para export',
+          'Prospeção de mercados'
+        ]
+      }
+    ],
+    timeline: [
+      {
+        number: 1,
+        title: 'Plano de Internacionalização',
+        description: 'Desenvolvimento de estratégia de mercados externos.',
+      },
+      {
+        number: 2,
+        title: 'Preparação da Candidatura',
+        description: 'Identificação de ações e orçamentação.',
+      },
+      {
+        number: 3,
+        title: 'Submissão',
+        description: 'Candidatura submetida até 31/03/2026.',
+      },
+      {
+        number: 4,
+        title: 'Análise',
+        description: 'Avaliação do plano de internacionalização.',
+      },
+      {
+        number: 5,
+        title: 'Execução',
+        description: 'Implementação das ações internacionais.',
+      },
+      {
+        number: 6,
+        title: 'Reembolso',
+        description: 'Submissão de comprovativos e processamento.',
+      }
+    ],
+    faq: [
+      {
+        question: 'Que ações são elegíveis?',
+        answer: 'Participação em feiras internacionais, missões empresariais, marketing digital internacional, certificações para exportação, entre outras.'
+      },
+      {
+        question: 'Qual a taxa de financiamento?',
+        answer: 'Entre 40% e 50%, dependendo da dimensão da empresa e tipo de ação.'
+      }
+    ],
+    relatedPrograms: ['internacionalizacao-pme', 'qualificacao-pme']
+  },
+  {
+    id: 'sibt-amp',
+    slug: 'sibt-amp',
+    name: 'Sistema de Incentivos de Base Territorial - AMP',
+    tagline: 'Modernização e inovação para empresas da Área Metropolitana do Porto',
+    status: 'open',
+    minInvestment: 0,
+    maxInvestment: null,
+    fundingRate: 40,
+    fundingRateMax: 50,
+    territory: 'Área Metropolitana do Porto',
+    deadline: '01/03 a 30/04/2026',
+    description: [
+      'Apoio à modernização e inovação de empresas localizadas na Área Metropolitana do Porto.',
+      'Investimento total de 1,23M€ disponível para projetos de base territorial.',
+      'Programa específico para dinamizar o tecido empresarial da região do Porto.'
+    ],
+    eligibility: [
+      { type: 'required', text: 'Empresa na Área Metropolitana do Porto' },
+      { type: 'required', text: 'Projeto de modernização ou inovação' },
+      { type: 'required', text: 'Situação fiscal regularizada' },
+      { type: 'excluded', text: 'Empresas em situação de dificuldade' },
+      { type: 'excluded', text: 'Empresas fora da AMP' },
+    ],
+    benefits: [
+      'Taxa de 40% a 50% a fundo perdido',
+      'Dotação de 1,23M€',
+      'Específico para AMP',
+      'Modernização e inovação',
+      'Período: 01/03 a 30/04/2026'
+    ],
+    restrictions: [
+      'Candidaturas de 01/03 a 30/04/2026',
+      'Apenas Área Metropolitana do Porto',
+      'Despesas antes da submissão não elegíveis'
+    ],
+    sectors: [
+      {
+        name: 'Base Territorial AMP',
+        icon: '',
+        rangeMin: 50000,
+        rangeMax: 300000,
+        examples: [
+          'Modernização empresarial',
+          'Inovação de processos',
+          'Digitalização',
+          'Qualificação'
+        ]
+      }
+    ],
+    timeline: [
+      {
+        number: 1,
+        title: 'Verificação de Elegibilidade',
+        description: 'Validação da localização na AMP.',
+      },
+      {
+        number: 2,
+        title: 'Preparação da Candidatura',
+        description: 'Desenvolvimento do projeto.',
+      },
+      {
+        number: 3,
+        title: 'Submissão',
+        description: 'Candidatura entre 01/03 e 30/04/2026.',
+      },
+      {
+        number: 4,
+        title: 'Análise',
+        description: 'Avaliação técnica e financeira.',
+      },
+      {
+        number: 5,
+        title: 'Implementação',
+        description: 'Execução do projeto.',
+      },
+      {
+        number: 6,
+        title: 'Reembolso',
+        description: 'Submissão de comprovativos e processamento.',
+      }
+    ],
+    faq: [
+      {
+        question: 'Quais municípios fazem parte da AMP?',
+        answer: 'Porto, Matosinhos, Vila Nova de Gaia, Maia, Gondomar, Valongo, Póvoa de Varzim, Vila do Conde, Santo Tirso, Trofa, Paredes, Arouca, Espinho, Oliveira de Azeméis, Santa Maria da Feira, São João da Madeira e Vila Nova de Famalicão.'
+      },
+      {
+        question: 'Qual a taxa de financiamento?',
+        answer: 'Entre 40% e 50%, dependendo da dimensão da empresa e tipo de projeto.'
+      }
+    ],
+    relatedPrograms: ['base-territorial', 'qualificacao-pme']
+  },
+  {
     id: 'sifide',
     slug: 'sifide',
     name: 'SIFIDE II+',

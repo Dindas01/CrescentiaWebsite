@@ -82,7 +82,6 @@ export default function ProgramHero({ program, theme }: ProgramHeroProps) {
           {/* Info Extra */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400">
             <div className="flex items-center gap-2">
-              <span className="text-[#F5CF00]">💰</span>
               <span>Investimento mínimo: {(program.minInvestment / 1000).toFixed(0)}k€</span>
             </div>
             {program.maxInvestment && (
@@ -95,7 +94,6 @@ export default function ProgramHero({ program, theme }: ProgramHeroProps) {
             )}
             <span>•</span>
             <div className="flex items-center gap-2">
-              <span className="text-[#F5CF00]">📍</span>
               <span>{program.territory}</span>
             </div>
           </div>

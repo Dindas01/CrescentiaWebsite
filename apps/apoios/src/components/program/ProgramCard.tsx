@@ -82,7 +82,7 @@ export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
           {/* Deadline se aplicável */}
           {program.deadline && (
             <div className="text-xs text-slate-400 mb-4">
-              📅 {program.deadline}
+              {program.deadline}
             </div>
           )}
 
