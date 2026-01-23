@@ -1472,7 +1472,7 @@ export const programs: Program[] = [
     slug: 'sibt-amp',
     name: 'Sistema de Incentivos de Base Territorial - AMP',
     tagline: 'Modernização e inovação para empresas da Área Metropolitana do Porto',
-    status: 'planned',
+    status: 'open',
     minInvestment: 0,
     maxInvestment: null,
     fundingRate: 40,
