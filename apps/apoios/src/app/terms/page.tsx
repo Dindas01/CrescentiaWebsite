@@ -40,7 +40,7 @@ export default function TermsPage() {
                 : 'bg-black/5 hover:bg-black/10'
             }`}
           >
-            {theme === 'dark' ? '☀️' : '🌙'}
+            {theme === 'dark' ? 'Light' : 'Dark'}
           </button>
         </div>
       </header>
