@@ -143,6 +143,212 @@ export const programs: Program[] = [
     relatedPrograms: ['inovacao-produtiva', 'qualificacao-pme']
   },
   {
+    id: 'step-inovacao-produtiva-digital',
+    slug: 'step-inovacao-produtiva-digital',
+    name: 'STEP - Inovação Produtiva Digital',
+    tagline: 'Desenvolvimento ou fabrico de tecnologias digitais críticas e biotecnologia',
+    status: 'open',
+    minInvestment: 0,
+    maxInvestment: null,
+    fundingRate: 50,
+    fundingRateMax: 50,
+    territory: 'Portugal Continental',
+    deadline: 'Até 30/09/2026',
+    description: [
+      'Apoio ao desenvolvimento ou fabrico de tecnologias digitais críticas e biotecnologia no âmbito do programa STEP.',
+      'Investimento total de 401M€ disponível para projetos que promovam a inovação produtiva em tecnologias digitais estratégicas.',
+      'Programa orientado para o reforço da capacidade produtiva nacional em áreas tecnológicas de elevado valor acrescentado.'
+    ],
+    eligibility: [
+      { type: 'required', text: 'PME ou Grande Empresa' },
+      { type: 'required', text: 'Projeto em tecnologias digitais críticas' },
+      { type: 'required', text: 'Componente de produção ou desenvolvimento' },
+      { type: 'required', text: 'Situação fiscal regularizada' },
+      { type: 'excluded', text: 'Empresas em situação de dificuldade' },
+      { type: 'excluded', text: 'Projetos sem componente tecnológica crítica' },
+    ],
+    benefits: [
+      'Taxa de 50% a fundo perdido',
+      'Dotação de 401M€',
+      'Tecnologias digitais críticas',
+      'Biotecnologia elegível',
+      'Prazo até 30/09/2026'
+    ],
+    restrictions: [
+      'Candidaturas até 30/09/2026',
+      'Apenas tecnologias digitais críticas',
+      'Componente produtiva obrigatória',
+      'Despesas antes da submissão não elegíveis'
+    ],
+    sectors: [
+      {
+        name: 'Tecnologias Digitais',
+        icon: '',
+        rangeMin: 500000,
+        rangeMax: 5000000,
+        examples: [
+          'Semicondutores e microeletrónica',
+          'Inteligência artificial avançada',
+          'Computação quântica',
+          'Cibersegurança'
+        ]
+      },
+      {
+        name: 'Biotecnologia',
+        icon: '',
+        rangeMin: 400000,
+        rangeMax: 4000000,
+        examples: [
+          'Biofármacos',
+          'Biotecnologia industrial',
+          'Diagnóstico molecular',
+          'Terapias avançadas'
+        ]
+      }
+    ],
+    timeline: [
+      {
+        number: 1,
+        title: 'Análise de Elegibilidade',
+        description: 'Validação do enquadramento em tecnologias digitais críticas ou biotecnologia.',
+      },
+      {
+        number: 2,
+        title: 'Preparação da Candidatura',
+        description: 'Desenvolvimento do projeto técnico e reunião de documentação.',
+      },
+      {
+        number: 3,
+        title: 'Submissão',
+        description: 'Candidatura submetida até 30/09/2026.',
+      },
+      {
+        number: 4,
+        title: 'Análise',
+        description: 'Avaliação técnica e financeira do projeto.',
+      },
+      {
+        number: 5,
+        title: 'Implementação',
+        description: 'Execução do projeto de investimento.',
+      },
+      {
+        number: 6,
+        title: 'Reembolso',
+        description: 'Submissão de comprovativos e processamento do reembolso.',
+      }
+    ],
+    faq: [
+      {
+        question: 'O que são tecnologias digitais críticas?',
+        answer: 'Tecnologias consideradas estratégicas pela UE: semicondutores, IA, computação quântica, cibersegurança, entre outras definidas no regulamento STEP.'
+      },
+      {
+        question: 'Qual o montante disponível?',
+        answer: 'O programa dispõe de 401M€ para projetos de inovação produtiva digital e biotecnologia.'
+      },
+      {
+        question: 'Grandes empresas podem candidatar?',
+        answer: 'Sim, este programa está aberto tanto a PME como a grandes empresas.'
+      }
+    ],
+    relatedPrograms: ['step-inovacao-produtiva-energia', 'step-id-empresarial-digital']
+  },
+  {
+    id: 'sibt-amp',
+    slug: 'sibt-amp',
+    name: 'Sistema de Incentivos de Base Territorial - AMP',
+    tagline: 'Modernização e inovação para empresas da Área Metropolitana do Porto',
+    status: 'open',
+    minInvestment: 0,
+    maxInvestment: null,
+    fundingRate: 40,
+    fundingRateMax: 50,
+    territory: 'Área Metropolitana do Porto',
+    deadline: '01/03 a 30/04/2026',
+    description: [
+      'Apoio à modernização e inovação de empresas localizadas na Área Metropolitana do Porto.',
+      'Investimento total de 1,23M€ disponível para projetos de base territorial.',
+      'Programa específico para dinamizar o tecido empresarial da região do Porto.'
+    ],
+    eligibility: [
+      { type: 'required', text: 'Empresa na Área Metropolitana do Porto' },
+      { type: 'required', text: 'Projeto de modernização ou inovação' },
+      { type: 'required', text: 'Situação fiscal regularizada' },
+      { type: 'excluded', text: 'Empresas em situação de dificuldade' },
+      { type: 'excluded', text: 'Empresas fora da AMP' },
+    ],
+    benefits: [
+      'Taxa de 40% a 50% a fundo perdido',
+      'Dotação de 1,23M€',
+      'Específico para AMP',
+      'Modernização e inovação',
+      'Período: 01/03 a 30/04/2026'
+    ],
+    restrictions: [
+      'Candidaturas de 01/03 a 30/04/2026',
+      'Apenas Área Metropolitana do Porto',
+      'Despesas antes da submissão não elegíveis'
+    ],
+    sectors: [
+      {
+        name: 'Base Territorial AMP',
+        icon: '',
+        rangeMin: 50000,
+        rangeMax: 300000,
+        examples: [
+          'Modernização empresarial',
+          'Inovação de processos',
+          'Digitalização',
+          'Qualificação'
+        ]
+      }
+    ],
+    timeline: [
+      {
+        number: 1,
+        title: 'Verificação de Elegibilidade',
+        description: 'Validação da localização na AMP.',
+      },
+      {
+        number: 2,
+        title: 'Preparação da Candidatura',
+        description: 'Desenvolvimento do projeto.',
+      },
+      {
+        number: 3,
+        title: 'Submissão',
+        description: 'Candidatura entre 01/03 e 30/04/2026.',
+      },
+      {
+        number: 4,
+        title: 'Análise',
+        description: 'Avaliação técnica e financeira.',
+      },
+      {
+        number: 5,
+        title: 'Implementação',
+        description: 'Execução do projeto.',
+      },
+      {
+        number: 6,
+        title: 'Reembolso',
+        description: 'Submissão de comprovativos e processamento.',
+      }
+    ],
+    faq: [
+      {
+        question: 'Quais municípios fazem parte da AMP?',
+        answer: 'Porto, Matosinhos, Vila Nova de Gaia, Maia, Gondomar, Valongo, Póvoa de Varzim, Vila do Conde, Santo Tirso, Trofa, Paredes, Arouca, Espinho, Oliveira de Azeméis, Santa Maria da Feira, São João da Madeira e Vila Nova de Famalicão.'
+      },
+      {
+        question: 'Qual a taxa de financiamento?',
+        answer: 'Entre 40% e 50%, dependendo da dimensão da empresa e tipo de projeto.'
+      }
+    ],
+    relatedPrograms: ['base-territorial', 'qualificacao-pme']
+  },
+  {
     id: 'inovacao-produtiva',
     slug: 'inovacao-produtiva',
     name: 'Inovação Produtiva',
@@ -848,118 +1054,6 @@ export const programs: Program[] = [
     relatedPrograms: ['qualificacao-pme', 'economia-circular']
   },
   {
-    id: 'step-inovacao-produtiva-digital',
-    slug: 'step-inovacao-produtiva-digital',
-    name: 'STEP - Inovação Produtiva Digital',
-    tagline: 'Desenvolvimento ou fabrico de tecnologias digitais críticas e biotecnologia',
-    status: 'open',
-    minInvestment: 0,
-    maxInvestment: null,
-    fundingRate: 50,
-    fundingRateMax: 50,
-    territory: 'Portugal Continental',
-    deadline: 'Até 30/09/2026',
-    description: [
-      'Apoio ao desenvolvimento ou fabrico de tecnologias digitais críticas e biotecnologia no âmbito do programa STEP.',
-      'Investimento total de 401M€ disponível para projetos que promovam a inovação produtiva em tecnologias digitais estratégicas.',
-      'Programa orientado para o reforço da capacidade produtiva nacional em áreas tecnológicas de elevado valor acrescentado.'
-    ],
-    eligibility: [
-      { type: 'required', text: 'PME ou Grande Empresa' },
-      { type: 'required', text: 'Projeto em tecnologias digitais críticas' },
-      { type: 'required', text: 'Componente de produção ou desenvolvimento' },
-      { type: 'required', text: 'Situação fiscal regularizada' },
-      { type: 'excluded', text: 'Empresas em situação de dificuldade' },
-      { type: 'excluded', text: 'Projetos sem componente tecnológica crítica' },
-    ],
-    benefits: [
-      'Taxa de 50% a fundo perdido',
-      'Dotação de 401M€',
-      'Tecnologias digitais críticas',
-      'Biotecnologia elegível',
-      'Prazo até 30/09/2026'
-    ],
-    restrictions: [
-      'Candidaturas até 30/09/2026',
-      'Apenas tecnologias digitais críticas',
-      'Componente produtiva obrigatória',
-      'Despesas antes da submissão não elegíveis'
-    ],
-    sectors: [
-      {
-        name: 'Tecnologias Digitais',
-        icon: '',
-        rangeMin: 500000,
-        rangeMax: 5000000,
-        examples: [
-          'Semicondutores e microeletrónica',
-          'Inteligência artificial avançada',
-          'Computação quântica',
-          'Cibersegurança'
-        ]
-      },
-      {
-        name: 'Biotecnologia',
-        icon: '',
-        rangeMin: 400000,
-        rangeMax: 4000000,
-        examples: [
-          'Biofármacos',
-          'Biotecnologia industrial',
-          'Diagnóstico molecular',
-          'Terapias avançadas'
-        ]
-      }
-    ],
-    timeline: [
-      {
-        number: 1,
-        title: 'Análise de Elegibilidade',
-        description: 'Validação do enquadramento em tecnologias digitais críticas ou biotecnologia.',
-      },
-      {
-        number: 2,
-        title: 'Preparação da Candidatura',
-        description: 'Desenvolvimento do projeto técnico e reunião de documentação.',
-      },
-      {
-        number: 3,
-        title: 'Submissão',
-        description: 'Candidatura submetida até 30/09/2026.',
-      },
-      {
-        number: 4,
-        title: 'Análise',
-        description: 'Avaliação técnica e financeira do projeto.',
-      },
-      {
-        number: 5,
-        title: 'Implementação',
-        description: 'Execução do projeto de investimento.',
-      },
-      {
-        number: 6,
-        title: 'Reembolso',
-        description: 'Submissão de comprovativos e processamento do reembolso.',
-      }
-    ],
-    faq: [
-      {
-        question: 'O que são tecnologias digitais críticas?',
-        answer: 'Tecnologias consideradas estratégicas pela UE: semicondutores, IA, computação quântica, cibersegurança, entre outras definidas no regulamento STEP.'
-      },
-      {
-        question: 'Qual o montante disponível?',
-        answer: 'O programa dispõe de 401M€ para projetos de inovação produtiva digital e biotecnologia.'
-      },
-      {
-        question: 'Grandes empresas podem candidatar?',
-        answer: 'Sim, este programa está aberto tanto a PME como a grandes empresas.'
-      }
-    ],
-    relatedPrograms: ['step-inovacao-produtiva-energia', 'step-id-empresarial-digital']
-  },
-  {
     id: 'step-inovacao-produtiva-energia',
     slug: 'step-inovacao-produtiva-energia',
     name: 'STEP - Inovação Produtiva Energia',
@@ -1466,100 +1560,6 @@ export const programs: Program[] = [
       }
     ],
     relatedPrograms: ['internacionalizacao-pme', 'qualificacao-pme']
-  },
-  {
-    id: 'sibt-amp',
-    slug: 'sibt-amp',
-    name: 'Sistema de Incentivos de Base Territorial - AMP',
-    tagline: 'Modernização e inovação para empresas da Área Metropolitana do Porto',
-    status: 'open',
-    minInvestment: 0,
-    maxInvestment: null,
-    fundingRate: 40,
-    fundingRateMax: 50,
-    territory: 'Área Metropolitana do Porto',
-    deadline: '01/03 a 30/04/2026',
-    description: [
-      'Apoio à modernização e inovação de empresas localizadas na Área Metropolitana do Porto.',
-      'Investimento total de 1,23M€ disponível para projetos de base territorial.',
-      'Programa específico para dinamizar o tecido empresarial da região do Porto.'
-    ],
-    eligibility: [
-      { type: 'required', text: 'Empresa na Área Metropolitana do Porto' },
-      { type: 'required', text: 'Projeto de modernização ou inovação' },
-      { type: 'required', text: 'Situação fiscal regularizada' },
-      { type: 'excluded', text: 'Empresas em situação de dificuldade' },
-      { type: 'excluded', text: 'Empresas fora da AMP' },
-    ],
-    benefits: [
-      'Taxa de 40% a 50% a fundo perdido',
-      'Dotação de 1,23M€',
-      'Específico para AMP',
-      'Modernização e inovação',
-      'Período: 01/03 a 30/04/2026'
-    ],
-    restrictions: [
-      'Candidaturas de 01/03 a 30/04/2026',
-      'Apenas Área Metropolitana do Porto',
-      'Despesas antes da submissão não elegíveis'
-    ],
-    sectors: [
-      {
-        name: 'Base Territorial AMP',
-        icon: '',
-        rangeMin: 50000,
-        rangeMax: 300000,
-        examples: [
-          'Modernização empresarial',
-          'Inovação de processos',
-          'Digitalização',
-          'Qualificação'
-        ]
-      }
-    ],
-    timeline: [
-      {
-        number: 1,
-        title: 'Verificação de Elegibilidade',
-        description: 'Validação da localização na AMP.',
-      },
-      {
-        number: 2,
-        title: 'Preparação da Candidatura',
-        description: 'Desenvolvimento do projeto.',
-      },
-      {
-        number: 3,
-        title: 'Submissão',
-        description: 'Candidatura entre 01/03 e 30/04/2026.',
-      },
-      {
-        number: 4,
-        title: 'Análise',
-        description: 'Avaliação técnica e financeira.',
-      },
-      {
-        number: 5,
-        title: 'Implementação',
-        description: 'Execução do projeto.',
-      },
-      {
-        number: 6,
-        title: 'Reembolso',
-        description: 'Submissão de comprovativos e processamento.',
-      }
-    ],
-    faq: [
-      {
-        question: 'Quais municípios fazem parte da AMP?',
-        answer: 'Porto, Matosinhos, Vila Nova de Gaia, Maia, Gondomar, Valongo, Póvoa de Varzim, Vila do Conde, Santo Tirso, Trofa, Paredes, Arouca, Espinho, Oliveira de Azeméis, Santa Maria da Feira, São João da Madeira e Vila Nova de Famalicão.'
-      },
-      {
-        question: 'Qual a taxa de financiamento?',
-        answer: 'Entre 40% e 50%, dependendo da dimensão da empresa e tipo de projeto.'
-      }
-    ],
-    relatedPrograms: ['base-territorial', 'qualificacao-pme']
   },
   {
     id: 'sifide',
