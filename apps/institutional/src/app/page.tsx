@@ -212,8 +212,8 @@ export default function InstitutionalPage() {
 
   return (
     <>
-      {/* Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
+      {/* Header - Navigation */}
+      <header role="banner" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
         scrolled
           ? theme === 'dark'
             ? 'bg-[#0a0a0a]/95 border-b border-white/5 shadow-2xl'
@@ -351,8 +351,10 @@ export default function InstitutionalPage() {
         </div>
       </header>
 
-      {/* Hero - Centered & Simple */}
-      <section className={`relative py-32 md:py-40 overflow-hidden ${
+      {/* Main Content */}
+      <main role="main">
+        {/* Hero - Centered & Simple */}
+        <section className={`relative py-32 md:py-40 overflow-hidden ${
         theme === 'dark' ? 'bg-[#0a0a0a]' : 'bg-[#fffdf7]'
       }`}>
         {/* Background Image with Overlay */}
@@ -902,9 +904,10 @@ export default function InstitutionalPage() {
           </motion.div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
-      <footer className={`relative py-8 md:py-12 ${
+      <footer role="contentinfo" className={`relative py-8 md:py-12 ${
         theme === 'dark'
           ? 'border-t border-white/5 bg-[#0a0a0a]'
           : 'border-t border-yellow-500/10 bg-[#fffdf7]'
