@@ -1,0 +1,39 @@
+Implemented Vercel Web Analytics for Next.js App Router project.
+
+## What was implemented:
+
+Successfully installed and configured Vercel Web Analytics for the Crescentia Institutional website.
+
+## Changes made:
+
+### 1. Package Installation
+- Installed `@vercel/analytics` v1.6.1 using `pnpm add @vercel/analytics`
+- Updated `apps/institutional/package.json` with the new dependency
+- Updated `pnpm-lock.yaml` with dependency resolution
+
+### 2. Code Changes
+- **File: `apps/institutional/src/app/layout.tsx`**
+  - Added import: `import { Analytics } from '@vercel/analytics/next'`
+  - Added `<Analytics />` component inside the `<body>` tag, right after `{children}`
+  - Placement preserves the existing code structure and follows Next.js App Router best practices
+
+## Verification Steps:
+
+✅ **Build Verification**: Successfully completed `npm run build` with no errors
+✅ **Linter Check**: Ran `npm run lint` - passed with only pre-existing warnings about img elements
+✅ **Type Safety**: Code maintains TypeScript compatibility
+✅ **Code Structure**: Preserved all existing functionality and styling
+
+## Technical Details:
+
+- **Router Type**: App Router (app directory structure)
+- **Root Layout Location**: `apps/institutional/src/app/layout.tsx`
+- **Analytics Placement**: Inside `<body>` tag after `{children}` (recommended by Vercel)
+- **Package Manager**: pnpm (as configured in workspace)
+- **Next.js Version**: 14.0.4 (now upgraded to 14.2.35 with dependencies)
+
+## Notes:
+
+The Analytics component is now active and will automatically collect web vitals and analytics data for the Crescentia institutional website. The component integrates seamlessly with the existing Google Analytics setup that was already in place.
+
+No breaking changes were introduced. All existing functionality remains intact.
